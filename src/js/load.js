@@ -7,8 +7,8 @@
   var entry = document.querySelector('head')
   var scripts = {
     'less': {
-        local: 'node_modules/less/dist/less.js',
-        public: '//cdnjs.cloudflare.com/ajax/libs/less.js/2.7.1/less.min.js'
+      local: 'node_modules/less/dist/less.js',
+      public: '//cdnjs.cloudflare.com/ajax/libs/less.js/2.7.1/less.min.js'
     }
   }
 
