@@ -1,0 +1,46 @@
+@font-size: 1em;
+
+body {
+    background-color: #333;
+    min-height: 100vh;
+    margin: 0;
+    color: #fff;
+    font-size: @font-size;
+}
+
+
+.head {
+    display: flex;
+    flex-flow: wrap;
+    position: relative;
+    background: #fff;
+    height: 48px;
+
+    & .before,
+    & .after {
+        display: inline-block;
+        box-sizing: border-box;
+        flex: 1 0;
+    }
+
+    & .before {
+        margin-left: -720px;
+        border-right: 720px solid #fff;
+        border-bottom: 32px solid transparent;
+    }
+
+    & .after {
+        border-left: 720px solid #fff;
+        border-bottom: 32px solid transparent;
+        flex: 1 1 720px;
+    }
+
+    & > .skew {
+        position: absolute;
+        overflow: hidden;
+        top: 100%;
+        width: 100%;
+        height: 32px;
+        display: flex;
+    }
+}
