@@ -4,15 +4,42 @@
   "description": "Portfolio website",
   "main": "src/app.js",
   "scripts": {
+    "build": "webpack",
+    "watch": "webpack -w",
+    "dev": "webpack-dev-server --inline --hot"
   },
   "keywords": [
     "\"CV",
     "Portfolio",
     "Niklas\""
   ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/niklasmh/niklasmh.github.io.git"
+  },
   "author": "\"Niklas Molnes Hole\"",
   "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/niklasmh/niklasmh.github.io/issues"
+  },
+  "homepage": "https://niklasmh.github.io",
+  "devDependencies": {
+    "babel-core": "^6.13.2",
+    "babel-loader": "^6.2.4",
+    "babel-plugin-transform-react-require": "^1.0.1",
+    "babel-preset-es2015": "^6.13.2",
+    "babel-preset-react": "^6.11.1",
+    "css-loader": "^0.24.0",
+    "extract-text-webpack-plugin": "^1.0.1",
+    "less": "^2.7.1",
+    "less-loader": "^2.2.3",
+    "style-loader": "^0.13.1",
+    "webpack": "^1.13.1",
+    "webpack-dev-server": "^1.14.1"
+  },
   "dependencies": {
-    "less": "^2.7.1"
+    "react": "^15.3.0",
+    "react-dom": "^15.3.0",
+    "webpack": "~1.13.2"
   }
 }
