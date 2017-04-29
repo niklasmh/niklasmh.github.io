@@ -1,0 +1,31 @@
+:root {
+  --p-hue: 0;
+  --p: hsl(var(--p-hue), 100%, 50%);
+  --p0: hsl(var(--p-hue), 100%, 50%);
+  --p1: hsl(var(--p-hue), 100%, 40%);
+  --p2: hsl(var(--p-hue), 100%, 30%);
+  --p3: hsl(var(--p-hue), 100%, 20%);
+  --p4: hsl(var(--p-hue), 100%, 10%);
+
+  --invert: 1;
+  --n: hsl(0, 0%, calc(50% + 50% * var(--invert)));
+  --n0: hsl(0, 0%, calc(50% + 50% * var(--invert)));
+  --n1: hsl(0, 0%, calc(50% + 40% * var(--invert)));
+  --n2: hsl(0, 0%, calc(50% + 30% * var(--invert)));
+  --n3: hsl(0, 0%, calc(50% + 20% * var(--invert)));
+  --n4: hsl(0, 0%, calc(50% + 10% * var(--invert)));
+  --n5: hsl(0, 0%, calc(50% + 0% * var(--invert)));
+
+  --nn: hsl(0, 0%, calc(50% - 50% * var(--invert)));
+  --nn0: hsl(0, 0%, calc(50% - 50% * var(--invert)));
+  --nn1: hsl(0, 0%, calc(50% - 40% * var(--invert)));
+  --nn2: hsl(0, 0%, calc(50% - 30% * var(--invert)));
+  --nn3: hsl(0, 0%, calc(50% - 20% * var(--invert)));
+  --nn4: hsl(0, 0%, calc(50% - 10% * var(--invert)));
+  --nn5: hsl(0, 0%, calc(50% - 0% * var(--invert)));
+}
+
+body {
+  background-color: var(--nn2);
+  color: var(--n2);
+}
