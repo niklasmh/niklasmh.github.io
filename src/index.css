@@ -45,6 +45,10 @@ body {
   flex: 1;
 }
 
+.sections section {
+  padding: 16px;
+}
+
 .foot, .head {
   font-family: 'Poiret One', cursive;
   padding: 16px;
