@@ -59,7 +59,14 @@ body {
 .head img {
   width: 1.4em;
   border-radius: .7em;
-  margin: .1em .7em .4em 0;
+  margin: 0 .8em;
+  margin-right: 1.4em;
+  vertical-align: middle;
+}
+
+.head .page-title {
+  color: var(--n);
+  font-size: 1.4em;
   vertical-align: middle;
 }
 
@@ -73,6 +80,7 @@ body {
 
 .head .path {
   color: var(--n4);
+  vertical-align: sub;
 }
 
 .foot {
