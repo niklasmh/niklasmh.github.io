@@ -43,6 +43,7 @@ body {
 
 .content {
   flex: 1;
+  background-color: var(--nn3);
 }
 
 .sections section {
@@ -53,6 +54,25 @@ body {
   font-family: 'Poiret One', cursive;
   padding: 16px;
   box-sizing: border-box;
+}
+
+.head img {
+  width: 1.4em;
+  border-radius: .7em;
+  margin: .1em .7em .4em 0;
+  vertical-align: middle;
+}
+
+.head .path:before {
+  content: " / ";
+}
+
+.head .path:empty:before {
+  content: "";
+}
+
+.head .path {
+  color: var(--n4);
 }
 
 .foot {
