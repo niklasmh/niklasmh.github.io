@@ -4,11 +4,11 @@ class Header extends Component {
   render () {
     return (
       <div className="head">
-        <h2>
-          <img src="/img/me.png" alt="Me" />
-          <span className="page-title">Niklas M. Hole</span>
+        <img className="head-img" src={process.env.PUBLIC_URL + '/img/me.png'} alt="Me" />
+        <div className="head-title">
+          <span className="name">Niklas M. Hole </span>
           <span className="path">{this.props.path}</span>
-        </h2>
+        </div>
       </div>
     )
   }
