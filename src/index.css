@@ -113,7 +113,7 @@ body {
   transform-origin: 0 0 0;
   transform: rotateX(-90deg) translate3d(0, 0, 0);
   position: absolute;
-  height: 500px;
+  height: 100vw;
   width: 100%;
   background-color: #222;
   display: inline-block;
