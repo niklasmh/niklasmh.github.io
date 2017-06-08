@@ -110,6 +110,11 @@ body {
 
 .foot {
   text-align: center;
+  flex-basis: 256px;
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  justify-content: center;
 }
 
 .sections {
