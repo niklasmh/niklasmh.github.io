@@ -40,13 +40,20 @@ body {
 }
 
 .app {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-direction: column;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
   min-height: 100vh;
 }
 
 .content {
-  flex: 1;
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
 }
 
 .sections section {
@@ -63,9 +70,16 @@ body {
 
 .head {
   font-size: 2em;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-direction: row;
-  align-items: center;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
 .head .head-img {
@@ -98,20 +112,24 @@ body {
 }
 
 .sections {
-  perspective-origin: 0% calc(var(--perspective-focus) + 50vh - var(--head-height));
+  -webkit-perspective-origin: 0% calc(var(--perspective-focus) + 50vh - var(--head-height));
+          perspective-origin: 0% calc(var(--perspective-focus) + 50vh - var(--head-height));
   position: relative;
   top: calc(- var(--head-height));
   margin-top: calc(- var(--head-height));
   margin-bottom: calc(- var(--head-height));
-  perspective: 300px;
+  -webkit-perspective: 300px;
+          perspective: 300px;
   -webkit-transform-style: preserve-3d;
   transform-style: preserve-3d;
 }
 
 .sections:before, .sections:after {
   content: "";
-  transform-origin: 0 0 0;
-  transform: rotateX(-90deg) translate3d(0, 0, 0);
+  -webkit-transform-origin: 0 0 0;
+          transform-origin: 0 0 0;
+  -webkit-transform: rotateX(-90deg) translate3d(0, 0, 0);
+          transform: rotateX(-90deg) translate3d(0, 0, 0);
   position: absolute;
   height: 100vw;
   width: 100%;
@@ -125,7 +143,8 @@ body {
 }
 
 .section {
-  transform: rotateY(0) translate3d(0, 0, 0);
+  -webkit-transform: rotateY(0) translate3d(0, 0, 0);
+          transform: rotateY(0) translate3d(0, 0, 0);
   margin-left: auto;
   height: 500px;
   width: calc(100vw - var(--side-menu-space));
@@ -135,15 +154,18 @@ body {
 }
 
 .section:nth-of-type(even) {
-  transform: rotateY(0) translate3d(0, 0, -10px);
+  -webkit-transform: rotateY(0) translate3d(0, 0, -10px);
+          transform: rotateY(0) translate3d(0, 0, -10px);
   width: calc(100vw - var(--side-menu-space) - 42px);
   z-index: 4;
   background-color: #282828;
 }
 
 .section-wall {
-  transform-origin: 0 0 0;
-  transform: rotateY(90deg) translate3d(0, 0, calc(var(--side-menu-space) - 6px - 42px));
+  -webkit-transform-origin: 0 0 0;
+          transform-origin: 0 0 0;
+  -webkit-transform: rotateY(90deg) translate3d(0, 0, calc(var(--side-menu-space) - 6px - 42px));
+          transform: rotateY(90deg) translate3d(0, 0, calc(var(--side-menu-space) - 6px - 42px));
   height: 530px;
   width: 100%;
   z-index: 6;
@@ -152,7 +174,8 @@ body {
 }
 
 .section-wall:nth-child(even) {
-  transform: rotateY(-90deg) translate3d(calc(-100% - 9px), 0, calc(-1 * var(--side-menu-space) + 7px));
+  -webkit-transform: rotateY(-90deg) translate3d(calc(-100% - 9px), 0, calc(-1 * var(--side-menu-space) + 7px));
+          transform: rotateY(-90deg) translate3d(calc(-100% - 9px), 0, calc(-1 * var(--side-menu-space) + 7px));
   width: calc(100% - 11px);
   z-index: 4;
   background-color: #252525;
@@ -160,8 +183,10 @@ body {
 
 .section-split {
   content: "";
-  transform-origin: 0 0 0;
-  transform: rotateX(-90deg) rotateY(0) translate3d(0, 0, 0);
+  -webkit-transform-origin: 0 0 0;
+          transform-origin: 0 0 0;
+  -webkit-transform: rotateX(-90deg) rotateY(0) translate3d(0, 0, 0);
+          transform: rotateX(-90deg) rotateY(0) translate3d(0, 0, 0);
   position: absolute;
   height: 100vw;
   width: calc(100% - var(--side-menu-space) + 49px);
@@ -175,6 +200,7 @@ body {
 }
 
 .section-split:nth-child(even) {
-  transform: rotateX(90deg) rotateY(0) translate3d(0, -100%, 0);
+  -webkit-transform: rotateX(90deg) rotateY(0) translate3d(0, -100%, 0);
+          transform: rotateX(90deg) rotateY(0) translate3d(0, -100%, 0);
   background-color: #444;
 }
