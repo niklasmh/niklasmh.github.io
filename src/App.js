@@ -18,15 +18,7 @@ class App extends Component {
 
   updateScrollView (evt) {
     let scrollTop = evt.target.body.scrollTop
-    this.updatePerspective(scrollTop)
-  }
-
-  updatePerspective (perspectiveHeight) {
-    this.updateCSSVar('perspective-focus', perspectiveHeight + 'px')
-  }
-
-  updateCSSVar (key, val) {
-    document.documentElement.style.setProperty('--' + key, val)
+    document.documentElement.style.setProperty('--perspective-focus', scrollTop + 'px')
   }
 
   render () {
