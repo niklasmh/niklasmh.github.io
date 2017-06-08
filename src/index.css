@@ -143,7 +143,7 @@ body {
 
 .section-wall {
   transform-origin: 0 0 0;
-  transform: rotateY(90deg) translate3d(0, 0, calc(var(--side-menu-space) - 10px - 42px));
+  transform: rotateY(90deg) translate3d(0, 0, calc(var(--side-menu-space) - 6px - 42px));
   height: 530px;
   width: 100%;
   z-index: 6;
@@ -152,7 +152,7 @@ body {
 }
 
 .section-wall:nth-child(even) {
-  transform: rotateY(-90deg) translate3d(calc(-100% - 6px), 0, calc(-1 * var(--side-menu-space) + 12px));
+  transform: rotateY(-90deg) translate3d(calc(-100% - 9px), 0, calc(-1 * var(--side-menu-space) + 7px));
   width: calc(100% - 11px);
   z-index: 4;
   background-color: #252525;
@@ -164,8 +164,8 @@ body {
   transform: rotateX(-90deg) rotateY(0) translate3d(0, 0, 0);
   position: absolute;
   height: 100vw;
-  width: calc(100% - var(--side-menu-space) + 52px);
-  margin-left: calc(var(--side-menu-space) - 52px);
+  width: calc(100% - var(--side-menu-space) + 49px);
+  margin-left: calc(var(--side-menu-space) - 49px);
   background-color: #232323;
   display: inline-block;
   z-index: 2;
