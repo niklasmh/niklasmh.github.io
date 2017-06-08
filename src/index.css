@@ -26,9 +26,10 @@
   --nn4: hsl(0, 0%, calc(50% - 10% * var(--invert)));
   --nn5: hsl(0, 0%, calc(50% - 0% * var(--invert)));
 
-  --perspective-focus: 50vh;
+  --perspective-focus: 0px;
   --head-height: 64px + 2rem;
-  --side-menu-space: 200px;
+  --side-menu-space: 30vw;
+  --depth: 30vw;
 }
 
 body {
@@ -112,8 +113,8 @@ body {
 }
 
 .sections {
-  -webkit-perspective-origin: 0% calc(var(--perspective-focus) + 50vh - var(--head-height));
-          perspective-origin: 0% calc(var(--perspective-focus) + 50vh - var(--head-height));
+  -webkit-perspective-origin: 0vw calc(var(--perspective-focus) + 50vh - var(--head-height));
+          perspective-origin: 0vw calc(var(--perspective-focus) + 50vh - var(--head-height));
   position: relative;
   top: calc(- var(--head-height));
   margin-top: calc(- var(--head-height));
@@ -131,7 +132,7 @@ body {
   -webkit-transform: rotateX(-90deg) translate3d(0, 0, 0);
           transform: rotateX(-90deg) translate3d(0, 0, 0);
   position: absolute;
-  height: 100vw;
+  height: var(--depth);
   width: 100%;
   background-color: #222;
   display: inline-block;
@@ -154,33 +155,40 @@ body {
 }
 
 .section:nth-of-type(even) {
+  /** /
   -webkit-transform: rotateY(0) translate3d(0, 0, -10px);
           transform: rotateY(0) translate3d(0, 0, -10px);
   width: calc(100vw - var(--side-menu-space) - 42px);
   z-index: 4;
+  /**/
   background-color: #282828;
 }
 
+/**/
 .section-wall {
   -webkit-transform-origin: 0 0 0;
           transform-origin: 0 0 0;
   -webkit-transform: rotateY(90deg) translate3d(0, 0, calc(var(--side-menu-space) - 6px - 42px));
           transform: rotateY(90deg) translate3d(0, 0, calc(var(--side-menu-space) - 6px - 42px));
-  height: 530px;
-  width: 100%;
+  height: calc(500px + 2rem);
+  width: var(--depth);
   z-index: 6;
   position: absolute;
   background-color: #303030;
 }
+/**/
 
 .section-wall:nth-child(even) {
+  /** /
   -webkit-transform: rotateY(-90deg) translate3d(calc(-100% - 9px), 0, calc(-1 * var(--side-menu-space) + 7px));
           transform: rotateY(-90deg) translate3d(calc(-100% - 9px), 0, calc(-1 * var(--side-menu-space) + 7px));
   width: calc(100% - 11px);
   z-index: 4;
+  /**/
   background-color: #252525;
 }
 
+/** /
 .section-split {
   content: "";
   -webkit-transform-origin: 0 0 0;
@@ -204,3 +212,4 @@ body {
           transform: rotateX(90deg) rotateY(0) translate3d(0, -100%, 0);
   background-color: #444;
 }
+/**/
