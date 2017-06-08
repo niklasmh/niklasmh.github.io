@@ -29,7 +29,7 @@
   --perspective-focus: 0px;
   --head-height: 64px + 2rem;
   --side-menu-space: 30vw;
-  --depth: 30vw;
+  --depth: 50vw;
 }
 
 body {
@@ -152,7 +152,7 @@ body {
   -webkit-transform: rotateY(0) translate3d(0, 0, 0);
           transform: rotateY(0) translate3d(0, 0, 0);
   margin-left: auto;
-  height: 500px;
+  height: 100vh;
   width: calc(100vw - var(--side-menu-space));
   z-index: 6;
   position: relative;
@@ -169,25 +169,23 @@ body {
   background-color: #282828;
 }
 
-/**/
 .section-wall {
   -webkit-transform-origin: 0 0 0;
           transform-origin: 0 0 0;
   -webkit-transform: rotateY(90deg) translate3d(0, 0, calc(var(--side-menu-space) - 6px - 42px));
           transform: rotateY(90deg) translate3d(0, 0, calc(var(--side-menu-space) - 6px - 42px));
-  height: calc(500px + 2rem);
+  height: calc(100vh + 2rem);
   width: var(--depth);
   z-index: 6;
   position: absolute;
   background-color: #303030;
 }
-/**/
 
 .section-wall:nth-child(even) {
   /** /
   -webkit-transform: rotateY(-90deg) translate3d(calc(-100% - 9px), 0, calc(-1 * var(--side-menu-space) + 7px));
           transform: rotateY(-90deg) translate3d(calc(-100% - 9px), 0, calc(-1 * var(--side-menu-space) + 7px));
-  width: calc(100% - 11px);
+  width: calc(var(--depth) - 11px);
   z-index: 4;
   /**/
   background-color: #252525;
@@ -201,7 +199,7 @@ body {
   -webkit-transform: rotateX(-90deg) rotateY(0) translate3d(0, 0, 0);
           transform: rotateX(-90deg) rotateY(0) translate3d(0, 0, 0);
   position: absolute;
-  height: 100vw;
+  height: var(--depth);
   width: calc(100% - var(--side-menu-space) + 49px);
   margin-left: calc(var(--side-menu-space) - 49px);
   background-color: #232323;
