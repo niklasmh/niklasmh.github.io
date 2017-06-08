@@ -155,7 +155,7 @@ body {
   transform: rotateY(-90deg) translate3d(calc(-100% - 6px), 0, calc(-1 * var(--side-menu-space) + 12px));
   width: calc(100% - 11px);
   z-index: 4;
-  background-color: #282828;
+  background-color: #252525;
 }
 
 .section-split {
@@ -166,7 +166,7 @@ body {
   height: 100vw;
   width: calc(100% - var(--side-menu-space) + 52px);
   margin-left: calc(var(--side-menu-space) - 52px);
-  background-color: #222;
+  background-color: #232323;
   display: inline-block;
   z-index: 2;
   -webkit-backface-visibility: hidden;
