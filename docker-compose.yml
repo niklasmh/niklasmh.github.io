@@ -1,0 +1,13 @@
+version: '3'
+
+services:
+  niklasmh:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    command: npm build
+    ports:
+      - 8000:${PORT}
+    volumes:
+      - .:/srv/niklasmh/:rw
+    working_dir: /srv/niklasmh
