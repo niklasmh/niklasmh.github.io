@@ -1,0 +1,20 @@
+pipeline:
+  frontend-tests:
+    image: registry.niklasmh.no/niklasmh
+    when:
+      event: push
+    commands:
+      - cd web
+      - npm install --depth=0 --quiet
+      - npm run build
+
+  deployment:
+    image: plugins/ssh
+    host: ci.niklasmh.no
+    username: root
+    port: 22
+    when:
+      event: tag
+    script:
+      - echo "Release ${DRONE_TAG} from branch ${DRONE_BRANCH}"
+      - cd /home/niklasmh
