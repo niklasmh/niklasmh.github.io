@@ -2,7 +2,7 @@ FROM node:6
 
 RUN apt-get update
 RUN apt-get install vim -y
-RUN npm install serve npm-run-all -g --quiet
+RUN npm install serve npm-run-all inferno-scripts -g --quiet
 
 ENV APP_DIR /srv/niklasmh
 
