@@ -8,15 +8,22 @@ class App extends Component {
     super()
 
     this.state = {
-      selectedRoute: 'Me'
+      selectedRoute: 'Menu',
+      routes: [ 'Menu', 'Me', 'Projects', 'Find' ],
     }
+  }
+
+  change (evt) {
+    this.setState({
+      selectedRoute: this.state.routes[(this.state.routes.indexOf(this.state.selectedRoute) + 1) % this.state.routes.length]
+    })
   }
 
   render () {
     return (
-      <div className="app">
+      <div className="app" onClick={this.change.bind(this)}>
         <Header path="Me" />
-        <div className="sections content">
+        <div className={`sections content route-${this.state.selectedRoute.toLowerCase()}`}>
           <Me />
           <Projects />
           <Find />
