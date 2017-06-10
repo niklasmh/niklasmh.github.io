@@ -31,18 +31,6 @@ class App extends Component {
           <Split />
           <Wall />
           <Section><Work /></Section>
-          <Split />
-          <Wall />
-          <Section><Work /></Section>
-          <Split />
-          <Wall />
-          <Section><Work /></Section>
-          <Split />
-          <Wall />
-          <Section><Work /></Section>
-          <Split />
-          <Wall />
-          <Section><Work /></Section>
         </div>
         <Footer />
       </div>
