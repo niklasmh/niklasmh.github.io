@@ -26,11 +26,8 @@ class App extends Component {
       <div className="app">
         <Header path="Me" />
         <div className="sections content">
-          <Wall />
-          <Section><Me /></Section>
-          <Split />
-          <Wall />
-          <Section><Work /></Section>
+          <Me />
+          <Work />
         </div>
         <Footer />
       </div>
