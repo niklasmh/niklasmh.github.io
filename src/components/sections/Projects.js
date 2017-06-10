@@ -1,13 +1,13 @@
 import Component from 'inferno-component'
 
-class Work extends Component {
+class Projects extends Component {
   render () {
     return (
       <section className="section">
-        This is my work.
+        This is my projects.
       </section>
     )
   }
 }
 
-export default Work
+export default Projects
