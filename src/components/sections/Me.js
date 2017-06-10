@@ -1,5 +1,4 @@
 import Component from 'inferno-component'
-import { Section } from '../template/Section'
 
 class Me extends Component {
   render () {

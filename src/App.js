@@ -3,9 +3,6 @@ import Header from './components/template/Header'
 import Footer from './components/template/Footer'
 import Me from './components/sections/Me'
 import Work from './components/sections/Work'
-import Section from './components/template/Section'
-import Wall from './components/template/Wall'
-import Split from './components/template/Split'
 
 class App extends Component {
   constructor () {
