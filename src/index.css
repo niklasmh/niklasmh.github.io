@@ -1,5 +1,15 @@
 @import url('https://fonts.googleapis.com/css?family=Open+Sans|Poiret+One');
 
+/*
+##     ##    ###    ########   ######
+##     ##   ## ##   ##     ## ##    ##
+##     ##  ##   ##  ##     ## ##
+##     ## ##     ## ########   ######
+ ##   ##  ######### ##   ##         ##
+  ## ##   ##     ## ##    ##  ##    ##
+   ###    ##     ## ##     ##  ######
+*/
+
 :root {
   --p-hue: 0;
   --p: hsl(var(--p-hue), 100%, 50%);
@@ -12,19 +22,29 @@
   --invert: 1;
   --n: hsl(0, 0%, calc(50% + 50% * var(--invert)));
   --n0: hsl(0, 0%, calc(50% + 50% * var(--invert)));
-  --n1: hsl(0, 0%, calc(50% + 40% * var(--invert)));
-  --n2: hsl(0, 0%, calc(50% + 30% * var(--invert)));
-  --n3: hsl(0, 0%, calc(50% + 20% * var(--invert)));
-  --n4: hsl(0, 0%, calc(50% + 10% * var(--invert)));
-  --n5: hsl(0, 0%, calc(50% + 0% * var(--invert)));
+  --n1: hsl(0, 0%, calc(50% + 45% * var(--invert)));
+  --n2: hsl(0, 0%, calc(50% + 40% * var(--invert)));
+  --n3: hsl(0, 0%, calc(50% + 35% * var(--invert)));
+  --n4: hsl(0, 0%, calc(50% + 30% * var(--invert)));
+  --n5: hsl(0, 0%, calc(50% + 25% * var(--invert)));
+  --n6: hsl(0, 0%, calc(50% + 20% * var(--invert)));
+  --n7: hsl(0, 0%, calc(50% + 15% * var(--invert)));
+  --n8: hsl(0, 0%, calc(50% + 10% * var(--invert)));
+  --n9: hsl(0, 0%, calc(50% + 5% * var(--invert)));
+  --n10: hsl(0, 0%, calc(50% + 0% * var(--invert)));
 
   --nn: hsl(0, 0%, calc(50% - 50% * var(--invert)));
   --nn0: hsl(0, 0%, calc(50% - 50% * var(--invert)));
-  --nn1: hsl(0, 0%, calc(50% - 40% * var(--invert)));
-  --nn2: hsl(0, 0%, calc(50% - 30% * var(--invert)));
-  --nn3: hsl(0, 0%, calc(50% - 20% * var(--invert)));
-  --nn4: hsl(0, 0%, calc(50% - 10% * var(--invert)));
-  --nn5: hsl(0, 0%, calc(50% - 0% * var(--invert)));
+  --nn1: hsl(0, 0%, calc(50% - 45% * var(--invert)));
+  --nn2: hsl(0, 0%, calc(50% - 40% * var(--invert)));
+  --nn3: hsl(0, 0%, calc(50% - 35% * var(--invert)));
+  --nn4: hsl(0, 0%, calc(50% - 30% * var(--invert)));
+  --nn5: hsl(0, 0%, calc(50% - 25% * var(--invert)));
+  --nn6: hsl(0, 0%, calc(50% - 20% * var(--invert)));
+  --nn7: hsl(0, 0%, calc(50% - 15% * var(--invert)));
+  --nn8: hsl(0, 0%, calc(50% - 10% * var(--invert)));
+  --nn9: hsl(0, 0%, calc(50% - 5% * var(--invert)));
+  --nn10: hsl(0, 0%, calc(50% - 0% * var(--invert)));
 
   --perspective-focus: 0px;
   --head-height: 64px + 2rem;
@@ -32,9 +52,19 @@
   --depth: 50vw;
 }
 
+/*
+##     ##    ###    #### ##    ##
+###   ###   ## ##    ##  ###   ##
+#### ####  ##   ##   ##  ####  ##
+## ### ## ##     ##  ##  ## ## ##
+##     ## #########  ##  ##  ####
+##     ## ##     ##  ##  ##   ###
+##     ## ##     ## #### ##    ##
+*/
+
 body {
-  background-color: var(--nn2);
-  color: var(--n2);
+  background-color: var(--nn4);
+  color: var(--n4);
   font-family: 'Open Sans', sans-serif;
   margin: 0;
   min-height: 100vh;
@@ -119,10 +149,48 @@ body {
   justify-content: center;
 }
 
+/*
+ ######  ########  ######  ######## ####  #######  ##    ##  ######
+##    ## ##       ##    ##    ##     ##  ##     ## ###   ## ##    ##
+##       ##       ##          ##     ##  ##     ## ####  ## ##
+ ######  ######   ##          ##     ##  ##     ## ## ## ##  ######
+      ## ##       ##          ##     ##  ##     ## ##  ####       ##
+##    ## ##       ##    ##    ##     ##  ##     ## ##   ### ##    ##
+ ######  ########  ######     ##    ####  #######  ##    ##  ######
+*/
+
 .sections {
   display: flex;
   flex-direction: column;
-  /** /
+}
+
+.section {
+  transition: flex-grow .2s ease-in-out;
+}
+
+.section.me {
+  background-color: var(--nn3);
+}
+
+.section.projects {
+  background-color: var(--nn5);
+}
+
+.section.find {
+  background-color: var(--nn3);
+}
+
+.route-menu .section.me { flex: 1; }
+.route-me .section.me { flex: 1; }
+
+.route-menu .section.projects { flex: 1; }
+.route-projects .section.projects { flex: 1; }
+
+.route-menu .section.find { flex: 0; }
+.route-find .section.find { flex: 1; }
+
+/** /
+.sections {
   -webkit-perspective-origin: 0vw calc(var(--perspective-focus) + 50vh - var(--head-height));
           perspective-origin: 0vw calc(var(--perspective-focus) + 50vh - var(--head-height));
   position: relative;
@@ -133,8 +201,8 @@ body {
           perspective: 300px;
   -webkit-transform-style: preserve-3d;
   transform-style: preserve-3d;
-  /**/
 }
+/**/
 
 /** /
 .sections:before, .sections:after {
