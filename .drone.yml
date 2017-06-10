@@ -8,7 +8,19 @@ pipeline:
       - npm install --depth=0 --quiet
       - npm test -- --coverage
 
-  deployment:
+  deploy-dev:
+    image: plugins/ssh
+    host: ci.niklasmh.no
+    username: root
+    port: 22
+    when:
+      event: push
+      branch: master
+    script:
+      - echo "Release ${DRONE_TAG} from branch ${DRONE_BRANCH}"
+      - /home/niklasmh/deploy.sh
+
+  deploy-prod:
     image: plugins/ssh
     host: ci.niklasmh.no
     username: root
