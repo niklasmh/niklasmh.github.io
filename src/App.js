@@ -1,21 +1,15 @@
 import Component from 'inferno-component'
 import Header from './components/template/Header'
 import Footer from './components/template/Footer'
-import Me from './components/sections/Me'
-import Work from './components/sections/Work'
+import { Me, Projects, Find } from './components/sections'
 
 class App extends Component {
   constructor () {
     super()
 
-    this.updateScrollView = this.updateScrollView.bind(this)
-
-    window.addEventListener('scroll', this.updateScrollView)
-  }
-
-  updateScrollView (evt) {
-    let scrollTop = evt.target.body.scrollTop
-    document.documentElement.style.setProperty('--perspective-focus', scrollTop + 'px')
+    this.state = {
+      selectedRoute: 'Me'
+    }
   }
 
   render () {
@@ -24,7 +18,8 @@ class App extends Component {
         <Header path="Me" />
         <div className="sections content">
           <Me />
-          <Work />
+          <Projects />
+          <Find />
         </div>
         <Footer />
       </div>
