@@ -1,12 +1,12 @@
 pipeline:
-  frontend-tests:
+  tests:
     image: registry.niklasmh.no/niklasmh
     when:
       event: push
     commands:
-      - cd web
+      - cd /srv/niklasmh
       - npm install --depth=0 --quiet
-      - npm run build
+      - npm test -- --coverage
 
   deployment:
     image: plugins/ssh
@@ -17,4 +17,4 @@ pipeline:
       event: tag
     script:
       - echo "Release ${DRONE_TAG} from branch ${DRONE_BRANCH}"
-      - cd /home/niklasmh
+      - /home/niklasmh/deploy.sh
