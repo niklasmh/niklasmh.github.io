@@ -85,6 +85,7 @@ body {
       -ms-flex-direction: column;
           flex-direction: column;
   min-height: 100vh;
+  overflow: hidden;
 }
 
 .content {
@@ -108,6 +109,8 @@ body {
 .head {
   font-size: 3em;
   padding-top: 1em;
+  position: relative;
+  z-index: 16;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -173,10 +176,12 @@ body {
 .section {
   transition: flex-grow .2s ease-in-out;
   position: relative;
+  z-index: 12;
 }
 
 .section.me {
   background: transparent;
+  flex-basis: 12em;
 }
 
 .section.projects {
@@ -185,20 +190,50 @@ body {
 
 .section.projects:before {
   content: "";
-  width: 0;
-  height: 0;
+  background-color: var(--nn5);
+  width: 100vw;
+  height: 91.7vw;
   display: inline-block;
   position: absolute;
-  top: calc(2* -100vw / var(--golden-ratio) / 2 + 1px);
+  top: 0;
   left: 0;
-  border-left: 50vw solid transparent;
-  border-right: 50vw solid var(--nn5);
-  border-top: calc(100vw / var(--golden-ratio) / 2) solid transparent;
-  border-bottom: calc(100vw / var(--golden-ratio) / 2) solid var(--nn5);
+  transform: skewY(-42.5deg);
+  transform-origin: 0 0;
+  z-index: -1;
+}
+
+.section.projects:after {
+  content: "PROJECTS";
+  font-size: 2em;
+  font-weight: bold;
+  text-align: center;
+  width: calc(109vw);
+  height: 91.7vw;
+  display: inline-block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  transform: rotate(-42.5deg);
+  transform-origin: 0 0;
+  z-index: -1;
 }
 
 .section.find {
   background-color: var(--nn3);
+}
+
+.section.find:before {
+  content: "";
+  background-color: var(--nn3);
+  width: 100vw;
+  height: 91.7vw;
+  display: inline-block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  transform: skewY(-42.5deg);
+  transform-origin: 0 0;
+  z-index: -1;
 }
 
 .route-me .section.me { flex: 1; }
