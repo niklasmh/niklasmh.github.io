@@ -50,6 +50,8 @@
   --head-height: 64px + 2rem;
   --side-menu-space: 30vw;
   --depth: 50vw;
+
+  --golden-ratio: 1.618;
 }
 
 /*
@@ -68,6 +70,10 @@ body {
   font-family: 'Open Sans', sans-serif;
   margin: 0;
   min-height: 100vh;
+  background-image: url(/img/me-working.png);
+  background-size: cover;
+  background-position: center center;
+  background-attachment: fixed;
 }
 
 .app {
@@ -166,17 +172,29 @@ body {
 
 .section {
   transition: flex-grow .2s ease-in-out;
+  position: relative;
 }
 
 .section.me {
-  background-color: var(--nn2);
-  background-image: url(/img/me-working.png);
-  background-size: cover;
-  background-position: center center;
+  background: transparent;
 }
 
 .section.projects {
   background-color: var(--nn5);
+}
+
+.section.projects:before {
+  content: "";
+  width: 0;
+  height: 0;
+  display: inline-block;
+  position: absolute;
+  top: calc(2* -100vw / var(--golden-ratio) / 2 + 1px);
+  left: 0;
+  border-left: 50vw solid transparent;
+  border-right: 50vw solid var(--nn5);
+  border-top: calc(100vw / var(--golden-ratio) / 2) solid transparent;
+  border-bottom: calc(100vw / var(--golden-ratio) / 2) solid var(--nn5);
 }
 
 .section.find {

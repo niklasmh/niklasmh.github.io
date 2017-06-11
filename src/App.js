@@ -1,6 +1,5 @@
 import Component from 'inferno-component'
 import Header from './components/template/Header'
-import Footer from './components/template/Footer'
 import { Me, Projects, Find } from './components/sections'
 
 class App extends Component {
@@ -28,7 +27,6 @@ class App extends Component {
           <Projects onClick={()=>this.changeTo('Projects')}/>
           <Find onClick={()=>this.changeTo('Find')}/>
         </div>
-        <Footer />
       </div>
     )
   }
