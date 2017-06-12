@@ -171,6 +171,8 @@ body {
 .sections {
   display: flex;
   flex-direction: column;
+  transform: rotate(-24.5deg);
+  width: 120vw;
 }
 
 .section {
@@ -188,52 +190,8 @@ body {
   background-color: var(--nn5);
 }
 
-.section.projects:before {
-  content: "";
-  background-color: var(--nn5);
-  width: 100vw;
-  height: 91.7vw;
-  display: inline-block;
-  position: absolute;
-  top: 0;
-  left: 0;
-  transform: skewY(-42.5deg);
-  transform-origin: 0 0;
-  z-index: -1;
-}
-
-.section.projects:after {
-  content: "PROJECTS";
-  font-size: 2em;
-  font-weight: bold;
-  text-align: center;
-  width: calc(109vw);
-  height: 91.7vw;
-  display: inline-block;
-  position: absolute;
-  top: 0;
-  left: 0;
-  transform: rotate(-42.5deg);
-  transform-origin: 0 0;
-  z-index: -1;
-}
-
 .section.find {
   background-color: var(--nn3);
-}
-
-.section.find:before {
-  content: "";
-  background-color: var(--nn3);
-  width: 100vw;
-  height: 91.7vw;
-  display: inline-block;
-  position: absolute;
-  top: 0;
-  left: 0;
-  transform: skewY(-42.5deg);
-  transform-origin: 0 0;
-  z-index: -1;
 }
 
 .route-me .section.me { flex: 1; }
