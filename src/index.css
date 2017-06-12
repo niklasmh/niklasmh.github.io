@@ -172,7 +172,9 @@ body {
   display: flex;
   flex-direction: column;
   transform: rotate(-24.5deg);
-  width: 120vw;
+  width: calc(100vw * .91 + 100vh * 1.09);
+  position: relative;
+  left: -14vw;
 }
 
 .section {
@@ -187,7 +189,7 @@ body {
 }
 
 .section.projects {
-  background-color: var(--nn5);
+  background-color: var(--nn4);
 }
 
 .section.find {
