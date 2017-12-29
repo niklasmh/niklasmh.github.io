@@ -3,12 +3,10 @@
   "version": "2.0.0",
   "description": "Portfolio website",
   "scripts": {
-    "start": "inferno-scripts start",
-    "build": "inferno-scripts build",
-    "test": "inferno-scripts test --env=jsdom",
-    "eject": "inferno-scripts eject",
-    "server": "serve -s build",
-    "prod": "npm-run-all build server"
+    "start": "node node_modules/inferno-scripts/scripts/start.js",
+    "build": "node node_modules/inferno-scripts/scripts/build.js",
+    "test": "node node_modules/inferno-scripts/scripts/test.js --env=jsdom",
+    "eject": "node node_modules/inferno-scripts/scripts/eject.js"
   },
   "keywords": [
     "CV",

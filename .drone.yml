@@ -1,32 +1,51 @@
 pipeline:
+  build:
+    image: registry.niklasmh.no/niklasmh
+    pull: true
+    when:
+      event: push
+      branch:
+        include: [ master ]
+    commands:
+      - cp -R /tmp/node_modules .
+      - npm run build
+
   tests:
     image: registry.niklasmh.no/niklasmh
+    pull: true
     when:
       event: push
     commands:
-      - cd /srv/niklasmh
-      - npm install --depth=0 --quiet
+      - cp -R /tmp/node_modules .
       - npm test -- --coverage
 
   deploy-dev:
-    image: plugins/ssh
-    host: ci.niklasmh.no
-    username: root
-    port: 22
+    image: drillster/drone-rsync
+    hosts: [ dev.niklasmh.no ]
+    key: ${RSYNC_KEY}
+    secrets: [ rsync_key ]
+    target: /home/niklasmh/niklasmh-web
     when:
+      status: success
       event: push
       branch: master
     script:
       - echo "Release ${DRONE_TAG} from branch ${DRONE_BRANCH}"
-      - /home/niklasmh/deploy.sh
+      - cd /home/niklasmh/niklasmh-web
+      - docker-compose run build
+      - docker-compose restart server
 
   deploy-prod:
-    image: plugins/ssh
-    host: ci.niklasmh.no
-    username: root
-    port: 22
+    image: drillster/drone-rsync
+    hosts: [ dev.niklasmh.no ]
+    key: ${RSYNC_KEY}
+    secrets: [ rsync_key ]
+    target: /home/niklasmh/niklasmh-web
     when:
+      status: success
       event: tag
     script:
       - echo "Release ${DRONE_TAG} from branch ${DRONE_BRANCH}"
-      - /home/niklasmh/deploy.sh
+      - cd /home/niklasmh/niklasmh-web
+      - docker-compose run build
+      - docker-compose restart server

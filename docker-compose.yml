@@ -1,11 +1,16 @@
 version: '2'
 
 services:
-  niklasmh:
-    build:
-      context: .
-      dockerfile: Dockerfile
-    command: npm run prod
+  build:
+    image: registry.niklasmh.no/niklasmh
+    command: ./deploy.sh
+    volumes:
+      - .:/srv/niklasmh:rw
+  server:
+    image: node:6
+    command: node server.js
     ports:
-      - ${PORT}:5000
+      - ${DOCKER_PORT}:${PORT}
+    volumes:
+      - .:/srv/niklasmh:rw
     working_dir: /srv/niklasmh
