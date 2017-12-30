@@ -1,4 +1,13 @@
 pipeline:
+  tests:
+    image: registry.niklasmh.no/niklasmh
+    pull: true
+    when:
+      event: push
+    commands:
+      - cp -R /tmp/node_modules .
+      - npm test -- --coverage
+
   build:
     image: registry.niklasmh.no/niklasmh
     pull: true
@@ -9,15 +18,6 @@ pipeline:
     commands:
       - cp -R /tmp/node_modules .
       - npm run build
-
-  tests:
-    image: registry.niklasmh.no/niklasmh
-    pull: true
-    when:
-      event: push
-    commands:
-      - cp -R /tmp/node_modules .
-      - npm test -- --coverage
 
   deploy-dev:
     image: drillster/drone-rsync
