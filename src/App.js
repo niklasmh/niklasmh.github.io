@@ -9,7 +9,17 @@ class App extends Component {
     this.state = {
       selectedRoute: '',
       routes: [ '', 'Me', 'Projects', 'Find' ],
+      scrollTop: true,
     }
+
+    let body = document.getElementsByTagName('body')[0]
+    window.addEventListener('scroll', evt => {
+      if (!body.scrollTop ^ this.state.scrollTop) {
+        this.setState(Object.assign({}, this.state, {
+          scrollTop: !body.scrollTop
+        }))
+      }
+    })
   }
 
   changeTo (route) {
@@ -19,8 +29,14 @@ class App extends Component {
   }
 
   render () {
+    let className = 'app'
+
+    if (this.state.scrollTop) {
+      className += ' scroll-top'
+    }
+
     return (
-      <div className="app">
+      <div className={className}>
         <Header path={this.state.selectedRoute} onClick={()=>this.changeTo('')}/>
         <div className={`sections content route-${this.state.selectedRoute.toLowerCase() || 'menu'}`}>
           <Me onClick={()=>this.changeTo('Me')}/>
