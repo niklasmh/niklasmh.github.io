@@ -220,29 +220,6 @@ body {
 .section-container.find > .section { background-color: var(--nn3); }
 .section-container.find > .section:before { content: "/ Find"; }
 
-@media screen and (max-device-width: 1024px) {
-  .head,
-  .scroll-top > .head {
-    position: static;
-    font-size: 3rem !important;
-  }
-
-  .section-container > .section:before {
-    display: none;
-  }
-
-  .section-container.me > .section {
-    padding-top: 16px;
-  }
-}
-
-@media screen and (max-device-width: 420px) {
-  .head,
-  .scroll-top > .head {
-    font-size: 9vw !important;
-  }
-}
-
 @media (max-width: 700px), (min-aspect-ratio: 1/1) and (max-device-width: 1024px) {
   .scroll-top > .head {
     font-size: 2.4rem;
@@ -301,5 +278,34 @@ body {
     font-size: 2rem;
     padding: 16px 16px;
     padding-bottom: calc(1rem + 64px - 16px);
+  }
+}
+
+@media screen and (max-device-width: 1024px) {
+  .head,
+  .scroll-top > .head {
+    position: absolute;
+    font-size: 3rem !important;
+  }
+
+  .section-container > .section:before {
+    display: none;
+  }
+
+  .section-container.me > .section {
+    padding-top: calc(var(--head-height) - 1rem);
+  }
+}
+
+@media screen and (max-device-width: 420px) {
+  .head,
+  .scroll-top > .head {
+    font-size: 9vw !important;
+    min-height: calc(9vw);
+    padding: 6vw;
+  }
+
+  .section-container.me > .section {
+    padding-top: calc(24vw);
   }
 }
