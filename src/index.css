@@ -319,3 +319,21 @@ body {
     padding-top: calc(24vw);
   }
 }
+
+@media screen and (max-device-width: 1024px) and (min-aspect-ratio: 1/1) {
+  .head,
+  .scroll-top > .head {
+    min-height: calc(9vh);
+    padding: 6vh;
+  }
+
+  .head,
+  .scroll-top > .head,
+  .section > .title {
+    font-size: 9vh;
+  }
+
+  .section-container.me > .section {
+    padding-top: calc(24vh);
+  }
+}
