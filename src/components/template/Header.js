@@ -7,7 +7,6 @@ class Header extends Component {
         <img className="head-img" src={process.env.PUBLIC_URL + '/img/me.png'} alt="Me" />
         <div className="head-title">
           <span className="name">Niklas M. Hole </span>
-          <span className="path">{this.props.path}</span>
         </div>
       </div>
     )

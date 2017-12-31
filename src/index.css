@@ -90,10 +90,6 @@ body {
   flex: 1;
 }
 
-.sections section {
-  padding: 16px;
-}
-
 .foot, .head {
   background-color: var(--nn2);
   font-family: 'Poiret One', cursive;
@@ -178,32 +174,47 @@ body {
   position: relative;
 }
 
+.section-container,
 .section {
-  min-height: calc(100vh - var(--head-height));
+  min-height: 100vh;
+  width: 100%;
+  box-sizing: border-box;
+  position: relative;
+}
+
+.section {
+  position: absolute;
+  clip: rect(0, auto, auto, 0);
+  padding: 16px;
+}
+
+.section > .title {
+  font-family: 'Poiret One', cursive;
+  font-size: 3em;
+  margin-top: .5em;
+}
+
+.section-container > .section:before {
+  position: fixed;
+  top: calc(64px + 3rem);
+  top: 16px;
+  z-index: 100;
+  font-family: 'Poiret One', cursive;
+  font-weight: bold;
+  font-size: 3rem;
+  background-color: #000;
+  background-color: transparent;
+  display: inline-block;
+  width: 100%;
+  left: 440px;
+  padding: 16px;
   box-sizing: border-box;
 }
 
-.section.me {
-  flex-basis: 12em;
-  padding-top: 9em;
-  position: relative;
-  z-index: 200;
-  clip: rect(0, auto, auto, 0);
-}
+.section-container.me > .section { padding-top: calc(1rem + var(--head-height)); }
 
-.section.projects {
-  background-color: var(--nn4);
-  overflow: hidden;
-  position: relative;
-}
+.section-container.projects > .section { background-color: var(--nn4); }
+.section-container.projects > .section:before { content: "/ Projects"; }
 
-.section.projects:before {
-  content: "Projects";
-  position: fixed;
-  top: calc(64px + 3rem);
-  font-size: 3rem;
-}
-
-.section.find {
-  background-color: var(--nn3);
-}
+.section-container.find > .section { background-color: var(--nn3); }
+.section-container.find > .section:before { content: "/ Find"; }

@@ -1,11 +1,12 @@
 import Component from 'inferno-component'
+import { Section } from '../layout/Section'
 
 class Projects extends Component {
   render () {
     return (
-      <section className="section projects" {...this.props}>
+      <Section className="projects" title="Projects" {...this.props}>
         This is my projects.
-      </section>
+      </Section>
     )
   }
 }
