@@ -221,12 +221,12 @@ body {
 .section-container.find > .section:before { content: "/ Find"; }
 
 @media screen and (max-device-width: 1024px) {
-  html {
-    overflow: hidden;
+  .head {
+    position: static;
   }
-  body {
-    overflow-y: scroll;
-    -webkit-overflow-scrolling:touch;
+
+  .section-container > .section:before {
+    display: none;
   }
 }
 
