@@ -220,6 +220,16 @@ body {
 .section-container.find > .section { background-color: var(--nn3); }
 .section-container.find > .section:before { content: "/ Find"; }
 
+@media screen and (max-device-width: 1024px) {
+  html {
+    overflow: hidden;
+  }
+  body {
+    overflow-y: scroll;
+    -webkit-overflow-scrolling:touch;
+  }
+}
+
 @media (max-width: 700px), (min-aspect-ratio: 1/1) and (max-device-width: 1024px) {
   .scroll-top > .head {
     font-size: 2.4rem;
