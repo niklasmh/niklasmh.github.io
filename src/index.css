@@ -221,12 +221,25 @@ body {
 .section-container.find > .section:before { content: "/ Find"; }
 
 @media screen and (max-device-width: 1024px) {
-  .head {
+  .head,
+  .scroll-top > .head {
     position: static;
+    font-size: 3rem !important;
   }
 
   .section-container > .section:before {
     display: none;
+  }
+
+  .section-container.me > .section {
+    padding-top: 16px;
+  }
+}
+
+@media screen and (max-device-width: 420px) {
+  .head,
+  .scroll-top > .head {
+    font-size: 9vw !important;
   }
 }
 
