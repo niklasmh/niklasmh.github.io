@@ -11,6 +11,7 @@ class Section extends Component {
     let title = null
     if (this.props.title) {
       title = <h1 className="title">{this.props.title}</h1>
+      delete this.props.title
     }
 
     return (
