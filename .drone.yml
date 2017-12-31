@@ -1,6 +1,6 @@
 pipeline:
   tests:
-    image: registry.niklasmh.no/niklasmh
+    image: registry.niklasmh.no/niklasmh:1.0
     pull: true
     when:
       event: push
@@ -9,7 +9,7 @@ pipeline:
       - npm test -- --coverage
 
   build:
-    image: registry.niklasmh.no/niklasmh
+    image: registry.niklasmh.no/niklasmh:1.0
     pull: true
     when:
       event: push
