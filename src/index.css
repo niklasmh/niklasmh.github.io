@@ -276,7 +276,7 @@ body {
 
   .head {
     font-size: 2rem;
-    padding: 16px 16px;
+    padding: 16px;
     padding-bottom: calc(1rem + 64px - 16px);
   }
 }
@@ -285,7 +285,12 @@ body {
   .head,
   .scroll-top > .head {
     position: absolute;
-    font-size: 3rem !important;
+  }
+
+  .head,
+  .scroll-top > .head,
+  .section > .title {
+    font-size: 3rem;
   }
 
   .section-container > .section:before {
@@ -300,9 +305,14 @@ body {
 @media screen and (max-device-width: 420px) {
   .head,
   .scroll-top > .head {
-    font-size: 9vw !important;
     min-height: calc(9vw);
     padding: 6vw;
+  }
+
+  .head,
+  .scroll-top > .head,
+  .section > .title {
+    font-size: 9vw;
   }
 
   .section-container.me > .section {
