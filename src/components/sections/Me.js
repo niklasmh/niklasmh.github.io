@@ -3,8 +3,10 @@ import { Section, SubSection } from '../layout'
 
 class Me extends Component {
   render () {
+    this.props.className = "me"
+
     return (
-      <Section className="me" {...this.props}>
+      <Section {...this.props}>
         <SubSection row flex="3">
           <SubSection flex="1 1 320px">About</SubSection>
           <SubSection flex="1 1 320px">Favorites</SubSection>

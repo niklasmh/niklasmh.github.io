@@ -3,8 +3,11 @@ import { Section } from '../layout'
 
 class Projects extends Component {
   render () {
+    this.props.className = "projects"
+    this.props.title = "Projects"
+
     return (
-      <Section className="projects" title="Projects" {...this.props}>
+      <Section {...this.props}>
         This is my projects.
       </Section>
     )
