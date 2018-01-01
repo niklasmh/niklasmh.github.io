@@ -201,6 +201,10 @@ body {
   width: 100%;
 }
 
+.sub-section.row {
+  flex-direction: row;
+}
+
 .section > .title {
   font-family: 'Poiret One', cursive;
   font-size: 3em;

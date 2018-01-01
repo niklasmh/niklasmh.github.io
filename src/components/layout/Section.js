@@ -20,7 +20,7 @@ class Section extends Component {
       <section {...this.props}>
         <section className="section" name={name}>
           {title}
-          <div className="sub-section">
+          <div className={`sub-section ${this.props.row ? 'row' : ''}`}>
             {this.props.children}
           </div>
         </section>

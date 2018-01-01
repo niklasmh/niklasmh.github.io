@@ -5,8 +5,8 @@ class Find extends Component {
   render() {
     return (
       <Section className="find" title="Find me" {...this.props}>
-        <div className="content-section">GitHub</div>
-        <div className="content-section">Hi</div>
+        <div className="sub-section">GitHub</div>
+        <div className="sub-section">Hi</div>
       </Section>
     )
   }
