@@ -34,8 +34,9 @@ class App extends Component {
     let changed = false
     let width = this.state.windowWidth
     let height = this.state.windowHeight
+    let orientationChange = screen.orientation !== this.state.orientation
 
-    if (window.innerWidth !== this.state.windowWidth) {
+    if (window.innerWidth !== this.state.windowWidth || orientationChange) {
       changed = true
       width = window.innerWidth
     }
@@ -49,6 +50,7 @@ class App extends Component {
       this.setState(Object.assign({}, this.state, {
         windowHeight: height,
         windowWidth: width,
+        orientation: screen.orientation,
       }))
     }
   }
