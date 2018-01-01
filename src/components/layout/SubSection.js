@@ -12,6 +12,13 @@ class SubSection extends Component {
       this.props.className += ' row'
     }
 
+    let style = {}
+    if (this.props.basis) style.flexBasis = this.props.basis
+    if (this.props.flex) style.flex = this.props.flex
+    if (this.props.wrap) style.wrap = this.props.wrap
+    if (this.props.nowrap) style.wrap = 'nowrap'
+    this.props.style = Object.assign({}, this.props.style || {}, style)
+
     return (
       <div {...this.props}>
         {this.props.children}
