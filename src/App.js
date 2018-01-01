@@ -23,37 +23,41 @@ class App extends Component {
       }
     })
 
-    window.addEventListener('resize', evt => {
-      let changed = false
-      let innerWidth = this.state.windowWidth
-      let innerHeight = this.state.windowHeight
-
-      if (evt.target.innerWidth !== this.state.windowWidth) {
-        changed = true
-        innerWidth = evt.target.innerWidth
-      }
-
-      if (evt.target.innerHeight > this.state.windowHeight || changed) {
-        changed = true
-        innerHeight = evt.target.innerHeight
-      }
-
-      if (changed) {
-        this.setState(Object.assign({}, this.state, {
-          windowHeight: innerHeight,
-          windowWidth: innerWidth,
-        }))
-      }
-    })
+    this.updateLayout = this.updateLayout.bind(this)
+    window.addEventListener('resize', this.updateLayout)
+    window.addEventListener('orientationchange', this.updateLayout)
   }
 
-  changeTo (route) {
+  updateLayout() {
+    let changed = false
+    let innerWidth = this.state.windowWidth
+    let innerHeight = this.state.windowHeight
+
+    if (window.innerWidth !== this.state.windowWidth) {
+      changed = true
+      innerWidth = window.innerWidth
+    }
+
+    if (window.innerHeight > this.state.windowHeight || changed) {
+      changed = true
+      innerHeight = window.innerHeight
+    }
+
+    if (changed) {
+      this.setState(Object.assign({}, this.state, {
+        windowHeight: innerHeight,
+        windowWidth: innerWidth,
+      }))
+    }
+  }
+
+  changeTo(route) {
     this.setState(Object.assign({}, this.state, {
       selectedRoute: route
     }))
   }
 
-  render () {
+  render() {
     let className = 'app'
 
     if (this.state.scrollTop) {
