@@ -26,7 +26,9 @@ class App extends Component {
     this.updateLayout = this.updateLayout.bind(this)
     window.addEventListener('resize', this.updateLayout)
     window.addEventListener('orientationchange', () => {
-      window.dispatchEvent(new Event('resize'));
+      setTimeout(() => {
+        window.dispatchEvent(new Event('resize'))
+      }, 100)
     })
   }
 
