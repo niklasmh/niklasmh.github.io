@@ -17,6 +17,8 @@ class SubSection extends Component {
     if (this.props.flex) style.flex = this.props.flex
     if (this.props.wrap) style.wrap = this.props.wrap
     if (this.props.nowrap) style.wrap = 'nowrap'
+    if (this.props.justifyContent) style.justifyContent = this.props.justifyContent
+    if (this.props.alignItems) style.alignItems = this.props.alignItems
     this.props.style = Object.assign({}, this.props.style || {}, style)
 
     return (

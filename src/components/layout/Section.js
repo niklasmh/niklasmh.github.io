@@ -22,6 +22,8 @@ class Section extends Component {
     if (this.props.flex) style.flex = this.props.flex
     if (this.props.wrap) style.wrap = this.props.wrap
     if (this.props.nowrap) style.wrap = 'nowrap'
+    if (this.props.justifyContent) style.justifyContent = this.props.justifyContent
+    if (this.props.alignItems) style.alignItems = this.props.alignItems
 
     return (
       <section {...this.props}>
