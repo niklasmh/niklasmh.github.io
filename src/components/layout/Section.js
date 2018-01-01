@@ -1,4 +1,5 @@
 import Component from 'inferno-component'
+import { SubSection } from './'
 
 class Section extends Component {
   render () {
@@ -20,9 +21,9 @@ class Section extends Component {
       <section {...this.props}>
         <section className="section" name={name}>
           {title}
-          <div className={`sub-section ${this.props.row ? 'row' : ''}`}>
+          <SubSection row={this.props.row}>
             {this.props.children}
-          </div>
+          </SubSection>
         </section>
       </section>
     )

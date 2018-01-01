@@ -1,5 +1,5 @@
 import Component from 'inferno-component'
-import { Section } from '../layout/Section'
+import { Section } from '../layout'
 
 class Find extends Component {
   render() {
