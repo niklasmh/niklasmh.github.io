@@ -17,11 +17,17 @@ class Section extends Component {
       delete this.props.title
     }
 
+    let style = {}
+    if (this.props.basis) style.flexBasis = this.props.basis
+    if (this.props.flex) style.flex = this.props.flex
+    if (this.props.wrap) style.wrap = this.props.wrap
+    if (this.props.nowrap) style.wrap = 'nowrap'
+
     return (
       <section {...this.props}>
         <section className="section" name={name}>
           {title}
-          <SubSection row={this.props.row}>
+          <SubSection row={this.props.row} style={style}>
             {this.props.children}
           </SubSection>
         </section>
