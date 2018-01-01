@@ -3,11 +3,14 @@ import { Section, SubSection } from '../layout'
 
 class Find extends Component {
   render() {
+    this.props.title = "Find me"
+    this.props.className = "find"
+
     return (
-      <Section row className="find" title="Find me" {...this.props}>
-        <SubSection>GitHub</SubSection>
-        <SubSection>Twitter</SubSection>
-        <SubSection>Facebook</SubSection>
+      <Section row justifyContent="space-evenly" {...this.props}>
+        <SubSection flex="0 0 0%">GitHub</SubSection>
+        <SubSection flex="0 0 0%">Twitter</SubSection>
+        <SubSection flex="0 0 0%">Facebook</SubSection>
       </Section>
     )
   }
