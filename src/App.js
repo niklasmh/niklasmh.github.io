@@ -25,28 +25,30 @@ class App extends Component {
 
     this.updateLayout = this.updateLayout.bind(this)
     window.addEventListener('resize', this.updateLayout)
-    window.addEventListener('orientationchange', this.updateLayout)
+    window.addEventListener('orientationchange', () => {
+      window.dispatchEvent(new Event('resize'));
+    })
   }
 
   updateLayout() {
     let changed = false
-    let innerWidth = this.state.windowWidth
-    let innerHeight = this.state.windowHeight
+    let width = this.state.windowWidth
+    let height = this.state.windowHeight
 
     if (window.innerWidth !== this.state.windowWidth) {
       changed = true
-      innerWidth = window.innerWidth
+      width = window.innerWidth
     }
 
     if (window.innerHeight > this.state.windowHeight || changed) {
       changed = true
-      innerHeight = window.innerHeight
+      height = window.innerHeight
     }
 
     if (changed) {
       this.setState(Object.assign({}, this.state, {
-        windowHeight: innerHeight,
-        windowWidth: innerWidth,
+        windowHeight: height,
+        windowWidth: width,
       }))
     }
   }
