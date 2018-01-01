@@ -197,6 +197,7 @@ body {
   display: flex;
   flex-flow: column wrap;
   align-items: center;
+  justify-content: center;
   width: 100%;
 }
 
@@ -224,13 +225,11 @@ body {
   box-sizing: border-box;
 }
 
+.section-container > .section[name]:before { content: "/ " attr(name); }
+
 .section-container.me > .section { padding-top: calc(1rem + var(--head-height)); }
-
 .section-container.projects > .section { background-color: var(--nn4); }
-.section-container.projects > .section:before { content: "/ Projects"; }
-
 .section-container.find > .section { background-color: var(--nn3); }
-.section-container.find > .section:before { content: "/ Find"; }
 
 @media (max-width: 700px), (min-aspect-ratio: 1/1) and (max-device-width: 1024px) {
   .scroll-top > .head {
