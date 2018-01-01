@@ -8,17 +8,6 @@ pipeline:
       - cp -R /tmp/node_modules .
       - npm test -- --coverage
 
-  build:
-    image: registry.niklasmh.no/niklasmh:1.0
-    pull: true
-    when:
-      event: push
-      branch:
-        include: [ master ]
-    commands:
-      - cp -R /tmp/node_modules .
-      - npm run build
-
   deploy-dev:
     image: drillster/drone-rsync
     hosts: [ dev.niklasmh.no ]
