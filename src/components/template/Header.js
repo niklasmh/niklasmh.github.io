@@ -1,7 +1,7 @@
 import Component from 'inferno-component'
 
 class Header extends Component {
-  render () {
+  render() {
     return (
       <div className="head" {...this.props}>
         <img className="head-img" src={process.env.PUBLIC_URL + '/img/me2.jpg'} alt="Me" />

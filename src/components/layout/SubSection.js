@@ -1,7 +1,7 @@
 import Component from 'inferno-component'
 
 class SubSection extends Component {
-  render () {
+  render() {
     if (this.props.className) {
       this.props.className += ' sub-section'
     } else {

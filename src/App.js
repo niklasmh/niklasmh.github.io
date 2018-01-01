@@ -3,7 +3,7 @@ import Header from './components/template/Header'
 import { Me, Projects, Find } from './components/sections'
 
 class App extends Component {
-  constructor () {
+  constructor() {
     super()
 
     this.state = {

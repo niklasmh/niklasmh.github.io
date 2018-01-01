@@ -2,7 +2,7 @@ import Component from 'inferno-component'
 import { SubSection } from './'
 
 class Section extends Component {
-  render () {
+  render() {
     if (this.props.className) {
       this.props.className += ' section-container'
     } else {

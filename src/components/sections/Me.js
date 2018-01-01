@@ -2,7 +2,7 @@ import Component from 'inferno-component'
 import { Section, SubSection } from '../layout'
 
 class Me extends Component {
-  render () {
+  render() {
     this.props.className = "me"
 
     return (
