@@ -18,7 +18,9 @@ class Section extends Component {
       <section {...this.props}>
         <section className="section">
           {title}
-          {this.props.children}
+          <div className="sub-section">
+            {this.props.children}
+          </div>
         </section>
       </section>
     )

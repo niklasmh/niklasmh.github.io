@@ -186,6 +186,18 @@ body {
   position: absolute;
   clip: rect(0, auto, auto, 0);
   padding: 16px;
+  display: flex;
+  flex-flow: column wrap;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+
+.sub-section {
+  flex: 1;
+  display: flex;
+  flex-flow: column wrap;
+  align-items: center;
+  width: 100%;
 }
 
 .section > .title {
