@@ -1,5 +1,6 @@
 import Component from 'inferno-component'
 import { Section, SubSection } from '../layout'
+import { Icon } from '../common'
 
 class Projects extends Component {
   constructor() {
@@ -71,8 +72,10 @@ class Projects extends Component {
 
     return (
       <Section row subClassName="project-list" {...this.props}>
+        <div className="scroll-left"></div>
         {projects}
         <div className="spacing"></div>
+        <div className="scroll-right"></div>
       </Section>
     )
   }

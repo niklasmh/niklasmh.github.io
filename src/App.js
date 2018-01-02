@@ -1,5 +1,5 @@
 import Component from 'inferno-component'
-import Header from './components/template/Header'
+import { Header } from './components/template'
 import { Me, Projects, Find } from './components/sections'
 
 class App extends Component {
