@@ -18,7 +18,7 @@ class Section extends Component {
     }
 
     this.props.style = Object.assign({}, this.props.style, {
-      minHeight: this.props.height + 'px'
+      height: this.props.height + 'px'
     })
 
     let style = {}
