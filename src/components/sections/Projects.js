@@ -57,7 +57,7 @@ class Projects extends Component {
       })
 
       return (
-        <SubSection flex="0 0 200px" className="project">
+        <SubSection className="project">
           <SubSection>{e.name}</SubSection>
           <SubSection>{tags}</SubSection>
           <SubSection>{e.description}</SubSection>
