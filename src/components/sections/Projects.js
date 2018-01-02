@@ -22,13 +22,13 @@ class Projects extends Component {
         {
           name: 'Mega Awesome',
           tags: ['react', 'redux'],
-          image: 'template-nikkapp-small.png',
+          image: 'template-kfk-small.png',
           description: 'Displaying apps and stuff. Awesome things about this project.'
         },
         {
           name: 'Docker cloud',
           tags: ['docker'],
-          image: 'template-nikkapp-small.png',
+          image: 'template-niklasmh-small.png',
           description: 'Displaying apps and stuff. Awesome things about this project.'
         },
         {
@@ -40,7 +40,7 @@ class Projects extends Component {
         {
           name: 'Docker cloud',
           tags: ['docker'],
-          image: 'template-nikkapp-small.png',
+          image: 'template-niklasmh-small.png',
           description: 'Displaying apps and stuff. Awesome things about this project.'
         },
       ]
