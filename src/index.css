@@ -258,7 +258,7 @@ body {
 }
 
 .project > .sub-section {
-  padding: 16px;
+  padding: 0 16px;
   display: inline-block;
   flex: 0 0 auto;
 }
@@ -266,10 +266,12 @@ body {
 .project > .sub-section:first-child {
   font-size: 1.5em;
   flex: 0 0 80px;
+  padding: 16px;
 }
 
 .project > .sub-section:last-child {
   flex: 1 1 auto;
+  padding: 16px;
 }
 
 .tag {
