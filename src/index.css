@@ -236,9 +236,10 @@ body {
 .section-container.projects > .section { background-color: var(--nn4); }
 .section-container.find > .section { background-color: var(--nn3); }
 
-.section-container.projects {
+.section-container.projects,
+.section-container.projects > .section {
   min-height: 300px;
-  max-height: 640px;
+  max-height: 512px;
 }
 
 .project-list {
@@ -257,7 +258,7 @@ body {
   padding: 0 16px;
   margin: 0;
   flex: 0 0 20vw;
-  min-width: 300px;
+  min-width: 200px;
   max-width: 400px;
 }
 
