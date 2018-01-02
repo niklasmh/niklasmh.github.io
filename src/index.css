@@ -249,9 +249,17 @@ body {
   justify-content: flex-start;
   padding-left: 50px;
   box-sizing: border-box;
+  -webkit-scroll-snap-type: mandatory;
+  -webkit-scroll-snap-destination: 0% 100%;
+  -webkit-scroll-snap-points-x: repeat(100%);
+  scroll-snap-type: mandatory;
+  scroll-snap-destination: 0% 100%;
+  scroll-snap-points-x: repeat(100%);
 }
 
 .project {
+  -webkit-scroll-snap-align: start;
+  scroll-snap-align: start;
   box-sizing: border-box;
   align-self: stretch;
   transition: background-color .2s ease-in-out;
