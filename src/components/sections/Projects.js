@@ -51,7 +51,9 @@ class Projects extends Component {
     this.interval = null
     this.holdInterval = null
     this.leftDown = false
+    this.leftDownTime = 0
     this.rightDown = false
+    this.rightDownTime = 0
     this.scrollLeft = this.scrollLeft.bind(this)
     this.scrollRight = this.scrollRight.bind(this)
     this.leftDownHandler = this.leftDownHandler.bind(this)
@@ -62,15 +64,17 @@ class Projects extends Component {
 
   leftDownHandler() {
     this.leftDown = true
-
+    this.leftDownTime = 0
+    
     if (this.holdInterval) {
       clearInterval(this.holdInterval)
       this.holdInterval = null
     }
-
+    
     this.holdInterval = setInterval(() => {
-      this.scrollDistAnimated(-3, 0)
-    }, 10)
+      this.scrollDistAnimated(-2, 0)
+      this.leftDownTime += 5
+    }, 5)
   }
 
   leftUpHandler() {
@@ -83,6 +87,7 @@ class Projects extends Component {
 
   rightDownHandler() {
     this.rightDown = true
+    this.rightDownTime = 0
 
     if (this.holdInterval) {
       clearInterval(this.holdInterval)
@@ -90,8 +95,9 @@ class Projects extends Component {
     }
 
     this.holdInterval = setInterval(() => {
-      this.scrollDistAnimated(3, 0)
-    }, 10)
+      this.scrollDistAnimated(2, 0)
+      this.rightDownTime += 5
+    }, 5)
   }
 
   rightUpHandler() {
@@ -102,15 +108,14 @@ class Projects extends Component {
     }
   }
 
-
   scrollLeft() {
-    if (!this.leftDown) {
+    if (!this.leftDown && this.leftDownTime < 300) {
       this.scrollDistAnimated(-200, 400)
     }
   }
 
   scrollRight() {
-    if (!this.rightDown) {
+    if (!this.rightDown && this.rightDownTime < 300) {
       this.scrollDistAnimated(200, 400)
     }
   }
