@@ -10,37 +10,37 @@ class Projects extends Component {
         {
           name: 'Mega Awesome',
           tags: ['react', 'redux'],
-          image: '/template-nikkapp-small.jpg',
+          image: 'template-nikkapp-small.png',
           description: 'Displaying apps and stuff. Awesome things about this project.'
         },
         {
           name: 'Docker cloud',
           tags: ['docker'],
-          image: '/template-nikkapp-small.jpg',
+          image: '',
           description: 'Displaying apps and stuff. Awesome things about this project.'
         },
         {
           name: 'Mega Awesome',
           tags: ['react', 'redux'],
-          image: '/template-nikkapp-small.jpg',
+          image: 'template-nikkapp-small.png',
           description: 'Displaying apps and stuff. Awesome things about this project.'
         },
         {
           name: 'Docker cloud',
           tags: ['docker'],
-          image: '/template-nikkapp-small.jpg',
+          image: 'template-nikkapp-small.png',
           description: 'Displaying apps and stuff. Awesome things about this project.'
         },
         {
           name: 'Mega Awesome',
           tags: ['react', 'redux'],
-          image: '/template-nikkapp-small.jpg',
+          image: 'template-nikkapp-small.png',
           description: 'Displaying apps and stuff. Awesome things about this project.'
         },
         {
           name: 'Docker cloud',
           tags: ['docker'],
-          image: '/template-nikkapp-small.jpg',
+          image: 'template-nikkapp-small.png',
           description: 'Displaying apps and stuff. Awesome things about this project.'
         },
       ]
@@ -56,9 +56,13 @@ class Projects extends Component {
         return <div className="tag">{tag}</div>
       })
 
+      let titleStyle = {
+        backgroundImage: `url(${process.env.PUBLIC_URL}/img/${e.image})`
+      }
+
       return (
         <SubSection className="project">
-          <SubSection>{e.name}</SubSection>
+          <SubSection style={titleStyle}>{e.name}</SubSection>
           <SubSection>{tags}</SubSection>
           <SubSection>{e.description}</SubSection>
         </SubSection>
