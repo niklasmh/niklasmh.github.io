@@ -253,13 +253,13 @@ body {
   -webkit-scroll-snap-destination: 0% 100%;
   -webkit-scroll-snap-points-x: repeat(100%);
   scroll-snap-type: mandatory;
-  scroll-snap-destination: 0% 100%;
+  scroll-snap-destination: 50% 50%;
   scroll-snap-points-x: repeat(100%);
 }
 
 .project {
-  -webkit-scroll-snap-align: start;
-  scroll-snap-align: start;
+  -webkit-scroll-snap-coordinate: 50% 50%;
+  scroll-snap-coordinate: 50% 50%;
   box-sizing: border-box;
   align-self: stretch;
   transition: background-color .2s ease-in-out;
