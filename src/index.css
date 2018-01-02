@@ -185,7 +185,7 @@ body {
 .section {
   position: absolute;
   clip: rect(0, auto, auto, 0);
-  padding: 16px;
+  padding: 0;
   display: flex;
   flex-flow: column wrap;
   align-items: flex-start;
@@ -209,6 +209,7 @@ body {
   font-family: 'Poiret One', cursive;
   font-size: 3em;
   margin-top: .5em;
+  padding: 16px;
 }
 
 .section-container > .section:before {
@@ -234,6 +235,48 @@ body {
 .section-container.me > .section { padding-top: calc(1rem + var(--head-height)); }
 .section-container.projects > .section { background-color: var(--nn4); }
 .section-container.find > .section { background-color: var(--nn3); }
+
+.project-list {
+  overflow-x: auto;
+  flex-wrap: nowrap;
+  -webkit-overflow-scrolling: touch;
+  justify-content: flex-start;
+  margin: 0 50px;
+  width: calc(100% - 100px);
+}
+
+.project {
+  box-sizing: border-box;
+  align-self: stretch;
+  transition: background-color .2s ease-in-out;
+  padding: 0 16px;
+  margin: 0;
+}
+
+.project:hover {
+  background-color: rgba(0, 0, 0, .1);
+}
+
+.project > .sub-section {
+  padding: 16px;
+  display: inline-block;
+  flex: 0 0 auto;
+}
+
+.project > .sub-section:first-child {
+  font-size: 1.5em;
+  flex: 0 0 80px;
+}
+
+.project > .sub-section:last-child {
+  flex: 1 1 auto;
+}
+
+.tag {
+  font-size: .8em;
+  background-color: rgba(0, 0, 0, .2);
+  border-radius: 2px;
+}
 
 @media (max-width: 700px), (min-aspect-ratio: 1/1) and (max-device-width: 1024px) {
   .scroll-top > .head {

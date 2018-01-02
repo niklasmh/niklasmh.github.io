@@ -24,8 +24,8 @@ class Section extends Component {
     let style = {}
     if (this.props.basis) style.flexBasis = this.props.basis
     if (this.props.flex) style.flex = this.props.flex
-    if (this.props.wrap) style.wrap = this.props.wrap
-    if (this.props.nowrap) style.wrap = 'nowrap'
+    if (this.props.wrap) style.flexWrap = this.props.wrap
+    if (this.props.nowrap) style.flexWrap = 'nowrap'
     if (this.props.justifyContent) style.justifyContent = this.props.justifyContent
     if (this.props.alignItems) style.alignItems = this.props.alignItems
 
@@ -37,7 +37,7 @@ class Section extends Component {
       <section {...this.props}>
         <section style={sectionStyle} className="section" name={name}>
           {title}
-          <SubSection row={this.props.row} style={style}>
+          <SubSection row={this.props.row} style={style} className={this.props.subClassName}>
             {this.props.children}
           </SubSection>
         </section>

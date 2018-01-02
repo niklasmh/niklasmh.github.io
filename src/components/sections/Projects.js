@@ -1,14 +1,69 @@
 import Component from 'inferno-component'
-import { Section } from '../layout'
+import { Section, SubSection } from '../layout'
 
 class Projects extends Component {
+  constructor() {
+    super()
+
+    this.state = {
+      projects: [
+        {
+          name: 'Mega Awesome',
+          tags: ['react', 'redux'],
+          image: '/template-nikkapp-small.jpg',
+          description: 'Displaying apps and stuff. Awesome things about this project.'
+        },
+        {
+          name: 'Docker cloud',
+          tags: ['docker'],
+          image: '/template-nikkapp-small.jpg',
+          description: 'Displaying apps and stuff. Awesome things about this project.'
+        },
+        {
+          name: 'Mega Awesome',
+          tags: ['react', 'redux'],
+          image: '/template-nikkapp-small.jpg',
+          description: 'Displaying apps and stuff. Awesome things about this project.'
+        },
+        {
+          name: 'Docker cloud',
+          tags: ['docker'],
+          image: '/template-nikkapp-small.jpg',
+          description: 'Displaying apps and stuff. Awesome things about this project.'
+        },
+        {
+          name: 'Mega Awesome',
+          tags: ['react', 'redux'],
+          image: '/template-nikkapp-small.jpg',
+          description: 'Displaying apps and stuff. Awesome things about this project.'
+        },
+        {
+          name: 'Docker cloud',
+          tags: ['docker'],
+          image: '/template-nikkapp-small.jpg',
+          description: 'Displaying apps and stuff. Awesome things about this project.'
+        },
+      ]
+    }
+  }
+
   render() {
     this.props.className = "projects"
     this.props.title = "Projects"
 
+    let projects = this.state.projects.map((e, i) => {
+      return (
+        <SubSection flex="0 0 200px" className="project">
+          <SubSection>{e.name}</SubSection>
+          <SubSection>Tags</SubSection>
+          <SubSection>{e.description}</SubSection>
+        </SubSection>
+      )
+    })
+
     return (
-      <Section {...this.props}>
-        This is my projects.
+      <Section row subClassName="project-list" {...this.props}>
+        {projects}
       </Section>
     )
   }
