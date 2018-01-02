@@ -68,6 +68,7 @@ class Projects extends Component {
     return (
       <Section row subClassName="project-list" {...this.props}>
         {projects}
+        <div className="spacing"></div>
       </Section>
     )
   }

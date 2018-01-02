@@ -244,11 +244,12 @@ body {
 
 .project-list {
   overflow-x: auto;
+  overflow-clip-box: content-box;
   flex-wrap: nowrap;
   -webkit-overflow-scrolling: touch;
   justify-content: flex-start;
-  margin: 0 50px;
-  width: calc(100% - 100px);
+  padding-left: 50px;
+  box-sizing: border-box;
 }
 
 .project {
@@ -260,6 +261,11 @@ body {
   flex: 0 0 20vw;
   min-width: 200px;
   max-width: 300px;
+}
+
+.spacing {
+  min-width: 50px;
+  min-height: 1px;
 }
 
 .project:hover {
