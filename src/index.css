@@ -238,7 +238,7 @@ body {
 
 .section-container.projects,
 .section-container.projects > .section {
-  min-height: 300px;
+  min-height: 512px;
   max-height: 512px;
 }
 
@@ -259,7 +259,7 @@ body {
   margin: 0;
   flex: 0 0 20vw;
   min-width: 200px;
-  max-width: 400px;
+  max-width: 300px;
 }
 
 .project:hover {
