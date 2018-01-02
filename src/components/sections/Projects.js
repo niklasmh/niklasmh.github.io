@@ -52,10 +52,14 @@ class Projects extends Component {
     this.props.title = "Projects"
 
     let projects = this.state.projects.map((e, i) => {
+      let tags = e.tags.map((tag, j) => {
+        return <div className="tag">{tag}</div>
+      })
+
       return (
         <SubSection flex="0 0 200px" className="project">
           <SubSection>{e.name}</SubSection>
-          <SubSection>Tags</SubSection>
+          <SubSection>{tags}</SubSection>
           <SubSection>{e.description}</SubSection>
         </SubSection>
       )

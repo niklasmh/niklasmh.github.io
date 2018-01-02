@@ -273,7 +273,11 @@ body {
 }
 
 .tag {
-  font-size: .8em;
+  font-size: .7em;
+  display: inline-block;
+  margin: 3px;
+  padding: 4px 8px;
+  color: #888;
   background-color: rgba(0, 0, 0, .2);
   border-radius: 2px;
 }
