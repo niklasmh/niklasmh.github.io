@@ -282,6 +282,10 @@ body {
   flex-direction: column;
   justify-content: flex-end;
   font-size: 1.5em;
+  text-shadow:
+    0 0 3px #000,
+    0 0 3px #000,
+    0 0 3px #000;
   flex: 0 0 80px;
   padding: 16px;
   background-color: #000;
