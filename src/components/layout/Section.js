@@ -30,7 +30,7 @@ class Section extends Component {
     if (this.props.alignItems) style.alignItems = this.props.alignItems
 
     let sectionStyle = {
-      minHeight: this.props.height
+      height: this.props.height
     }
 
     let subClassName = this.props.subClassName
