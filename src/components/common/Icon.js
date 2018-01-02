@@ -4,15 +4,15 @@ class Icon extends Component {
   render() {
     let className = this.props.className || ''
     className += ' material-icons'
+    this.props.className = className
 
-    let style = this.props.style || {}
     if (this.props.size) {
-      style.fontSize = this.props.size
+      this.props.style.fontSize = this.props.size
       delete this.props.size
     }
 
     return (
-      <i className={className} style={style}>
+      <i {...this.props}>
         {this.props.children || this.props.name || ''}
       </i>
     )

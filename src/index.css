@@ -267,6 +267,28 @@ body {
   min-height: 1px;
 }
 
+.scroll-left, .scroll-right {
+  position: absolute;
+  top: 40%;
+  bottom: 10%;
+  font-size: 5em;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  cursor: pointer;
+  user-select: none;
+}
+
+.scroll-left {
+  left: 0;
+  margin-left: -.25em;
+}
+
+.scroll-right {
+  right: 0;
+  margin-right: -.25em;
+}
+
 .project:hover {
   background-color: rgba(0, 0, 0, .1);
 }
