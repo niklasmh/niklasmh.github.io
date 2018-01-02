@@ -244,7 +244,6 @@ body {
 
 .project-list {
   overflow-x: auto;
-  overflow-clip-box: content-box;
   flex-wrap: nowrap;
   -webkit-overflow-scrolling: touch;
   justify-content: flex-start;
