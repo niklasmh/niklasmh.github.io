@@ -250,16 +250,16 @@ body {
   padding-left: 50px;
   box-sizing: border-box;
   -webkit-scroll-snap-type: mandatory;
-  -webkit-scroll-snap-destination: 0% 100%;
-  -webkit-scroll-snap-points-x: repeat(100%);
+  -webkit-scroll-snap-destination: 50% 50%;
   scroll-snap-type: mandatory;
   scroll-snap-destination: 50% 50%;
-  scroll-snap-points-x: repeat(100%);
 }
 
 .project {
   -webkit-scroll-snap-coordinate: 50% 50%;
   scroll-snap-coordinate: 50% 50%;
+  -webkit-scroll-snap-align: center;
+  scroll-snap-align: center;
   box-sizing: border-box;
   align-self: stretch;
   transition: background-color .2s ease-in-out;
