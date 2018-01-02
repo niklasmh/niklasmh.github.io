@@ -33,11 +33,14 @@ class Section extends Component {
       minHeight: this.props.height
     }
 
+    let subClassName = this.props.subClassName
+    delete this.props.subClassName
+
     return (
       <section {...this.props}>
         <section style={sectionStyle} className="section" name={name}>
           {title}
-          <SubSection row={this.props.row} style={style} className={this.props.subClassName}>
+          <SubSection row={this.props.row} style={style} className={subClassName}>
             {this.props.children}
           </SubSection>
         </section>
