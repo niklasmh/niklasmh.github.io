@@ -22,11 +22,11 @@ class Me extends Component {
         repoSet[repo.name] = repo
       }
       this.setState(Object.assign({}, this.state, { repos, repoSet }))
-      this.fetchRepos(repos, 5)
+      this.fetchRepos(repos)
     })
   }
 
-  async fetchRepos(repos, amount = 5) {
+  async fetchRepos(repos, amount = 3) {
     try {
       let repoData = this.state.repoData
       let repoTopics = this.state.repoTopics
@@ -91,21 +91,24 @@ class Me extends Component {
     return (
       <Section {...this.props}>
         <SubSection row flex="3">
-          <SubSection flex="1 1 320px">
+          <SubSection flex="1 1 320px" className="about-me">
             <h3>I am a front-end developer which have a passion for design in general.</h3>
             <p><b>Current favorites:</b> JavaScript, C++ and Docker <Icon name="favorite" color="red" size="1em" align="middle" /></p>
           </SubSection>
-          <SubSection flex="1 1 320px"><b>Recent projects:</b>
-            {repos}
+          <SubSection flex="1 1 320px" className="recent-project-container">
+            <h4>Recent projects:</h4>
+            <div className="recent-project-list">{repos}</div>
             {
-              !!reposLeft &&
-              <div className="load-more" onClick={() => this.fetchRepos(this.state.repos, reposLeft)}>
-                Load more... ({reposLeft})
-              </div>
+              !!Object.keys(this.state.repoData).length
+                ? !!reposLeft &&
+                  <div className="load-more" onClick={() => this.fetchRepos(this.state.repos, reposLeft)}>
+                    Load more... ({reposLeft})
+                  </div>
+                : <div className="load-more">Fetching data...</div>
             }
           </SubSection>
         </SubSection>
-        <SubSection>Recent commitment</SubSection>
+        <SubSection><h4>Recent commitment</h4></SubSection>
       </Section>
     )
   }
