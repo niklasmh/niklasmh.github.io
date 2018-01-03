@@ -72,17 +72,18 @@ class Me extends Component {
     let repos = Object.keys(this.state.repoData)
     .sort((a, b) => this.state.repoSet[b].last_contrib - this.state.repoSet[a].last_contrib)
     .map(repoName => {
-      let myStats = this.state.repoData[repoName]
       let url = 'https://github.com/niklasmh/' + repoName
+      let description = this.state.repoSet[repoName].description
 
-      let topics = this.state.repoTopics[repoName].slice(0, 2).map(topic => {
+      let topics = this.state.repoTopics[repoName].slice(0, 3).map(topic => {
         return <div className="tag">{topic}</div>
       })
 
       return (
         <div className="recent-project">
-          <a href={url}>{repoName}</a> ({myStats.total})
-          {topics}
+          <a href={url}>{repoName}</a>&nbsp;
+          <div className="tags">{topics}</div>
+          <div className="recent-project-description">{description}</div>
         </div>
       )
     })

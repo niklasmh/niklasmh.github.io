@@ -245,24 +245,49 @@ body {
   text-align: center;
   flex-flow: column nowrap;
   justify-content: flex-start;
+  max-width: 360px;
 }
 
-.section-container.me .tag {
-  background-color: rgba(255, 255, 255, .2);
-  font-size: .4em;
+.about-me {
+  text-align: right;
 }
 
 .recent-project-container {
   align-self: stretch;
   justify-content: center;
+  text-align: left;
+}
+
+@media (max-width: 782px) {
+  .about-me, .recent-project-container {
+    text-align: center;
+  }
 }
 
 .recent-project-list {
   overflow-y: auto;
+  padding: 8px 16px;
+  box-sizing: border-box;
 }
 
 .recent-project {
-  display: inline-block;
+  display: block;
+  margin: 4px 0;
+}
+
+.recent-project-description {
+  font-size: .6em;
+  color: #aaa;
+}
+
+.section-container.me .tags {
+  display: block;
+}
+
+.section-container.me .tag {
+  background-color: rgba(255, 255, 255, .2);
+  color: #fff;
+  font-size: .4em;
 }
 
 .load-more {
