@@ -16,7 +16,12 @@ class Me extends Component {
     fetch('https://api.github.com/users/niklasmh/repos')
     .then(res => res.json())
     .then(repos => {
-      let repoSet = {}
+      let repoSet = this.state.repoSet
+
+      if (this.state.repos.length) {
+        repos = [...this.state.repos, repos]
+      }
+
       for (let repo of repos) {
         repo['last_contrib'] = new Date(repo.pushed_at)
         repoSet[repo.name] = repo
@@ -94,7 +99,7 @@ class Me extends Component {
       <Section {...this.props}>
         <SubSection row flex="3">
           <SubSection flex="1 1 320px" className="about-me">
-            <h3>I am a front-end developer who has a passion for design in general.</h3>
+            <h3>Front-end developer. Passion for graphics and design.</h3>
             <p><b>Current favorites:</b> JavaScript, C++ and Docker <Icon name="favorite" color="red" size="1em" align="middle" /></p>
           </SubSection>
           <SubSection flex="1 1 320px" className="recent-project-container">
