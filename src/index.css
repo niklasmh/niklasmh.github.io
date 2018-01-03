@@ -236,6 +236,18 @@ body {
 .section-container.projects > .section { background-color: var(--nn4); }
 .section-container.find > .section { background-color: var(--nn3); }
 
+/**
+ * Me
+ */
+.section-container.me > .section > .sub-section > .sub-section > .sub-section {
+  padding: 32px;
+  text-align: center;
+}
+
+/**
+ * Projects
+ */
+
 .section-container.projects,
 .section-container.projects > .section {
   min-height: 512px;
