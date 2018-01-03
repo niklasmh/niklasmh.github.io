@@ -36,8 +36,8 @@ class Me extends Component {
         .filter(repo => {
           return !(repo.name in repoData && repo.name in repoTopics)
         })
-        .slice(0, amount)
         .sort((a, b) => b.last_contrib - a.last_contrib)
+        .slice(0, amount)
       }
 
       await Promise.all(
@@ -69,7 +69,9 @@ class Me extends Component {
   render() {
     this.props.className = "me"
 
-    let repos = Object.keys(this.state.repoData).map(repoName => {
+    let repos = Object.keys(this.state.repoData)
+    .sort((a, b) => this.state.repoSet[b].last_contrib - this.state.repoSet[a].last_contrib)
+    .map(repoName => {
       let myStats = this.state.repoData[repoName]
       let url = 'https://github.com/niklasmh/' + repoName
 
@@ -86,7 +88,6 @@ class Me extends Component {
     })
 
     let reposLeft = this.state.repos.length - Object.keys(this.state.repoData).length
-    console.log(this.state.repos.length, Object.keys(this.state.repoData).length)
 
     return (
       <Section {...this.props}>
