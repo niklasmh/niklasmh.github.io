@@ -6,9 +6,16 @@ class Icon extends Component {
     className += ' material-icons'
     this.props.className = className
 
+    this.props.style = this.props.style || {}
+
     if (this.props.size) {
       this.props.style.fontSize = this.props.size
       delete this.props.size
+    }
+
+    if (this.props.color) {
+      this.props.style.color = this.props.color
+      delete this.props.color
     }
 
     return (
