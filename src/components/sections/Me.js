@@ -1,5 +1,6 @@
 import Component from 'inferno-component'
 import { Section, SubSection } from '../layout'
+import { Icon } from '../common'
 
 class Me extends Component {
   constructor() {
@@ -7,32 +8,60 @@ class Me extends Component {
 
     this.state = {
       repos: [],
+      repoSet: {},
       repoData: {},
+      repoTopics: {},
     }
 
     fetch('https://api.github.com/users/niklasmh/repos')
     .then(res => res.json())
     .then(repos => {
-      console.log(repos)
-      this.setState(Object.assign({}, this.state, { repos }))
-      this.fetchRepos(repos)
+      let repoSet = {}
+      for (let repo of repos) {
+        repo['last_contrib'] = new Date(repo.pushed_at)
+        repoSet[repo.name] = repo
+      }
+      this.setState(Object.assign({}, this.state, { repos, repoSet }))
+      this.fetchRepos(repos, 5)
     })
-
   }
 
-  async fetchRepos(repos) {
+  async fetchRepos(repos, amount = 5) {
     try {
-      let repoData = {}
-      await Promise.all(repos.map(repo => {
-        return fetch(`https://api.github.com/repos/niklasmh/${repo.name}/stats/contributors`)
-        .then(res => res.json())
-        .then(stats => {
-          repoData[repo.name] = stats
-        })
-      }))
+      let repoData = this.state.repoData
+      let repoTopics = this.state.repoTopics
 
-      console.log(repoData)
-      this.setState(Object.assign({}, this.state, { repoData }))
+      if (amount > 0) {
+        repos = repos
+        .filter(repo => {
+          return !(repo.name in repoData && repo.name in repoTopics)
+        })
+        .slice(0, amount)
+        .sort((a, b) => b.last_contrib - a.last_contrib)
+      }
+
+      await Promise.all(
+        [
+          ...repos.map(repo => {
+            return fetch(`https://api.github.com/repos/niklasmh/${repo.name}/stats/contributors`)
+            .then(res => res.json())
+            .then(stats => {
+              repoData[repo.name] = stats.filter(stat => stat.author.login === 'niklasmh')[0]
+            })
+          }),
+          ...repos.map(repo => {
+            return fetch(`https://api.github.com/repos/niklasmh/${repo.name}/topics`, {
+              headers: { 'Accept': 'application/vnd.github.mercy-preview+json' }
+            })
+            .then(res => res.json())
+            .then(topics => {
+              repoTopics[repo.name] = topics.names
+            })
+          })
+        ]
+      )
+
+      this.setState(Object.assign({}, this.state, { repoData, repoTopics }))
 
     } catch (err) {}
   }
@@ -40,21 +69,40 @@ class Me extends Component {
   render() {
     this.props.className = "me"
 
-    let repos = this.state.repos.map(repo => {
-      let stats = this.state.repoData[repo.name]
+    let repos = Object.keys(this.state.repoData).map(repoName => {
+      let myStats = this.state.repoData[repoName]
+      let url = 'https://github.com/niklasmh/' + repoName
 
-      return <div>{repo.name} ({stats && stats[0].total})</div>
+      let topics = this.state.repoTopics[repoName].slice(0, 2).map(topic => {
+        return <div className="tag">{topic}</div>
+      })
+
+      return (
+        <div className="recent-project">
+          <a href={url}>{repoName}</a> ({myStats.total})
+          {topics}
+        </div>
+      )
     })
+
+    let reposLeft = this.state.repos.length - Object.keys(this.state.repoData).length
+    console.log(this.state.repos.length, Object.keys(this.state.repoData).length)
 
     return (
       <Section {...this.props}>
         <SubSection row flex="3">
           <SubSection flex="1 1 320px">
             <h3>I am a front-end developer which have a passion for design in general.</h3>
-            <p><b>Current favorites:</b> JavaScript, C++ and Docker.</p>
+            <p><b>Current favorites:</b> JavaScript, C++ and Docker <Icon name="favorite" color="red" size="1em" align="middle" /></p>
           </SubSection>
           <SubSection flex="1 1 320px"><b>Recent projects:</b>
             {repos}
+            {
+              !!reposLeft &&
+              <div className="load-more" onClick={() => this.fetchRepos(this.state.repos, reposLeft)}>
+                Load more... ({reposLeft})
+              </div>
+            }
           </SubSection>
         </SubSection>
         <SubSection>Recent commitment</SubSection>
