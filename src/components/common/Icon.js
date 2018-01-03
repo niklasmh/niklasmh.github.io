@@ -18,6 +18,11 @@ class Icon extends Component {
       delete this.props.color
     }
 
+    if (this.props.align) {
+      this.props.style.verticalAlign = this.props.align
+      delete this.props.align
+    }
+
     return (
       <i {...this.props}>
         {this.props.children || this.props.name || ''}
