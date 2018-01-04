@@ -11,7 +11,7 @@ class Projects extends Component {
         {
           name: 'Ascend NTNU Website',
           tags: ['react', 'three', 'ts'],
-          image: '',
+          image: 'template-ascend-small.png',
           description: 'Website for representing team Ascend NTNU in the IARC competition.',
           more: false,
         },
