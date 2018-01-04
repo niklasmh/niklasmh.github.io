@@ -79,6 +79,13 @@ class Projects extends Component {
           more: false,
         },
         {
+          name: 'Gravity Farm',
+          tags: ['c#', 'physics', 'game'],
+          image: 'template-gravity-farm-small.png',
+          description: 'My first game. Written in C# and released on windows phone with 96 tracks.',
+          more: false,
+        },
+        {
           name: 'NikkApp',
           tags: ['php', 'css', 'html'],
           image: 'template-nikkapp-small.png',
