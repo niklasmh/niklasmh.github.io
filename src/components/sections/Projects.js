@@ -13,87 +13,80 @@ class Projects extends Component {
           tags: ['react', 'three', 'ts'],
           image: 'template-ascend-small.png',
           description: 'Website for representing team Ascend NTNU in the IARC competition.',
-          more: false,
         },
         {
           name: 'Bot Project',
           tags: ['vue', 'mysql', 'css'],
           image: '',
           description: 'Teaching assistant bot for the program engineering course (TDT4140).',
-          more: false,
         },
         {
           name: 'Training Diary Project',
           tags: ['mysql', 'java', 'cli'],
           image: '',
           description: 'A training diary using MySQL, Java and CLI. Made in TDT4145.',
-          more: false,
         },
         {
           name: 'Web Dev Project',
           tags: ['react', 'mongodb', 'css'],
           image: '',
           description: 'Made in the second web course (IT2810) at NTNU.',
-          more: false,
         },
         {
           name: 'Chat Project',
           tags: ['python', 'socket', 'cli'],
           image: '',
           description: 'Socket chat client-server made in TTM4100.',
-          more: false,
         },
         {
           name: 'Web Project',
           tags: ['javascript', 'css', 'html'],
           image: '',
           description: 'Made in the first web course (IT2805) at NTNU.',
-          more: false,
         },
         {
           name: 'Highschool Web Project',
           tags: ['php', 'css', 'html'],
           image: 'template-kfk-small.png',
           description: 'School project made in 2015 using PHP, CSS and HTML.',
-          more: false,
         },
         {
           name: 'Lektordokka',
           tags: ['angular 1', 'yt', 'php'],
           image: 'template-lektordokka-small.png',
           description: 'Site using YT videoes to explain physics.',
-          more: false,
         },
         {
           name: 'Physics Engine',
           tags: ['game maker', 'css'],
           image: 'template-physics-engine-small.jpg',
           description: 'Made a 2D physics engine from the bottom using math and physics from highschool.',
-          more: false,
         },
         {
           name: 'Young Portfolio',
           tags: ['css', 'javascript', 'php'],
           image: 'template-old-niklasmh-small.png',
           description: 'This is the first version of this page.',
-          more: false,
         },
         {
           name: 'Gravity Farm',
           tags: ['c#', 'physics', 'game'],
           image: 'template-gravity-farm-small.png',
           description: 'My first game. Written in C# and released on windows phone with 96 tracks.',
-          more: false,
         },
         {
           name: 'NikkApp',
           tags: ['php', 'css', 'html'],
           image: 'template-nikkapp-small.png',
           description: 'Displaying apps and stuff. Learned a lot of CSS making it.',
-          more: false,
         },
       ]
     }
+
+    this.state.projects = this.state.projects.map(project => {
+      project['more'] = false
+      return project
+    })
 
     this.readMore = this.readMore.bind(this)
 
