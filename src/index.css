@@ -395,6 +395,7 @@ a {
   background-color: #000;
   background-size: 140%;
   background-position: center center;
+  background-repeat: no-repeat;
   transition-property: background-size box-shadow;
   transition-duration: .6s;
   transition-timing-function: ease-out;

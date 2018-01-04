@@ -50,7 +50,7 @@ class Projects extends Component {
       {
         name: 'Web Tech Project',
         tags: ['javascript', 'css', 'html'],
-        image: '',
+        image: 'template-it2805-small.png',
         description: 'Made in the first web course (IT2805) at NTNU.',
         url: 'http://folk.ntnu.no/niklasmh/it2805/Documents/Project/',
         sourceCode: 'https://github.com/niklasmh/it2805-webtech-project',
