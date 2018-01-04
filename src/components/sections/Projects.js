@@ -12,40 +12,48 @@ class Projects extends Component {
           name: 'Mega Awesome',
           tags: ['react', 'redux'],
           image: 'template-nikkapp-small.png',
-          description: 'Displaying apps and stuff. Awesome things about this project.'
+          description: 'Displaying apps and stuff. Awesome things about this project.',
+          more: false,
         },
         {
           name: 'Docker cloud',
           tags: ['docker'],
           image: '',
-          description: 'Displaying apps and stuff. Awesome things about this project. Awesome things about this project. Awesome things about this project. Awesome things about this project.'
+          description: 'Displaying apps and stuff. Awesome things about this project. Awesome things about this project. Awesome things about this project. Awesome things about this project.',
+          more: false,
         },
         {
           name: 'Mega Awesome',
           tags: ['react', 'redux'],
           image: 'template-kfk-small.png',
-          description: 'Displaying apps and stuff. Awesome things about this project.'
+          description: 'Displaying apps and stuff. Awesome things about this project. Awesome things about this project.',
+          more: false,
         },
         {
           name: 'Docker cloud',
           tags: ['docker'],
           image: 'template-niklasmh-small.png',
-          description: 'Displaying apps and stuff. Awesome things about this project.'
+          description: 'Displaying apps and stuff. Awesome things about this project. Tessssst. Testtts.',
+          more: false,
         },
         {
           name: 'Mega Awesome',
           tags: ['react', 'redux'],
           image: 'template-nikkapp-small.png',
-          description: 'Displaying apps and stuff. Awesome things about this project.'
+          description: 'Displaying apps and stuff. Awesome things about this project.',
+          more: false,
         },
         {
           name: 'Docker cloud',
           tags: ['docker'],
           image: 'template-niklasmh-small.png',
-          description: 'Displaying apps and stuff. Awesome things about this project.'
+          description: 'Displaying apps and stuff. Awesome things about this project.',
+          more: false,
         },
       ]
     }
+
+    this.readMore = this.readMore.bind(this)
 
     this.timeout = null
     this.interval = null
@@ -60,6 +68,12 @@ class Projects extends Component {
     this.leftUpHandler = this.leftUpHandler.bind(this)
     this.rightDownHandler = this.rightDownHandler.bind(this)
     this.rightUpHandler = this.rightUpHandler.bind(this)
+  }
+
+  readMore(index) {
+    let projects = this.state.projects.slice()
+    projects[index].more = !projects[index].more
+    this.setState(Object.assign({}, this.state, { projects }))
   }
 
   leftDownHandler() {
@@ -159,11 +173,30 @@ class Projects extends Component {
         backgroundImage: `url(${process.env.PUBLIC_URL}/img/${e.image})`
       }
 
+      let sliceTo = e.more ? -1 : e.description.indexOf('.', 110)
+      let description = ''
+      let overflowStyle = { overflowY: 'auto' }
+
+      if (e.more || sliceTo === -1) {
+        description = e.description
+      } else {
+        overflowStyle = { overflowY: 'hidden' }
+        description = e.description.slice(0, 75) + '...'
+      }
+
       return (
         <SubSection className="project">
           <SubSection style={titleStyle}>{e.name}</SubSection>
           <SubSection>{tags}</SubSection>
-          <SubSection className="project-description">{e.description}</SubSection>
+          <SubSection className="project-description" style={overflowStyle}>
+            {description}
+            {
+              (e.more || sliceTo !== -1) &&
+              <div onClick={() => this.readMore(i)} className="load-more">
+                {!e.more ? 'Read more' : 'Collapse'}
+              </div>
+            }
+          </SubSection>
         </SubSection>
       )
     })
