@@ -18,7 +18,7 @@ class Projects extends Component {
           name: 'Docker cloud',
           tags: ['docker'],
           image: '',
-          description: 'Displaying apps and stuff. Awesome things about this project.'
+          description: 'Displaying apps and stuff. Awesome things about this project. Awesome things about this project. Awesome things about this project. Awesome things about this project.'
         },
         {
           name: 'Mega Awesome',
@@ -163,7 +163,7 @@ class Projects extends Component {
         <SubSection className="project">
           <SubSection style={titleStyle}>{e.name}</SubSection>
           <SubSection>{tags}</SubSection>
-          <SubSection>{e.description}</SubSection>
+          <SubSection className="project-description">{e.description}</SubSection>
         </SubSection>
       )
     })
