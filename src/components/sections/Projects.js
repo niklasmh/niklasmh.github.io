@@ -65,6 +65,13 @@ class Projects extends Component {
           more: false,
         },
         {
+          name: 'Physics Engine',
+          tags: ['game maker', 'css'],
+          image: '',
+          description: 'Made a 2D physics engine from the bottom using math and physics from highschool.',
+          more: false,
+        },
+        {
           name: 'Old Portfolio',
           tags: ['css', 'javascript', 'php'],
           image: '',
