@@ -9,21 +9,42 @@ class Projects extends Component {
     this.state = {
       projects: [
         {
-          name: 'NTNU Bot Project',
+          name: 'Ascend NTNU Website',
+          tags: ['react', 'three', 'ts'],
+          image: '',
+          description: 'Website for representing team Ascend NTNU in the IARC competition.',
+          more: false,
+        },
+        {
+          name: 'Bot Project',
           tags: ['vue', 'mysql', 'css'],
           image: '',
           description: 'Teaching assistant bot for the program engineering course (TDT4140).',
           more: false,
         },
         {
-          name: 'NTNU Web Dev Project',
+          name: 'Training Diary Project',
+          tags: ['mysql', 'java', 'cli'],
+          image: '',
+          description: 'A training diary using MySQL, Java and CLI. Made in TDT4145.',
+          more: false,
+        },
+        {
+          name: 'Web Dev Project',
           tags: ['react', 'mongodb', 'css'],
           image: '',
           description: 'Made in the second web course (IT2810) at NTNU.',
           more: false,
         },
         {
-          name: 'NTNU Web Project',
+          name: 'Chat Project',
+          tags: ['python', 'socket', 'cli'],
+          image: '',
+          description: 'Socket chat client-server made in TTM4100.',
+          more: false,
+        },
+        {
+          name: 'Web Project',
           tags: ['javascript', 'css', 'html'],
           image: '',
           description: 'Made in the first web course (IT2805) at NTNU.',
@@ -38,7 +59,7 @@ class Projects extends Component {
         },
         {
           name: 'Lektordokka',
-          tags: ['angular 1', 'YT', 'php'],
+          tags: ['angular 1', 'yt', 'php'],
           image: 'template-lektordokka-small.png',
           description: 'Site using YT videoes to explain physics.',
           more: false,
