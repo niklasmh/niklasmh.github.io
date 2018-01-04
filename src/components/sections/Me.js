@@ -29,6 +29,9 @@ class Me extends Component {
       this.setState(Object.assign({}, this.state, { repos, repoSet }))
       this.fetchRepos(repos)
     })
+    .catch(err => {
+      console.log('Failed to fetch. Do you have internet?')
+    })
   }
 
   async fetchRepos(repos, amount = 3) {
