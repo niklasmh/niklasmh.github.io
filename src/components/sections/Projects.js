@@ -67,7 +67,7 @@ class Projects extends Component {
         {
           name: 'Physics Engine',
           tags: ['game maker', 'css'],
-          image: '',
+          image: 'template-physics-engine-small.jpg',
           description: 'Made a 2D physics engine from the bottom using math and physics from highschool.',
           more: false,
         },
