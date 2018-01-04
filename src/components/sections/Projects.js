@@ -72,10 +72,10 @@ class Projects extends Component {
           more: false,
         },
         {
-          name: 'Old Portfolio',
+          name: 'Young Portfolio',
           tags: ['css', 'javascript', 'php'],
-          image: '',
-          description: 'This is the last version of this page.',
+          image: 'template-old-niklasmh-small.png',
+          description: 'This is the first version of this page.',
           more: false,
         },
         {
