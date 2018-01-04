@@ -6,87 +6,113 @@ class Projects extends Component {
   constructor() {
     super()
 
-    this.state = {
-      projects: [
-        {
-          name: 'Ascend NTNU Website',
-          tags: ['react', 'three', 'ts'],
-          image: 'template-ascend-small.png',
-          description: 'Website for representing team Ascend NTNU in the IARC competition.',
-        },
-        {
-          name: 'Bot Project',
-          tags: ['vue', 'mysql', 'css'],
-          image: '',
-          description: 'Teaching assistant bot for the program engineering course (TDT4140).',
-        },
-        {
-          name: 'Training Diary Project',
-          tags: ['mysql', 'java', 'cli'],
-          image: '',
-          description: 'A training diary using MySQL, Java and CLI. Made in TDT4145.',
-        },
-        {
-          name: 'Web Dev Project',
-          tags: ['react', 'mongodb', 'css'],
-          image: '',
-          description: 'Made in the second web course (IT2810) at NTNU.',
-        },
-        {
-          name: 'Chat Project',
-          tags: ['python', 'socket', 'cli'],
-          image: '',
-          description: 'Socket chat client-server made in TTM4100.',
-        },
-        {
-          name: 'Web Project',
-          tags: ['javascript', 'css', 'html'],
-          image: '',
-          description: 'Made in the first web course (IT2805) at NTNU.',
-        },
-        {
-          name: 'Highschool Web Project',
-          tags: ['php', 'css', 'html'],
-          image: 'template-kfk-small.png',
-          description: 'School project made in 2015 using PHP, CSS and HTML.',
-        },
-        {
-          name: 'Lektordokka',
-          tags: ['angular 1', 'yt', 'php'],
-          image: 'template-lektordokka-small.png',
-          description: 'Site using YT videoes to explain physics.',
-        },
-        {
-          name: 'Physics Engine',
-          tags: ['game maker', 'css'],
-          image: 'template-physics-engine-small.jpg',
-          description: 'Made a 2D physics engine from the bottom using math and physics from highschool.',
-        },
-        {
-          name: 'Young Portfolio',
-          tags: ['css', 'javascript', 'php'],
-          image: 'template-old-niklasmh-small.png',
-          description: 'This is the first version of this page.',
-        },
-        {
-          name: 'Gravity Farm',
-          tags: ['c#', 'physics', 'game'],
-          image: 'template-gravity-farm-small.png',
-          description: 'My first game. Written in C# and released on windows phone with 96 tracks.',
-        },
-        {
-          name: 'NikkApp',
-          tags: ['php', 'css', 'html'],
-          image: 'template-nikkapp-small.png',
-          description: 'Displaying apps and stuff. Learned a lot of CSS making it.',
-        },
-      ]
-    }
+    let projects = [
+      {
+        name: 'Ascend NTNU Website',
+        tags: ['react', 'three', 'ts'],
+        image: 'template-ascend-small.png',
+        description: 'Website for representing team Ascend NTNU in the IARC competition.',
+        url: 'https://ascendntnu.no/',
+        sourceCode: 'https://github.com/AscendNTNU/ascendntnu-web',
+      },
+      {
+        name: 'Bot Project',
+        tags: ['vue', 'mysql', 'css'],
+        image: '',
+        description: 'Teaching assistant bot for the program engineering course (TDT4140).',
+        url: 'http://tobot.niklasmh.no',
+        sourceCode: 'https://github.com/niklasmh/tdt4140-bot-project',
+      },
+      {
+        name: 'Training Diary Project',
+        tags: ['mysql', 'java', 'cli'],
+        image: '',
+        description: 'A training diary using MySQL, Java and CLI. Made in TDT4145.',
+        url: '',
+        sourceCode: 'https://github.com/niklasmh/tdt4145-training-diary-project',
+      },
+      {
+        name: 'Web Dev Project',
+        tags: ['react', 'mongodb', 'angular 2'],
+        image: '',
+        description: 'Made in the second web course (IT2810) at NTNU.',
+        url: '',
+        sourceCode: 'https://github.com/niklasmh/it2810-web-dev-project',
+      },
+      {
+        name: 'Chat Project',
+        tags: ['python', 'socket', 'cli'],
+        image: '',
+        description: 'Socket chat client-server made in TTM4100.',
+        url: '',
+        sourceCode: 'https://github.com/niklasmh/ttm4100-ktn-chat-project',
+      },
+      {
+        name: 'Web Tech Project',
+        tags: ['javascript', 'css', 'html'],
+        image: '',
+        description: 'Made in the first web course (IT2805) at NTNU.',
+        url: 'http://folk.ntnu.no/niklasmh/it2805/Documents/Project/',
+        sourceCode: 'https://github.com/niklasmh/it2805-webtech-project',
+      },
+      {
+        name: 'Highschool Web Project',
+        tags: ['php', 'css', 'html'],
+        image: 'template-kfk-small.png',
+        description: 'School project made in 2015 using PHP, CSS and HTML.',
+        url: 'http://nikkapp.com/kgb_filatelistklubb/',
+        sourceCode: '',
+      },
+      {
+        name: 'Lektordokka',
+        tags: ['angular 1', 'yt', 'php'],
+        image: 'template-lektordokka-small.png',
+        description: 'Site using YT videoes to explain physics. Currently down.',
+        url: 'http://lektordokka.no/',
+        sourceCode: '',
+      },
+      {
+        name: 'Physics Engine',
+        tags: ['game maker', 'css'],
+        image: 'template-physics-engine-small.jpg',
+        description: 'Made a 2D physics engine from the bottom using math and physics from highschool.',
+        url: 'http://nikkapp.com/physics4.html',
+        sourceCode: '',
+      },
+      {
+        name: 'Young Portfolio',
+        tags: ['css', 'javascript', 'php'],
+        image: 'template-old-niklasmh-small.png',
+        description: 'This is the first version of this page.',
+        url: 'https://young.niklasmh.no/',
+        sourceCode: '',
+      },
+      {
+        name: 'Gravity Farm',
+        tags: ['c#', 'physics', 'game'],
+        image: 'template-gravity-farm-small.png',
+        description: 'My first game. Written in C# and released on windows phone with 96 tracks. Seems to be unavailable for the momemt.',
+        url: 'http://www.windowsphone.com/nb-no/store/app/gravity-farm/9ea88a34-0968-4702-9ef0-48c3de1d9c5f',
+        sourceCode: '',
+      },
+      {
+        name: 'NikkApp',
+        tags: ['php', 'css', 'html'],
+        image: 'template-nikkapp-small.png',
+        description: 'Displaying apps and stuff. Learned a lot of CSS making it.',
+        url: 'http://nikkapp.com/',
+        sourceCode: '',
+      },
+    ]
 
-    this.state.projects = this.state.projects.map(project => {
+    projects = projects.map(project => {
       project['more'] = false
       return project
     })
+
+    this.state = {
+      projects
+    }
 
     this.readMore = this.readMore.bind(this)
 
@@ -221,7 +247,9 @@ class Projects extends Component {
 
       return (
         <SubSection className="project">
-          <SubSection style={titleStyle}>{e.name}</SubSection>
+          <SubSection style={titleStyle}>
+            <a href={e.url || e.sourceCode}>{e.name}</a>
+          </SubSection>
           <SubSection>{tags}</SubSection>
           <SubSection className="project-description" style={overflowStyle}>
             {description}

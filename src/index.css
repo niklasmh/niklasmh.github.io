@@ -416,6 +416,12 @@ a {
   overflow-y: auto;
 }
 
+.project a {
+  color: #ccc;
+  color: var(--n4);
+  box-shadow: none;
+}
+
 /**
  * Find me
  */
