@@ -50,7 +50,7 @@ class Projects extends Component {
       {
         name: 'Chat Project',
         tags: ['python', 'socket', 'cli'],
-        image: '',
+        image: 'template-chat-small.png',
         description: 'Socket chat client-server made in TTM4100.',
         url: '',
         sourceCode: 'https://github.com/niklasmh/ttm4100-ktn-chat-project',
