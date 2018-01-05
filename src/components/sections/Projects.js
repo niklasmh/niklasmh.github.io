@@ -238,7 +238,7 @@ class Projects extends Component {
         return <div className="tag">{tag}</div>
       })
 
-      let titleStyle = {
+      let titleStyle = !!e.image && {
         backgroundImage: `url(${process.env.PUBLIC_URL}/img/${e.image})`
       }
 
