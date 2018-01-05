@@ -21,7 +21,8 @@ pipeline:
     script:
       - cd /home/niklasmh/niklasmh-web
       - docker-compose run build
-      - docker-compose -f docker-compose.yml -f docker-compose.dev.yml up --no-deps -d
+      - docker-compose build server
+      - docker-compose -f docker-compose.yml -f docker-compose.dev.yml up --no-deps -d server
 
   deploy-prod:
     image: drillster/drone-rsync
@@ -35,4 +36,5 @@ pipeline:
     script:
       - cd /home/niklasmh/niklasmh-web
       - docker-compose run build
-      - docker-compose -f docker-compose.yml -f docker-compose.prod.yml up --no-deps -d
+      - docker-compose build server
+      - docker-compose -f docker-compose.yml -f docker-compose.prod.yml up --no-deps -d server
