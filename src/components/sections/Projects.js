@@ -8,6 +8,14 @@ class Projects extends Component {
 
     let projects = [
       {
+        name: 'Flappy Ascend',
+        tags: ['websocket', 'node', 'js'],
+        image: 'template-flappy-small.png',
+        description: 'The Ascend NTNU version of flappy bird. Multiplayer over websockets. Used in the recruiting season for Ascend NTNU.',
+        url: 'http://flappy.ascendntnu.no/',
+        sourceCode: 'https://github.com/AscendNTNU/flappy-ascend-game',
+      },
+      {
         name: 'Ascend NTNU Website',
         tags: ['react', 'three', 'ts'],
         image: 'template-ascend-small.png',
