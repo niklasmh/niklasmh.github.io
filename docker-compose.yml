@@ -9,6 +9,7 @@ services:
   server:
     image: node:6
     command: node server.js
+    restart: always
     ports:
       - ${DOCKER_PORT}:${PORT}
     volumes:
