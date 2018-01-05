@@ -248,7 +248,7 @@ class Projects extends Component {
       return (
         <SubSection className="project">
           <SubSection style={titleStyle}>
-            <a href={e.url || e.sourceCode}>{e.name}</a>
+            <a href={e.url || e.sourceCode} target="_blank">{e.name}</a>
           </SubSection>
           <SubSection>{tags}</SubSection>
           <SubSection className="project-description" style={overflowStyle}>
