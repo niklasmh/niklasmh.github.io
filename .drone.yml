@@ -19,10 +19,9 @@ pipeline:
       event: push
       branch: master
     script:
-      - echo "Release ${DRONE_TAG} from branch ${DRONE_BRANCH}"
       - cd /home/niklasmh/niklasmh-web
       - docker-compose run build
-      - docker-compose restart server
+      - docker-compose -f docker-compose.yml -f docker-compose.dev.yml up --no-deps -d
 
   deploy-prod:
     image: drillster/drone-rsync
@@ -34,7 +33,6 @@ pipeline:
       status: success
       event: tag
     script:
-      - echo "Release ${DRONE_TAG} from branch ${DRONE_BRANCH}"
       - cd /home/niklasmh/niklasmh-web
       - docker-compose run build
-      - docker-compose restart server
+      - docker-compose -f docker-compose.yml -f docker-compose.prod.yml up --no-deps -d
