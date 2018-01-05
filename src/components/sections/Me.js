@@ -118,7 +118,7 @@ class Me extends Component {
             }
           </SubSection>
         </SubSection>
-        <SubSection><h4>Recent commitment</h4></SubSection>
+        {/*<SubSection><h4>Recent commitment</h4></SubSection>*/}
       </Section>
     )
   }
