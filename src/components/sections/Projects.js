@@ -1,6 +1,6 @@
 import Component from 'inferno-component'
 import { Section, SubSection } from '../layout'
-import { Icon } from '../common'
+import { Icon, FaIcon } from '../common'
 
 class Projects extends Component {
   constructor() {
@@ -258,7 +258,15 @@ class Projects extends Component {
           <SubSection style={titleStyle}>
             <a href={e.url || e.sourceCode} target="_blank">{e.name}</a>
           </SubSection>
-          <SubSection>{tags}</SubSection>
+          <SubSection>
+            {tags}
+            {
+              !!e.sourceCode &&
+              <a href={e.sourceCode} className="tag code" title="Source code" target="_blank">
+                Code <FaIcon name="code" />
+              </a>
+            }
+          </SubSection>
           <SubSection className="project-description" style={overflowStyle}>
             {description}
             {
