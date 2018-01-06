@@ -193,13 +193,17 @@ class Projects extends Component {
 
   scrollLeft() {
     if (!this.leftDown && this.leftDownTime < 300) {
-      this.scrollDistAnimated(-20, 40)
+      let left = document.querySelector('.project-list').scrollLeft
+      let width = document.querySelector('.project-list > .project').offsetWidth
+      this.scrollDistAnimated(-width / 2 - (left + width / 2) % width, 0)
     }
   }
 
   scrollRight() {
     if (!this.rightDown && this.rightDownTime < 300) {
-      this.scrollDistAnimated(20, 40)
+      let left = document.querySelector('.project-list').scrollLeft
+      let width = document.querySelector('.project-list > .project').offsetWidth
+      this.scrollDistAnimated(width * 3 / 2 - (left + width / 2) % width, 0)
     }
   }
 
