@@ -6,32 +6,53 @@ class Me extends Component {
   constructor() {
     super()
 
-    this.state = {
+    let state = {
       repos: [],
       repoSet: {},
       repoData: {},
       repoTopics: {},
     }
 
-    fetch('https://api.github.com/users/niklasmh/repos')
-    .then(res => res.json())
-    .then(repos => {
-      let repoSet = this.state.repoSet
+    try {
+      let localState = localStorage.getItem('state')
 
-      if (this.state.repos.length) {
-        repos = [...this.state.repos, repos]
+      if (localState) {
+        state = JSON.parse(localState)
       }
+    } catch (err) {
+      state.repoData = {}
+    }
 
-      for (let repo of repos) {
-        repo['last_contrib'] = new Date(repo.pushed_at)
-        repoSet[repo.name] = repo
-      }
-      this.setState(Object.assign({}, this.state, { repos, repoSet }))
-      this.fetchRepos(repos)
-    })
-    .catch(err => {
-      console.log('Failed to fetch. Do you have internet?')
-    })
+    this.state = state
+
+    if (!Object.keys(this.state.repoData).length) {
+      fetch('https://api.github.com/users/niklasmh/repos')
+      .then(res => res.json())
+      .then(repos => {
+        let repoSet = this.state.repoSet
+
+        if (this.state.repos.length) {
+          repos = [...this.state.repos, repos]
+        }
+
+        for (let repo of repos) {
+          repo['last_contrib'] = new Date(repo.pushed_at)
+          repoSet[repo.name] = repo
+        }
+
+        let newState = Object.assign({}, this.state, { repos, repoSet })
+
+        try {
+          localStorage.setItem('state', JSON.stringify(newState))
+        } catch (err) {}
+
+        this.setState(newState)
+        this.fetchRepos(repos)
+      })
+      .catch(err => {
+        console.log('Failed to fetch. Do you have internet?')
+      })
+    }
   }
 
   async fetchRepos(repos, amount = 3) {
@@ -69,7 +90,13 @@ class Me extends Component {
         ]
       )
     } finally {
-      this.setState(Object.assign({}, this.state, { repoData, repoTopics }))
+      let newState = Object.assign({}, this.state, { repoData, repoTopics })
+
+      try {
+        localStorage.setItem('state', JSON.stringify(newState))
+      } catch (err) {}
+
+      this.setState(newState)
     }
   }
 
