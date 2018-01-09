@@ -35,10 +35,10 @@ class Me extends Component {
   }
 
   async fetchRepos(repos, amount = 3) {
-    try {
-      let repoData = this.state.repoData
-      let repoTopics = this.state.repoTopics
+    let repoData = this.state.repoData
+    let repoTopics = this.state.repoTopics
 
+    try {
       if (amount > 0) {
         repos = repos
         .filter(repo => {
@@ -55,7 +55,7 @@ class Me extends Component {
             .then(res => res.json())
             .then(stats => {
               repoData[repo.name] = stats.filter(stat => stat.author.login === 'niklasmh')[0]
-            })
+            }).catch(err => {})
           }),
           ...repos.map(repo => {
             return fetch(`https://api.github.com/repos/niklasmh/${repo.name}/topics`, {
@@ -64,14 +64,13 @@ class Me extends Component {
             .then(res => res.json())
             .then(topics => {
               repoTopics[repo.name] = topics.names
-            })
+            }).catch(err => {})
           })
         ]
       )
-
+    } finally {
       this.setState(Object.assign({}, this.state, { repoData, repoTopics }))
-
-    } catch (err) {}
+    }
   }
 
   render() {
@@ -83,9 +82,12 @@ class Me extends Component {
       let url = 'https://github.com/niklasmh/' + repoName
       let description = this.state.repoSet[repoName].description
 
-      let topics = this.state.repoTopics[repoName].slice(0, 3).map(topic => {
-        return <div className="tag">{topic}</div>
-      })
+      let topics = null
+      if (this.state.repoTopics[repoName]) {
+        this.state.repoTopics[repoName].slice(0, 3).map(topic => {
+          return <div className="tag">{topic}</div>
+        })
+      }
 
       return (
         <div className="recent-project">
