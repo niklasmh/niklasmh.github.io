@@ -32,7 +32,7 @@ class Me extends Component {
         let repoSet = this.state.repoSet
 
         if (this.state.repos.length) {
-          repos = [...this.state.repos, repos]
+          repos = this.state.repos.slice(0, repos.length)
         }
 
         for (let repo of repos) {
@@ -62,11 +62,10 @@ class Me extends Component {
     try {
       if (amount > 0) {
         repos = repos
-        .filter(repo => {
-          return !(repo.name in repoData && repo.name in repoTopics)
-        })
+        .filter(repo => !(repo.name in repoData))
         .sort((a, b) => b.last_contrib - a.last_contrib)
         .slice(0, amount)
+        .filter(repo => typeof repo.name !== 'undefined')
       }
 
       await Promise.all(
