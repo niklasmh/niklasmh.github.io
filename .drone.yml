@@ -6,6 +6,7 @@ pipeline:
       event: push
     commands:
       - cp -R /tmp/node_modules .
+      - npm install
       - npm test -- --coverage
 
   deploy-dev:
