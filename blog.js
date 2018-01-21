@@ -4,38 +4,40 @@ var commonmark = require('commonmark')
 var reader = new commonmark.Parser()
 var writer = new commonmark.HtmlRenderer()
 
-var articles = []
+var posts = []
+var postPointers = {}
 fs.readdirSync('./blog').forEach(file => {
-  var post = fm(fs.readFileSync(__dirname + '/blog/' + file) + '')
-  var content = writer.render(reader.parse(post.body))
+  var data = fm(fs.readFileSync(__dirname + '/blog/' + file) + '')
 
-  articles.push({
-    authors: post.attributes.author.split(/\s*[,&]\s*/),
-    content: content,
-    date: post.attributes.date.toISOString(),
-    description: rmMdLinks(post.body.split(/\n/)[0]),
+  var post = {
+    attributes: data.attributes,
+    authors: data.attributes.author.split(/\s*[,&]\s*/),
+    content: writer.render(reader.parse(data.body)),
+    date: data.attributes.date.toISOString(),
+    description: rmMdLinks(data.body.split(/\n/)[0]),
+    file: file,
     link: slugify(file),
-    title: post.attributes.title
-  })
+    title: data.attributes.title
+  }
+
+  postPointers[slugify(file)] = post
+  posts.push(post)
 })
 
+function getAllPostNames () {
+  return fs
+  .readdirSync('./blog')
+  .filter(post => /\.md$|\.markdown$/.test(post))
+  .map(slugify)
+}
+
 function getAllPosts () {
-  return fs.readdirSync('./blog')
-    .filter(post => /\.md$|\.markdown$/.test(post))
-    .map(slugify)
+  return posts
 }
 
 function getPost (postName) {
-  var files = fs.readdirSync('./blog')
-    .filter(file => new RegExp(postName, 'i').test(file))
-  var pathToPost = __dirname + '/blog/' + (files[0] || '')
-
-  if (fileExists(pathToPost) && files.length) {
-    var postData = fm(fs.readFileSync(pathToPost) + '')
-    postData['file'] = files[0]
-    postData['link'] = slugify(files[0])
-
-    return postData
+  if (slugify(postName) in postPointers) {
+    return postPointers[slugify(postName)]
   }
 
   return null
@@ -43,18 +45,27 @@ function getPost (postName) {
 
 function slugify (postName) {
   return postName
-    .toLowerCase()
-    .replace(/\.md$|\.markdown$/, '')
-    .replace(/[^0-9a-z\-]/g, '')
-    .replace(/ /g, '-')
+  .toLowerCase()
+  .replace(/\.md$|\.markdown$/, '')
+  .replace(/[^0-9a-z\-]/g, '')
+  .replace(/ /g, '-')
 }
 
 function rmMdLinks (str) {
-  return str.replace(/\]\([^\)]*\)/g, ']').replace(/!?\[([^\]]*)\]/g, '$1')
+  return str
+  .replace(/\]\([^\)]*\)/g, ']')
+  .replace(/!?\[([^\]]*)\]/g, '$1')
 }
 
 function pascalCase (str) {
-  return str.split(' ').map(word => word.slice(0, 1).toUpperCase() + word.slice(1).toLowerCase()).join(' ')
+  return str
+  .split(' ')
+  .map(word => {
+    var head = word.slice(0, 1).toUpperCase()
+    var tail = word.slice(1).toLowerCase()
+    return head + tail
+  })
+  .join(' ')
 }
 
 function fileExists (filePath) {
@@ -71,5 +82,6 @@ module.exports = {
     rmMdLinks: rmMdLinks,
     pascalCase: pascalCase,
     getAllPosts: getAllPosts,
+    getAllPostNames: getAllPostNames,
     getPost: getPost
 }

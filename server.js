@@ -17,9 +17,13 @@ app.get('/api/v1/blog/:post?', function (req, res) {
   var data = null
 
   if (req.params.post) {
-    data = blog.getPost(req.params.post)
+    if (req.params.post === 'all') {
+      data = blog.getAllPosts()
+    } else {
+      data = blog.getPost(req.params.post)
+    }
   } else {
-    data = blog.getAllPosts()
+    data = blog.getAllPostNames()
   }
 
   if (data) {
