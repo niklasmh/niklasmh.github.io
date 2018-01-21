@@ -19,17 +19,17 @@ export const api = {
     req.body = JSON.stringify(req.body)
 
     if (callback) {
-      return fetch(new Request(API_URL + url, req))
+      return fetch(new Request(api.transformURL(url), req))
       .then(res => res.json())
       .then(callback)
       .catch(error)
     } else {
-      return fetch(new Request(API_URL + url, req))
+      return fetch(new Request(api.transformURL(url), req))
     }
   },
 
   getRequest(url, callback, error) {
-    return fetch(API_URL + url)
+    return fetch(api.transformURL(url))
     .then(res => res.json())
     .then(callback)
     .catch(error)
@@ -37,5 +37,11 @@ export const api = {
 
   joinPath(...paths) {
     return paths.join('/').replace(/\/+/g, '/')
+  },
+
+  transformURL(url) {
+      return /^https?:\/\//
+        ? url
+        : API_URL + url
   },
 }
