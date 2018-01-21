@@ -1,6 +1,7 @@
 import Component from 'inferno-component'
 import { Section, SubSection } from '../layout'
 import { Icon } from '../common'
+import { API } from '../../api'
 
 class Me extends Component {
   constructor() {
@@ -26,9 +27,7 @@ class Me extends Component {
     this.state = state
 
     if (!Object.keys(this.state.repoData).length) {
-      fetch('https://api.github.com/users/niklasmh/repos')
-      .then(res => res.json())
-      .then(repos => {
+      API.getRequest('https://api.github.com/users/niklasmh/repos', repos => {
         let repoSet = this.state.repoSet
 
         if (this.state.repos.length) {
@@ -48,8 +47,7 @@ class Me extends Component {
 
         this.setState(newState)
         this.fetchRepos(repos)
-      })
-      .catch(err => {
+      }, err => {
         console.log('Failed to fetch. Do you have internet?')
       })
     }
