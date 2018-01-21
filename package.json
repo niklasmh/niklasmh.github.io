@@ -24,7 +24,7 @@
   },
   "homepage": "https://niklasmh.github.io",
   "devDependencies": {
-    "inferno-scripts": "3.0.0"
+    "inferno-scripts": "5.0.0"
   },
   "dependencies": {
     "commonmark": "^0.28.1",
