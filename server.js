@@ -4,7 +4,7 @@ var app = express()
 var blog = require('./blog')
 
 app.use(express.static(__dirname + '/build'))
-app.use('/api/v1/blog', express.static(__dirname + '/public/blog'))
+app.use('/api/v1/blog', express.static(__dirname + '/public/api/v1/blog'))
 
 var listener = app.listen(process.env.PORT || 8080, function () {
   console.log('Listening on http://localhost:' + listener.address().port)

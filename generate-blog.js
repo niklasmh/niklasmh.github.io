@@ -1,1 +1,1 @@
-require('./blog').generateBlog('blog')
+require('./blog').generateBlog('api/v1/blog')
