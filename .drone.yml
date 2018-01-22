@@ -1,6 +1,6 @@
 pipeline:
   tests:
-    image: registry.niklasmh.no/niklasmh:1.0
+    image: registry.niklasmh.no/niklasmh:1.1
     pull: true
     when:
       event: push
