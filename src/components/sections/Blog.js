@@ -1,6 +1,7 @@
 import Component from 'inferno-component'
 import { Section, SubSection } from '../layout'
 import { API } from '../../api'
+import { formatDateFromISO } from '../../common'
 
 class Blog extends Component {
   constructor() {
@@ -13,6 +14,11 @@ class Blog extends Component {
 
   componentDidMount() {
     API.getRequest('blog.json', articles => {
+      articles = articles.map(article => {
+        article['dateFormatted'] = formatDateFromISO(article.date)
+        return article
+      })
+
       this.setState(Object.assign({}, this.state, { articles }))
     })
   }
@@ -29,7 +35,7 @@ class Blog extends Component {
         <SubSection className="blog-article">
           <h3><a href={'blog/' + article.link}>{article.title}</a></h3>
           <div className="tags">{tags}</div>
-          <div>{article.date}</div>
+          <div>{article.dateFormatted}</div>
           <div>{article.description}</div>
         </SubSection>
       )
