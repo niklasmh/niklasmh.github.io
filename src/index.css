@@ -448,7 +448,7 @@ a {
   padding: 8px 16px;
   box-sizing: border-box;
   justify-content: flex-start;
-  align-items: flex-start;
+  align-items: center;
 }
 
 .blog-article {
