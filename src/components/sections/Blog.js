@@ -3,14 +3,13 @@ import { Section, SubSection } from '../layout'
 
 class Blog extends Component {
   render() {
-    this.props.title = "Blog"
+    this.props.title = "Latest articles"
+    this.props.name = "Blog"
     this.props.className = "blog"
 
     return (
       <Section row subClassName="blog" {...this.props}>
-        <SubSection flex="0 0 100px">
-          Blog!!
-        </SubSection>
+        Blog!
       </Section>
     )
   }
