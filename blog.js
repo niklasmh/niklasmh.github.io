@@ -13,6 +13,7 @@ fs.readdirSync('./blog').forEach(file => {
     attributes: data.attributes,
     authors: data.attributes.author.split(/\s*[,&]\s*/),
     content: writer.render(reader.parse(data.body)),
+    creation_date: new Date(file.slice(0, 10)).toISOString(),
     date: data.attributes.date.toISOString(),
     description: rmMdLinks(data.body.split(/\n/)[0]),
     file: file,
@@ -44,11 +45,24 @@ function getPost (postName) {
 }
 
 function generateBlog (dest) {
-  posts.forEach(file => {
-    fs.writeFile(__dirname + '/public/' + dest + '/' + file.link + '.json', JSON.stringify(file, null, 4), () => {})
+  posts.forEach(post => {
+    fs.writeFile(__dirname + '/public/' + dest + '/' + post.link + '.json', JSON.stringify(post, null, 4), () => {})
   })
 
   fs.writeFile(__dirname + '/public/' + dest + '/all.json', JSON.stringify(posts, null, 4), () => {})
+
+  var minimalPosts = posts.map(post => {
+    return {
+      creation_date: post.creation_date,
+      date: post.date,
+      description: post.description,
+      link: post.link,
+      tags: post.attributes.tags,
+      title: post.title
+    }
+  })
+
+  fs.writeFile(__dirname + '/public/' + dest + '.json', JSON.stringify(minimalPosts, null, 4), () => {})
 }
 
 function slugify (postName) {
