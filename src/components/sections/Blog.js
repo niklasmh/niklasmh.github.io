@@ -34,9 +34,9 @@ class Blog extends Component {
       return (
         <SubSection className="blog-article">
           <h3><a href={'blog/' + article.link}>{article.title}</a></h3>
-          <div className="tags">{tags}</div>
-          <div>{article.dateFormatted}</div>
+          <div className="date">{article.dateFormatted}</div>
           <div>{article.description}</div>
+          <div className="tags">{tags}</div>
         </SubSection>
       )
     })
