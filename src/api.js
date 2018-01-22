@@ -29,10 +29,14 @@ export const API = {
 
     if (callback) {
       result = result.then(callback)
+    } else {
+      result = result.then(() => {})
     }
 
     if (error) {
       result = result.catch(error)
+    } else {
+      result = result.catch(() => {})
     }
 
     return result
