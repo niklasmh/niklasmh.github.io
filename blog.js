@@ -43,6 +43,14 @@ function getPost (postName) {
   return null
 }
 
+function generateBlog (dest) {
+  posts.forEach(file => {
+    fs.writeFile(__dirname + '/public/' + dest + '/' + file.link + '.json', JSON.stringify(file, null, 4), () => {})
+  })
+
+  fs.writeFile(__dirname + '/public/' + dest + '/all.json', JSON.stringify(posts, null, 4), () => {})
+}
+
 function slugify (postName) {
   return postName
   .toLowerCase()
@@ -83,5 +91,6 @@ module.exports = {
     pascalCase: pascalCase,
     getAllPosts: getAllPosts,
     getAllPostNames: getAllPostNames,
-    getPost: getPost
+    getPost: getPost,
+    generateBlog: generateBlog
 }
