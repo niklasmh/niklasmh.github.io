@@ -18,7 +18,7 @@ pipeline:
     when:
       status: success
       event: push
-      branch: master
+      branch: dev
     script:
       - cd /home/niklasmh/niklasmh-web
       - docker-compose run build
