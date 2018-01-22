@@ -7,7 +7,7 @@
     "build": "node node_modules/inferno-scripts/scripts/build.js",
     "test": "node node_modules/inferno-scripts/scripts/test.js --env=jsdom",
     "eject": "node node_modules/inferno-scripts/scripts/eject.js",
-    "deploy": "gh-pages-deploy"
+    "deploy": "gh-pages -d build -b master"
   },
   "keywords": [
     "CV",
@@ -25,7 +25,7 @@
   },
   "homepage": "https://niklasmh.github.io",
   "devDependencies": {
-    "gh-pages-deploy": "^0.4.2",
+    "gh-pages": "^1.1.0",
     "inferno-scripts": "5.0.0"
   },
   "dependencies": {
@@ -33,12 +33,5 @@
     "front-matter": "^2.3.0",
     "inferno": "^3.0.5",
     "inferno-component": "^3.0.5"
-  },
-  "gh-pages-deploy": {
-    "staticpath": "build",
-    "prep": [
-      "build"
-    ],
-    "noprompt": false
   }
 }
