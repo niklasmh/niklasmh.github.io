@@ -91,6 +91,12 @@ body {
   flex: 1;
 }
 
+.date {
+  font-size: .8em;
+  font-style: italic;
+  opacity: .6;
+}
+
 .foot, .head {
   background-color: var(--nn2);
   font-family: 'Poiret One', cursive;
