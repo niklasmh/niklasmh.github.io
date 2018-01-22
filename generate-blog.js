@@ -1,0 +1,1 @@
+require('./blog').generateBlog('blog')
