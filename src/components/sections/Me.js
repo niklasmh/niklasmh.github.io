@@ -107,8 +107,8 @@ class Me extends Component {
       let description = this.state.repoSet[repoName].description
 
       let topics = null
-      if (this.state.repoTopics[repoName]) {
-        this.state.repoTopics[repoName].slice(0, 3).map(topic => {
+      if (repoName in this.state.repoTopics) {
+        topics = this.state.repoTopics[repoName].slice(0, 3).map(topic => {
           return <div className="tag">{topic}</div>
         })
       }
