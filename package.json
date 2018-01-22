@@ -3,7 +3,10 @@
   "version": "2.0.0",
   "description": "Portfolio website",
   "scripts": {
-    "start": "inferno-scripts start",
+    "watch-blog": "npm-watch | grep --invert-match nodemon",
+    "generate-blog": "node generate-blog.js",
+    "start-inferno": "inferno-scripts start",
+    "start": "npm-run-all -p watch-blog start-inferno",
     "build": "inferno-scripts build",
     "test": "inferno-scripts test --env=jsdom",
     "eject": "inferno-scripts eject",
@@ -36,5 +39,14 @@
     "inferno": "^3.0.5",
     "inferno-component": "^3.0.5",
     "npm-run-all": "^4.1.2"
+  },
+  "watch": {
+    "generate-blog": {
+      "patterns": [
+        "blog/*"
+      ],
+      "extensions": "md,markdown",
+      "quiet": true
+    }
   }
 }
