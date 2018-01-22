@@ -1,6 +1,6 @@
 import Component from 'inferno-component'
 import { Header } from './components/template'
-import { Me, Projects, Find } from './components/sections'
+import { Blog, Find, Me, Projects } from './components/sections'
 
 class App extends Component {
   constructor() {
@@ -83,6 +83,7 @@ class App extends Component {
         <div className={`sections content route-${this.state.selectedRoute.toLowerCase() || 'menu'}`}>
           <Me height={this.state.windowHeight} onClick={()=>this.changeTo('Me')}/>
           <Projects height={this.state.windowHeight} onClick={()=>this.changeTo('Projects')}/>
+          <Blog height={this.state.windowHeight} onClick={()=>this.changeTo('Blog')}/>
           <Find height={this.state.windowHeight} onClick={()=>this.changeTo('Find')}/>
         </div>
       </div>
