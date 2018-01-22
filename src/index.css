@@ -247,6 +247,11 @@ body {
  * Me
  */
 
+.me.section-container,
+.me > .section {
+  min-height: 512px;
+}
+
 .about-me, .recent-project-container {
   padding: 8px 32px;
   text-align: center;
@@ -454,7 +459,7 @@ a {
 .blog-article {
   align-items: flex-start;
   flex: 0 0 auto;
-  width: 500px;
+  width: 512px;
   max-width: 100%;
 }
 
