@@ -23,10 +23,12 @@ class Blog extends Component {
     this.props.className = "blog"
 
     let articles = this.state.articles.map(article => {
+      let tags = article.tags.split(' ').map(tag => <div className="tag">{tag}</div>)
+
       return (
         <SubSection className="blog-article">
           <h3><a href={'blog/' + article.link}>{article.title}</a></h3>
-          <div className="tags">{article.tags}</div>
+          <div className="tags">{tags}</div>
           <div>{article.date}</div>
           <div>{article.description}</div>
         </SubSection>
