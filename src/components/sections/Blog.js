@@ -11,6 +11,12 @@ class Blog extends Component {
     }
   }
 
+  componentDidMount() {
+    API.getRequest('blog.json', articles => {
+      this.setState(Object.assign({}, this.state, { articles }))
+    })
+  }
+
   render() {
     this.props.title = "Latest articles"
     this.props.name = "Blog"
@@ -19,7 +25,7 @@ class Blog extends Component {
     let articles = this.state.articles.map(article => {
       return (
         <SubSection className="blog-article">
-          <h3>{article}</h3>
+          <h3>{article.title}</h3>
         </SubSection>
       )
     })
