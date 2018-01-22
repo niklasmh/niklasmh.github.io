@@ -1,4 +1,4 @@
-import { API_URL } from './constants'
+import { API_ROOT } from './constants'
 
 export const API = {
   postRequest(url, req, callback, error) {
@@ -47,8 +47,8 @@ export const API = {
   },
 
   transformURL(url) {
-      return /^https?:\/\//
+      return /^https?:\/\//.test(url)
         ? url
-        : API_URL + url
+        : this.joinPath(API_ROOT, url)
   },
 }
