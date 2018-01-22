@@ -1,0 +1,22 @@
+[
+    {
+        "attributes": {
+            "layout": "post",
+            "image": "/public/assets/...",
+            "title": "I am officially a blogger",
+            "date": "2018-01-21T23:58:00.000Z",
+            "tags": "blog stuff",
+            "related": "2018-01-20-my-blog",
+            "author": "Niklas Molnes Hole"
+        },
+        "authors": [
+            "Niklas Molnes Hole"
+        ],
+        "content": "<p>This is the first post in the blog. It may be deleted any time soon.</p>\n<p>Opening a blog as I wish to develop my writing and have the option to publish some neat stuff while learning things.</p>\n<p>Update!</p>\n",
+        "date": "2018-01-21T23:58:00.000Z",
+        "description": "This is the first post in the blog. It may be deleted any time soon.",
+        "file": "2018-01-20-my-blog.md",
+        "link": "2018-01-20-my-blog",
+        "title": "I am officially a blogger"
+    }
+]
