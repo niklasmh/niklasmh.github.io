@@ -3,10 +3,10 @@
   "version": "2.0.0",
   "description": "Portfolio website",
   "scripts": {
-    "start": "node node_modules/inferno-scripts/scripts/start.js",
-    "build": "node node_modules/inferno-scripts/scripts/build.js",
-    "test": "node node_modules/inferno-scripts/scripts/test.js --env=jsdom",
-    "eject": "node node_modules/inferno-scripts/scripts/eject.js",
+    "start": "inferno-scripts start",
+    "build": "inferno-scripts build",
+    "test": "inferno-scripts test --env=jsdom",
+    "eject": "inferno-scripts eject",
     "deploy": "gh-pages -d build -b master"
   },
   "keywords": [
