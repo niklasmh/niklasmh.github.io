@@ -25,7 +25,10 @@ class Blog extends Component {
     let articles = this.state.articles.map(article => {
       return (
         <SubSection className="blog-article">
-          <h3>{article.title}</h3>
+          <h3><a href={article.link}>{article.title}</a></h3>
+          <div className="tags">{article.tags}</div>
+          <div>{article.date}</div>
+          <div>{article.description}</div>
         </SubSection>
       )
     })
