@@ -27,7 +27,8 @@
   "homepage": "https://niklasmh.github.io",
   "devDependencies": {
     "gh-pages": "^1.1.0",
-    "inferno-scripts": "5.0.0"
+    "inferno-scripts": "5.0.0",
+    "npm-watch": "^0.3.0"
   },
   "dependencies": {
     "commonmark": "^0.28.1",
