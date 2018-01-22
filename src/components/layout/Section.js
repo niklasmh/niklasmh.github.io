@@ -9,11 +9,17 @@ class Section extends Component {
       this.props.className = 'section-container'
     }
 
-    let title = null
     let name = null
+    if (this.props.name) {
+      name = this.props.name
+      delete this.props.name
+    } else if (this.props.title) {
+      name = this.props.title.split(' ')[0]
+    }
+
+    let title = null
     if (this.props.title) {
       title = <h1 className="title">{this.props.title}</h1>
-      name = this.props.title.split(' ')[0]
       delete this.props.title
     }
 
