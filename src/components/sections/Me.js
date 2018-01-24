@@ -138,7 +138,7 @@ class Me extends Component {
               !!Object.keys(this.state.repoData).length
                 ? !!reposLeft &&
                   <div className="load-more" onClick={() => this.fetchRepos(this.state.repos, reposLeft)}>
-                    Load more... ({reposLeft})
+                    {/*Load more... ({reposLeft})*/}
                   </div>
                 : <div className="load-more">Fetching data...</div>
             }
