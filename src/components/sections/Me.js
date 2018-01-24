@@ -1,6 +1,6 @@
 import Component from 'inferno-component'
 import { Section, SubSection } from '../layout'
-import { Icon } from '../common'
+import { Icon, FaIcon } from '../common'
 import { API } from '../../api'
 
 class Me extends Component {
@@ -140,8 +140,12 @@ class Me extends Component {
                   <div className="load-more" onClick={() => this.fetchRepos(this.state.repos, reposLeft)}>
                     {/*Load more... ({reposLeft})*/}
                   </div>
-                : <div className="load-more">Fetching data...</div>
-            }
+                : (
+                  <div className="load-more">
+                    <FaIcon name="circle-o-notch" className="fa-spin fa-lg" />
+                  </div>
+                  )
+                }
           </SubSection>
         </SubSection>
         {/*<SubSection><h4>Recent commitment</h4></SubSection>*/}

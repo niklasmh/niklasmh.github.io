@@ -31,7 +31,6 @@ class Icon extends Component {
   }
 }
 
-
 class FaIcon extends Component {
   render() {
     let className = this.props.className || ''
