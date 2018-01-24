@@ -8,6 +8,7 @@ class Me extends Component {
     super()
 
     let state = {
+      lastUpdate: new Date().getTime(),
       repos: [],
       repoSet: {},
       repoData: {},
@@ -19,6 +20,11 @@ class Me extends Component {
 
       if (localState) {
         state = JSON.parse(localState)
+
+        if (!('lastUpdate' in state)) {
+          state.lastUpdate = new Date().getTime()
+          localStorage.setItem('state', JSON.stringify(state))
+        }
       }
     } catch (err) {
       state.repoData = {}
@@ -26,7 +32,11 @@ class Me extends Component {
 
     this.state = state
 
-    if (!Object.keys(this.state.repoData).length) {
+    let lastUpdate = this.state.lastUpdate
+    let timeNow = new Date().getTime()
+    let thresholdTime = 60 * 1000
+
+    if (!Object.keys(this.state.repoData).length || timeNow - thresholdTime > lastUpdate) {
       API.getRequest('https://api.github.com/users/niklasmh/repos', repos => {
         let repoSet = this.state.repoSet
 
@@ -39,7 +49,8 @@ class Me extends Component {
           repoSet[repo.name] = repo
         }
 
-        let newState = Object.assign({}, this.state, { repos, repoSet })
+        let lastUpdate = new Date().getTime()
+        let newState = Object.assign({}, this.state, { repos, repoSet, lastUpdate })
 
         try {
           localStorage.setItem('state', JSON.stringify(newState))
