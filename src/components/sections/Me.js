@@ -101,7 +101,11 @@ class Me extends Component {
     this.props.className = "me"
 
     let repos = Object.keys(this.state.repoData)
-    .sort((a, b) => this.state.repoSet[b].last_contrib - this.state.repoSet[a].last_contrib)
+    .sort((a, b) => {
+      let tb = new Date(this.state.repoSet[b].last_contrib).getTime()
+      let ta = new Date(this.state.repoSet[a].last_contrib).getTime()
+      return tb - ta
+    })
     .slice(0, 3)
     .map(repoName => {
       let url = 'https://github.com/niklasmh/' + repoName
