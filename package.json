@@ -12,7 +12,8 @@
     "test": "inferno-scripts test --env=jsdom",
     "eject": "inferno-scripts eject",
     "predeploy": "npm run build",
-    "deploy": "gh-pages -d build -b master"
+    "deploy": "gh-pages -d build -b master",
+    "app": "electron app.js"
   },
   "keywords": [
     "CV",
@@ -36,6 +37,8 @@
   },
   "dependencies": {
     "commonmark": "^0.28.1",
+    "electron": "^1.7.11",
+    "electron-serve": "^0.1.0",
     "front-matter": "^2.3.0",
     "inferno": "^3.0.5",
     "inferno-component": "^3.0.5",
