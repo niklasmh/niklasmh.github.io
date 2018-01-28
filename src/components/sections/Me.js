@@ -77,15 +77,30 @@ class Me extends Component {
     }
 
     const requests = repos.map(async repo => {
-      const response = await fetch(`https://api.github.com/repos/niklasmh/${repo.name}/stats/contributors`)
-      const contribs = await response.json()
-      repoData[repo.name] = contribs.filter(stat => stat.author.login === 'niklasmh')[0]
+      let response = await fetch(`https://api.github.com/repos/niklasmh/${repo.name}/stats/contributors`)
+      let contribs = await response.json()
+
+      if (contribs instanceof Array) {
+        repoData[repo.name] = contribs.filter(stat => stat.author.login === 'niklasmh')[0]
+      } else {
+        response = await fetch(`https://api.github.com/repos/niklasmh/${repo.name}/stats/contributors`)
+        contribs = await response.json()
+        repoData[repo.name] = contribs.filter(stat => stat.author.login === 'niklasmh')[0]
+      }
     }).concat(repos.map(async repo => {
-        const response = await fetch(`https://api.github.com/repos/niklasmh/${repo.name}/topics`, {
+        let req = {
           headers: { 'Accept': 'application/vnd.github.mercy-preview+json' }
-        })
-        const topics = await response.json()
-        repoTopics[repo.name] = topics.names
+        }
+        let response = await fetch(`https://api.github.com/repos/niklasmh/${repo.name}/topics`, req)
+        let topics = await response.json()
+
+        if (topics instanceof Array) {
+          repoTopics[repo.name] = topics.names
+        } else {
+          response = await fetch(`https://api.github.com/repos/niklasmh/${repo.name}/topics`, req)
+          topics = await response.json()
+          repoTopics[repo.name] = topics.names
+        }
       })
     )
 
