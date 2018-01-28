@@ -94,7 +94,7 @@ class Me extends Component {
         let response = await fetch(`https://api.github.com/repos/niklasmh/${repo.name}/topics`, req)
         let topics = await response.json()
 
-        if (topics instanceof Array) {
+        if ('names' in topics) {
           repoTopics[repo.name] = topics.names
         } else {
           response = await fetch(`https://api.github.com/repos/niklasmh/${repo.name}/topics`, req)
