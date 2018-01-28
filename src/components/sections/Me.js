@@ -68,44 +68,37 @@ class Me extends Component {
     let repoData = this.state.repoData
     let repoTopics = this.state.repoTopics
 
-    try {
-      if (amount > 0) {
-        repos = repos
-        .filter(repo => !(repo.name in repoData))
-        .sort((a, b) => b.last_contrib - a.last_contrib)
-        .slice(0, amount)
-        .filter(repo => typeof repo.name !== 'undefined')
-      }
-
-      await Promise.all(
-        [
-          ...repos.map(repo => {
-            return fetch(`https://api.github.com/repos/niklasmh/${repo.name}/stats/contributors`)
-            .then(res => res.json())
-            .then(stats => {
-              repoData[repo.name] = stats.filter(stat => stat.author.login === 'niklasmh')[0]
-            }).catch(err => {})
-          }),
-          ...repos.map(repo => {
-            return fetch(`https://api.github.com/repos/niklasmh/${repo.name}/topics`, {
-              headers: { 'Accept': 'application/vnd.github.mercy-preview+json' }
-            })
-            .then(res => res.json())
-            .then(topics => {
-              repoTopics[repo.name] = topics.names
-            }).catch(err => {})
-          })
-        ]
-      )
-    } finally {
-      let newState = Object.assign({}, this.state, { repoData, repoTopics })
-
-      try {
-        localStorage.setItem('state', JSON.stringify(newState))
-      } catch (err) {}
-
-      this.setState(newState)
+    if (amount > 0) {
+      repos = repos
+      .filter(repo => !(repo.name in repoData))
+      .sort((a, b) => b.last_contrib - a.last_contrib)
+      .slice(0, amount)
+      .filter(repo => typeof repo.name !== 'undefined')
     }
+
+    const requests = repos.map(async repo => {
+      const response = await fetch(`https://api.github.com/repos/niklasmh/${repo.name}/stats/contributors`)
+      const contribs = await response.json()
+      repoData[repo.name] = contribs.filter(stat => stat.author.login === 'niklasmh')[0]
+    }).concat(repos.map(async repo => {
+        const response = await fetch(`https://api.github.com/repos/niklasmh/${repo.name}/topics`, {
+          headers: { 'Accept': 'application/vnd.github.mercy-preview+json' }
+        })
+        const topics = await response.json()
+        repoTopics[repo.name] = topics.names
+      })
+    )
+
+    const response = await Promise.all(requests)
+    const newState = Object.assign({}, this.state, { repoData, repoTopics })
+
+    try {
+      localStorage.setItem('state', JSON.stringify(newState))
+    } catch (err) {}
+
+    this.setState(newState)
+
+    return response
   }
 
   render() {
