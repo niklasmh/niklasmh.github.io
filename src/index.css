@@ -255,6 +255,7 @@ body {
 .me.section-container,
 .me > .section {
   min-height: 512px;
+  font-size: 1.3em;
 }
 
 .about-me,
