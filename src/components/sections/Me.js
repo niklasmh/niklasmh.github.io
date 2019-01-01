@@ -171,7 +171,10 @@ class Me extends Component {
 
         return (
           <div className="recent-project">
-            <a href={url}>{repoName}</a>&nbsp;
+            <a href={url} target="_blank">
+              {repoName}
+            </a>
+            &nbsp;
             <div className="tags">{topics}</div>
             <div className="recent-project-description">{description}</div>
           </div>
