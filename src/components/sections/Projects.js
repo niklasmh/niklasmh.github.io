@@ -300,7 +300,7 @@ class Projects extends Component {
             <span dangerouslySetInnerHTML={{ __html: description }} />
             {(e.more || sliceTo !== -1) && (
               <div onClick={() => this.readMore(i)} className="load-more">
-                {!e.more ? 'Read more' : 'Collapse'}
+                {!e.more ? 'Read more ↓' : 'Collapse ↑'}
               </div>
             )}
           </SubSection>
