@@ -187,8 +187,7 @@ class Me extends Component {
           <SubSection flex="1 1 320px" className="about-me">
             <h3>Front-end developer. Passion for graphics and design.</h3>
             <p>
-              <b>Current favorites:</b> JavaScript, C++ and Docker{' '}
-              <Icon name="favorite" color="red" size="1em" align="middle" />
+              <b>Current favorites:</b> JavaScript, Docker and 2D/3D graphics.
             </p>
           </SubSection>
           <SubSection flex="1 1 320px" className="recent-project-container">
