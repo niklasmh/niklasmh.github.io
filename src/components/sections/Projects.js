@@ -9,7 +9,7 @@ class Projects extends Component {
     let projects = [
       {
         name: 'The Knithub',
-        tags: ['canvas', 'csswwwwra', 'nowssss2.0'],
+        tags: ['canvas', 'cra', 'now2.0'],
         image: 'template-knithub.png',
         description:
           'Canvas GUI making knit and stitch patterns easier. Gift to girlfriend. This is a enhancement of a <a target="_blank" href="http://lektordokka.no/knitting/index.php">previous version</a>.',
