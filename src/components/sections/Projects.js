@@ -12,7 +12,7 @@ class Projects extends Component {
         tags: ['canvas', 'cra', 'now2.0'],
         image: 'template-knithub.png',
         description:
-          'Canvas GUI making knit and stitch patterns easier. Gift to girlfriend. This is a enhancement of the previous version.',
+          'Canvas GUI making knit and stitch patterns easier. Gift to girlfriend. This is a enhancement of a <a target="_blank" href="http://lektordokka.no/knitting/index.php">previous version</a>.',
         url: 'http://knithub.hanneko.no',
         sourceCode: 'https://github.com/niklasmh/knithub',
       },
@@ -297,7 +297,7 @@ class Projects extends Component {
             )}
           </SubSection>
           <SubSection className="project-description" style={overflowStyle}>
-            {description}
+            <span dangerouslySetInnerHTML={{ __html: description }} />
             {(e.more || sliceTo !== -1) && (
               <div onClick={() => this.readMore(i)} className="load-more">
                 {!e.more ? 'Read more' : 'Collapse'}
