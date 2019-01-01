@@ -495,12 +495,20 @@ a {
 
 .tag {
   font-size: 0.7em;
-  display: inline-block;
+  display: inline;
+  white-space: nowrap;
   margin: 0.3em;
   padding: 0.4em 0.8em;
   color: #888;
   background-color: rgba(0, 0, 0, 0.2);
   border-radius: 2px;
+}
+
+.project > .sub-section.tags {
+  white-space: nowrap;
+  overflow: auto hidden;
+  padding: 12px 0 8px;
+  box-sizing: border-box;
 }
 
 .find-me a {
