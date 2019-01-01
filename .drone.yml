@@ -1,19 +1,19 @@
 pipeline:
-  tests:
-    image: registry.niklasmh.no/niklasmh:1.1
-    pull: true
-    when:
-      event: push
-    commands:
-      - cp -R /tmp/node_modules .
-      - npm install
-      - npm test -- --coverage
+  #  tests:
+  #    image: registry.niklasmh.no/niklasmh:1.1
+  #    pull: true
+  #    when:
+  #      event: push
+  #    commands:
+  #      - cp -R /tmp/node_modules .
+  #      - npm install
+  #      - npm test -- --coverage
 
   deploy-dev:
     image: drillster/drone-rsync
-    hosts: [ dev.niklasmh.no ]
+    hosts: [dev.niklasmh.no]
     key: ${RSYNC_KEY}
-    secrets: [ rsync_key ]
+    secrets: [rsync_key]
     target: /home/niklasmh/niklasmh-web
     when:
       status: success
@@ -28,9 +28,9 @@ pipeline:
 
   deploy-prod:
     image: drillster/drone-rsync
-    hosts: [ dev.niklasmh.no ]
+    hosts: [dev.niklasmh.no]
     key: ${RSYNC_KEY}
-    secrets: [ rsync_key ]
+    secrets: [rsync_key]
     target: /home/niklasmh/niklasmh-web-prod
     when:
       status: success
