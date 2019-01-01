@@ -24,7 +24,7 @@ class Section extends Component {
     }
 
     this.props.style = Object.assign({}, this.props.style, {
-      height: this.props.height + 'px'
+      height: this.props.height + 'px',
     })
 
     let style = {}
@@ -32,11 +32,12 @@ class Section extends Component {
     if (this.props.flex) style.flex = this.props.flex
     if (this.props.wrap) style.flexWrap = this.props.wrap
     if (this.props.nowrap) style.flexWrap = 'nowrap'
-    if (this.props.justifyContent) style.justifyContent = this.props.justifyContent
+    if (this.props.justifyContent)
+      style.justifyContent = this.props.justifyContent
     if (this.props.alignItems) style.alignItems = this.props.alignItems
 
     let sectionStyle = {
-      height: this.props.height
+      height: this.props.height,
     }
 
     let subClassName = this.props.subClassName
@@ -46,7 +47,11 @@ class Section extends Component {
       <section {...this.props}>
         <section style={sectionStyle} className="section" name={name}>
           {title}
-          <SubSection row={this.props.row} style={style} className={subClassName}>
+          <SubSection
+            row={this.props.row}
+            style={style}
+            className={subClassName}
+          >
             {this.props.children}
           </SubSection>
         </section>

@@ -3,7 +3,7 @@ import { API_ROOT } from './constants'
 export const API = {
   postRequest(url, req, callback, error) {
     req.headers = Object.assign({}, req.headers, {
-      'Content-Type': 'application/json'
+      'Content-Type': 'application/json',
     })
     req.method = 'POST'
     req.headers = new Headers(req.headers)
@@ -16,9 +16,9 @@ export const API = {
 
     if (callback) {
       return fetch(new Request(API.transformURL(url), req))
-      .then(res => res.json())
-      .then(callback)
-      .catch(error)
+        .then(res => res.json())
+        .then(callback)
+        .catch(error)
     } else {
       return fetch(new Request(API.transformURL(url), req))
     }
@@ -47,8 +47,6 @@ export const API = {
   },
 
   transformURL(url) {
-      return /^https?:\/\//.test(url)
-        ? url
-        : this.joinPath(API_ROOT, url)
+    return /^https?:\/\//.test(url) ? url : this.joinPath(API_ROOT, url)
   },
 }

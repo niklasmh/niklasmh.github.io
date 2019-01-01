@@ -3,9 +3,4 @@ import Find from './Find'
 import Me from './Me'
 import Projects from './Projects'
 
-export {
-  Blog,
-  Find,
-  Me,
-  Projects,
-}
+export { Blog, Find, Me, Projects }

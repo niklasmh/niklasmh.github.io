@@ -23,11 +23,7 @@ class Icon extends Component {
       delete this.props.align
     }
 
-    return (
-      <i {...this.props}>
-        {this.props.children || this.props.name || ''}
-      </i>
-    )
+    return <i {...this.props}>{this.props.children || this.props.name || ''}</i>
   }
 }
 
@@ -54,9 +50,7 @@ class FaIcon extends Component {
       delete this.props.align
     }
 
-    return (
-      <i {...this.props}></i>
-    )
+    return <i {...this.props} />
   }
 }
 

@@ -4,8 +4,8 @@ import { FaIcon } from '../common'
 
 class Find extends Component {
   render() {
-    this.props.title = "Find me"
-    this.props.className = "find"
+    this.props.title = 'Find me'
+    this.props.className = 'find'
 
     return (
       <Section row subClassName="find-me" {...this.props}>

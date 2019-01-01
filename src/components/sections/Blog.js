@@ -8,7 +8,7 @@ class Blog extends Component {
     super()
 
     this.state = {
-      articles: []
+      articles: [],
     }
   }
 
@@ -24,16 +24,20 @@ class Blog extends Component {
   }
 
   render() {
-    this.props.title = "Latest articles"
-    this.props.name = "Blog"
-    this.props.className = "blog"
+    this.props.title = 'Latest articles'
+    this.props.name = 'Blog'
+    this.props.className = 'blog'
 
     let articles = this.state.articles.map(article => {
-      let tags = article.tags.split(' ').map(tag => <div className="tag">{tag}</div>)
+      let tags = article.tags
+        .split(' ')
+        .map(tag => <div className="tag">{tag}</div>)
 
       return (
         <SubSection className="blog-article">
-          <h3><a href={'blog/' + article.link}>{article.title}</a></h3>
+          <h3>
+            <a href={'blog/' + article.link}>{article.title}</a>
+          </h3>
           <div className="date">{article.dateFormatted}</div>
           <div>{article.description}</div>
           <div className="tags">{tags}</div>

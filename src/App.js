@@ -13,7 +13,7 @@ class App extends Component {
 
     this.state = {
       selectedRoute: '',
-      routes: [ '', 'Me', 'Projects', 'Find' ],
+      routes: ['', 'Me', 'Projects', 'Find'],
       scrollTop: true,
       windowHeight: window.innerHeight,
       windowWidth: window.innerWidth,
@@ -38,9 +38,11 @@ class App extends Component {
     let scrollTop = this.body.scrollTop || this.html.scrollTop
 
     if (!scrollTop ^ this.state.scrollTop) {
-      this.setState(Object.assign({}, this.state, {
-        scrollTop: !scrollTop,
-      }))
+      this.setState(
+        Object.assign({}, this.state, {
+          scrollTop: !scrollTop,
+        })
+      )
     }
   }
 
@@ -61,18 +63,22 @@ class App extends Component {
     }
 
     if (changed) {
-      this.setState(Object.assign({}, this.state, {
-        windowHeight: height,
-        windowWidth: width,
-        orientation: window.screen.orientation,
-      }))
+      this.setState(
+        Object.assign({}, this.state, {
+          windowHeight: height,
+          windowWidth: width,
+          orientation: window.screen.orientation,
+        })
+      )
     }
   }
 
   changeTo(route) {
-    this.setState(Object.assign({}, this.state, {
-      selectedRoute: route
-    }))
+    this.setState(
+      Object.assign({}, this.state, {
+        selectedRoute: route,
+      })
+    )
   }
 
   render() {
@@ -84,12 +90,27 @@ class App extends Component {
 
     return (
       <div className={className}>
-        <Header path={this.state.selectedRoute} onClick={()=>this.changeTo('')}/>
-        <div className={`sections content route-${this.state.selectedRoute.toLowerCase() || 'menu'}`}>
-          <Me height={this.state.windowHeight} onClick={()=>this.changeTo('Me')}/>
-          <Projects height={this.state.windowHeight} onClick={()=>this.changeTo('Projects')}/>
+        <Header
+          path={this.state.selectedRoute}
+          onClick={() => this.changeTo('')}
+        />
+        <div
+          className={`sections content route-${this.state.selectedRoute.toLowerCase() ||
+            'menu'}`}
+        >
+          <Me
+            height={this.state.windowHeight}
+            onClick={() => this.changeTo('Me')}
+          />
+          <Projects
+            height={this.state.windowHeight}
+            onClick={() => this.changeTo('Projects')}
+          />
           {/*<Blog height={this.state.windowHeight} onClick={()=>this.changeTo('Blog')}/>*/}
-          <Find height={this.state.windowHeight} onClick={()=>this.changeTo('Find')}/>
+          <Find
+            height={this.state.windowHeight}
+            onClick={() => this.changeTo('Find')}
+          />
         </div>
       </div>
     )

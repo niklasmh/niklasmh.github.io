@@ -4,7 +4,11 @@ class Header extends Component {
   render() {
     return (
       <div className="head" {...this.props}>
-        <img className="head-img" src={process.env.PUBLIC_URL + '/img/me2.jpg'} alt="Me" />
+        <img
+          className="head-img"
+          src={process.env.PUBLIC_URL + '/img/me2.jpg'}
+          alt="Me"
+        />
         <div className="head-title">
           <span className="name">Niklas M. Hole </span>
         </div>
