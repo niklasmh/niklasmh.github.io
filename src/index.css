@@ -348,17 +348,23 @@ a {
   scroll-snap-align: center;
   box-sizing: border-box;
   align-self: stretch;
-  transition: background-color .2s ease-in-out;
+  transition-property: box-shadow background-color;
+  transition-duration: 1s;
   padding: 0 16px;
-  margin: 0;
+  margin: 16px;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 0 16px -4px #111;
+  background-color: rgba(0, 0, 0, 0.3);
   flex: 0 0 20vw;
-  min-width: 200px;
+  min-width: 250px;
   max-width: 300px;
   flex-wrap: nowrap;
 }
 
 .project:hover {
-  background-color: rgba(0, 0, 0, .1);
+  box-shadow: 0 0 32px -8px #111;
+  transition-duration: 0.2s;
 }
 
 .spacing {
