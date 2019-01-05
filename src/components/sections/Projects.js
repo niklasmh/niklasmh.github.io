@@ -31,7 +31,7 @@ class Projects extends Component {
         image: 'template-ascend-small.png',
         description:
           'Website for representing team Ascend NTNU in the IARC competition.',
-        url: 'https://ascendntnu.no/',
+        url: 'https://ascendntnu.niklasmh.no/',
         sourceCode: 'https://github.com/AscendNTNU/ascendntnu-web',
       },
       {
