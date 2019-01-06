@@ -22,7 +22,7 @@ class Projects extends Component {
         image: 'template-flappy-small.png',
         description:
           'The Ascend NTNU version of flappy bird. Multiplayer over websockets. Used in the recruiting season for Ascend NTNU.',
-        url: 'http://flappy.ascendntnu.no/',
+        url: 'http://flappy.ascendntnu.niklasmh.no/',
         sourceCode: 'https://github.com/AscendNTNU/flappy-ascend-game',
       },
       {
