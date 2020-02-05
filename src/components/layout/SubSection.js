@@ -12,6 +12,10 @@ class SubSection extends Component {
       this.props.className += ' row'
     }
 
+    if (this.props.wrap) {
+      this.props.className += ' wrap'
+    }
+
     let style = {}
     if (this.props.basis) style.flexBasis = this.props.basis
     if (this.props.flex) style.flex = this.props.flex

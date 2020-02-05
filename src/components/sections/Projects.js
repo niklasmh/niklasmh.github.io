@@ -147,6 +147,8 @@ class Projects extends Component {
 
     this.state = {
       projects,
+      isOpen: false,
+      openHeight: 850,
     }
 
     this.readMore = this.readMore.bind(this)
@@ -260,8 +262,36 @@ class Projects extends Component {
     }
   }
 
+  getProjectsHeight() {
+    const projectsElement = document.querySelector('.section[name=Projects]')
+    const rect = projectsElement.getBoundingClientRect()
+
+    const projectsElements = document.querySelectorAll('.project')
+    const lastProject = projectsElements[projectsElements.length - 1]
+    const projectRect = lastProject.getBoundingClientRect()
+
+    return projectRect.top + projectRect.height - rect.top + 192
+  }
+
+  open() {
+    this.setState({
+      isOpen: true,
+      openHeight: this.getProjectsHeight(),
+    })
+  }
+
+  componentDidMount() {
+    window.addEventListener('resize', () => {
+      if (this.state.isOpen) {
+        this.setState({
+          openHeight: this.getProjectsHeight(),
+        })
+      }
+    })
+  }
+
   render() {
-    this.props.className = 'projects'
+    this.props.className = `projects ${this.state.isOpen ? 'open' : ''}`
     this.props.title = 'Projects'
 
     let projects = this.state.projects.map((e, i) => {
@@ -317,31 +347,15 @@ class Projects extends Component {
     })
 
     return (
-      <Section row subClassName="project-list" {...this.props}>
-        <Icon
-          className="scroll-left"
-          onClick={this.scrollLeft}
-          onMouseDown={this.leftDownHandler}
-          onTouchStart={this.leftDownHandler}
-          onMouseUp={this.leftUpHandler}
-          onTouchEnd={this.leftUpHandler}
-          onTouchCancel={this.leftUpHandler}
-        >
-          keyboard_arrow_left
-        </Icon>
+      <Section
+        row
+        wrap
+        subClassName={`project-list ${this.state.isOpen ? 'open' : ''}`}
+        {...this.props}
+        style={{ minHeight: this.state.openHeight + 'px' }}
+      >
         {projects}
-        <div className="spacing" />
-        <Icon
-          className="scroll-right"
-          onClick={this.scrollRight}
-          onMouseDown={this.rightDownHandler}
-          onTouchStart={this.rightDownHandler}
-          onMouseUp={this.rightUpHandler}
-          onTouchEnd={this.rightUpHandler}
-          onTouchCancel={this.rightUpHandler}
-        >
-          keyboard_arrow_right
-        </Icon>
+        <div className="more" onClick={() => this.open()} />
       </Section>
     )
   }

@@ -103,7 +103,7 @@ class App extends Component {
             onClick={() => this.changeTo('Me')}
           />
           <Projects
-            height={this.state.windowHeight}
+            //height={this.state.windowHeight}
             onClick={() => this.changeTo('Projects')}
           />
           {/*<Blog height={this.state.windowHeight} onClick={()=>this.changeTo('Blog')}/>*/}

@@ -49,6 +49,7 @@ class Section extends Component {
           {title}
           <SubSection
             row={this.props.row}
+            wrap={this.props.wrap}
             style={style}
             className={subClassName}
           >
