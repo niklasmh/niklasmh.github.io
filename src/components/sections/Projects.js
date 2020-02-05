@@ -104,6 +104,14 @@ class Projects extends Component {
         sourceCode: '',
       },
       {
+        name: 'Flash stuff',
+        tags: ['flash', 'actionscript'],
+        image: '',
+        description: 'Stuff made in IT2 using ActionScript.',
+        url: 'http://nikkapp.com/flash',
+        sourceCode: '',
+      },
+      {
         name: 'Young Portfolio',
         tags: ['css', 'javascript', 'php'],
         image: 'template-old-niklasmh-small.png',
