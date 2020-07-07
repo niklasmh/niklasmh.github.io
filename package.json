@@ -37,7 +37,7 @@
   },
   "dependencies": {
     "commonmark": "^0.28.1",
-    "electron": "^1.7.11",
+    "electron": "^9.1.0",
     "electron-serve": "^0.1.0",
     "front-matter": "^2.3.0",
     "inferno": "^3.0.5",
