@@ -317,8 +317,6 @@ const Content = styled.div`
   padding: 24px 44px;
   --margin: -1px;
   margin: var(--margin);
-  //border-radius: calc(var(--r) - var(--margin));
-  //box-shadow: 0 0 var(--margin) #0008;
   backdrop-filter: grayscale(1);
 `
 
@@ -352,7 +350,6 @@ const Cursor = styled.span`
   background: rgba(var(--glass-color), var(--glass-color-alpha));
   vertical-align: middle;
   vertical-align: text-bottom;
-  //animation: pulse 0.5s infinite alternate;
 
   @keyframes pulse {
     0% {
@@ -377,10 +374,12 @@ interface ColorProps {
 
 const C = styled.span<ColorProps>`
   color: ${(props) => props.c || '#aaa'};
+  display: inline-block;
 `
 
 const Comment = styled.span<ColorProps>`
   color: ${(props) => props.c || '#555'};
   font-size: 12px;
   letter-spacing: 0;
+  display: inline-block;
 `
