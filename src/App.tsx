@@ -182,6 +182,7 @@ function App() {
           ctx.fillStyle = '#00000016'
           ctx.fillRect(0, 0, cw, ch)
           ctx.fillStyle = '#ff00ff01'
+
           const ellipse = (r: number) => {
             ctx.beginPath()
             ctx.ellipse(
@@ -195,6 +196,7 @@ function App() {
             )
             ctx.fill()
           }
+
           ellipse(100)
           ellipse(200)
           ellipse(300)
