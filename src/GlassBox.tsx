@@ -4,11 +4,12 @@ const Glass = styled.div`
   position: relative;
   z-index: 1;
 
-  --b: 1px;
+  --b: 2px;
   --px: 0;
   --py: 0;
   --r: 24px;
   --blur: 10px;
+  clip-path: inset(-1px round var(--r));
 
   box-shadow: 0 0 100px 0 rgba(0, 0, 0, 0.4);
   background: linear-gradient(
@@ -42,6 +43,7 @@ const Glass = styled.div`
     inset: 0;
     top: -1px;
     left: -1px;
+    bottom: -1px;
     padding: calc(var(--b) + 0px);
     border-radius: calc(var(--r) + 0px);
     pointer-events: none;

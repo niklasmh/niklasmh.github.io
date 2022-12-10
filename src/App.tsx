@@ -1,25 +1,21 @@
 import './App.css'
 import styled from 'styled-components'
 import GlassBox from './GlassBox'
-import React, {
-  ReactNode,
-  useEffect,
-  useRef,
-  useState,
-  HTMLAttributes,
-} from 'react'
+import React, { useEffect, useRef, useState, HTMLAttributes } from 'react'
 
 type Options = {
   onCreate?: () => void
   props?: HTMLAttributes<HTMLDivElement>
+  comment?: 'comment'
   keyword?: 'keyword'
+  small?: 'small'
   link?: string
 }
 type TimelineElement = [duration: number, add: string, options?: Options]
 
+const comment = 'comment'
 const keyword = 'keyword'
 const small = 'small'
-const comment = 'comment'
 const timePerLetter = 0.025
 
 const timeline: TimelineElement[] = [
@@ -92,10 +88,20 @@ const timeline: TimelineElement[] = [
  * - Demo of a few projects (client-side python, physics, graphics)
  */
 
+let windowWidth = 100,
+  windowHeight = 100,
+  cw = 100,
+  ch = 100,
+  x = 0,
+  y = 0,
+  isRunningAnimation = false
+
 function App() {
   const [timelineElementIndex, setTimelineElementIndex] = useState<number>(0)
   const [wordLength, setWordLength] = useState<number>(0)
   const [isCursorVisible, showCursor] = useState<boolean>(true)
+  const [ctx, setCtx] = useState<CanvasRenderingContext2D | null>(null)
+  const canvasRef = useRef<HTMLCanvasElement>(null)
   const contentRef = useRef<HTMLDivElement>(null)
 
   const addCode = (code: string, options: Options = {}): void => {
@@ -131,6 +137,80 @@ function App() {
     }
   }, [timelineElementIndex])
 
+  useEffect(() => {
+    const canvas = canvasRef.current
+    if (canvas !== null) {
+      setCtx(canvas.getContext('2d'))
+    }
+    return () => setCtx(null)
+  }, [])
+
+  useEffect(() => {
+    if (ctx && !isRunningAnimation) {
+      isRunningAnimation = true
+      let ax = 0,
+        ay = 0,
+        vx = 0,
+        vy = 0,
+        bx = x,
+        by = y
+      const animation = () => {
+        const dx = x - bx
+        const dy = y - by
+
+        const a = Math.atan2(dy, dx)
+        const d = Math.sqrt(dx * dx + dy * dy) * 0.1
+
+        const friction = 0.1
+        const damp = 0.05
+
+        ax = Math.cos(a) * d - vx * Math.abs(vx) * friction - vx * damp
+        ay = Math.sin(a) * d - vy * Math.abs(vy) * friction - vy * damp
+        vx += ax
+        vy += ay
+        bx += vx * 0.1
+        by += vy * 0.1
+
+        ctx.fillStyle = '#00000016'
+        ctx.fillRect(0, 0, cw, ch)
+        ctx.fillStyle = '#ff00ff01'
+        const ellipse = (r: number) => {
+          ctx.beginPath()
+          ctx.ellipse(
+            (bx + 0.5) * cw,
+            (by + 0.5) * ch,
+            (cw / windowWidth) * r,
+            (ch / windowHeight) * r,
+            0,
+            0,
+            2 * Math.PI
+          )
+          ctx.fill()
+        }
+        ellipse(100)
+        ellipse(200)
+        ellipse(300)
+        ellipse(400)
+        ellipse(600)
+        ellipse(800)
+
+        const direction = Math.atan2(by, bx) + Math.PI / 2
+        const distance = Math.min(1, Math.sqrt(bx * bx + by * by) / 0.4)
+        document.documentElement.style.setProperty(
+          '--glass-direction',
+          direction + 'rad'
+        )
+        document.documentElement.style.setProperty(
+          '--glass-distance',
+          distance + ''
+        )
+
+        requestAnimationFrame(animation)
+      }
+      animation()
+    }
+  }, [ctx])
+
   const [duration, word, options] = timeline[timelineElementIndex] || [
     0,
     '',
@@ -141,22 +221,15 @@ function App() {
     <div
       className="App"
       onMouseMove={({ clientX, clientY }) => {
-        const windowWidth = window.innerWidth
-        const windowHeight = window.innerHeight
-        const x = clientX / windowWidth - 0.5
-        const y = clientY / windowHeight - 0.5
-        const direction = Math.atan2(y, x) + Math.PI / 2
-        const distance = Math.min(1, Math.sqrt(x * x + y * y) / 0.4)
-        document.documentElement.style.setProperty(
-          '--glass-direction',
-          direction + 'rad'
-        )
-        document.documentElement.style.setProperty(
-          '--glass-distance',
-          distance + ''
-        )
+        windowWidth = window.innerWidth
+        windowHeight = window.innerHeight
+        x = clientX / windowWidth - 0.5
+        y = clientY / windowHeight - 0.5
+        cw = canvasRef.current?.width ?? 100
+        ch = canvasRef.current?.height ?? 100
       }}
     >
+      <Canvas ref={canvasRef}></Canvas>
       <GlassBox>
         <h1>NIKLAS MOLNES HOLE</h1>
         <Content ref={contentRef}>
@@ -219,6 +292,13 @@ function App() {
 }
 
 export default App
+
+const Canvas = styled.canvas`
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  filter: blur(36px) brightness(0.5);
+`
 
 const Content = styled.div`
   display: flow-root;
