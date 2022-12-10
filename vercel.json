@@ -1,0 +1,4 @@
+{
+  "buildCommand": "tsc && vite build",
+  "outputDirectory": "dist"
+}
