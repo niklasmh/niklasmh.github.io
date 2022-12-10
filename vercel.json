@@ -1,4 +1,5 @@
 {
+  "devCommand": "vite",
   "buildCommand": "tsc && vite build",
   "outputDirectory": "dist"
 }
