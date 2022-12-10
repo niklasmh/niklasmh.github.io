@@ -1,4 +1,9 @@
-# Finally building my website in a repo
-[![Build Status](https://ci.niklasmh.no/api/badges/niklasmh/niklasmh.github.io/status.svg)](https://ci.niklasmh.no/niklasmh/niklasmh.github.io)
+# Personal website
 
-This is going to be a new fresh start for my website at [niklasmh.no](https://niklasmh.no). The old one is moved to [young.niklasmh.no](https://young.niklasmh.no).
+This is now the third time I have made the website from scratch. I have now learned that I should not be so ambitious when I design the website because I never end up finishing it! So the last one here is minimal and should be easier to maintain.
+
+## Version history:
+
+- My first website (2014-2017): [young.niklasmh.no](https://young.niklasmh.no)
+- My second website (2017-2022): [older.niklasmh.no](https://older.niklasmh.no)
+- My third website (this) (2022-): [niklasmh.no](https://niklasmh.no)
