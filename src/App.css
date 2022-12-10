@@ -1,0 +1,13 @@
+.App {
+  text-align: center;
+  background: url(bg2.png);
+  background-size: cover;
+  background-position: center center;
+  background-attachment: fixed;
+  min-height: 100vh;
+
+  display: flex;
+  flex-flow: column wrap;
+  align-items: center;
+  justify-content: center;
+}
