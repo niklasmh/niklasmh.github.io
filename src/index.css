@@ -1,6 +1,6 @@
 :root {
   --font-family: 'Poppins', sans-serif;
-  --font-family-mono: 'Poppins', sans-serif;
+  --font-family-mono: 'Fira Code', Courier, monospace;
   --font-family-special: 'Indie Flower', cursive;
   
   --glass-color: 255, 255, 255;

@@ -20,60 +20,60 @@ const timePerLetter = 0.025
 
 const timeline: TimelineElement[] = [
   [2, ''],
-  [0, 'interests = { '],
+  [0, 'interests = {  '],
   [0, 'web 🕸', { keyword }],
-  [0, ', '],
+  [0, ',  '],
   [0, 'graphics 👓', { keyword }],
-  [0, ' and '],
+  [0, '  &  '],
   [0, 'physics 🔬', { keyword }],
-  [1, ' }\n'],
+  [1, '  }\n'],
   [0, '\n'],
   [0, 'links = {'],
   [0, '\n\t'],
   [0, 'GitHub ↗', { link: 'https://github.com/niklasmh' }],
-  [0, ' // Most of my recent projects', { comment }],
+  [0, '      // Most of my recent projects', { comment }],
   [0, '\n\t'],
-  [0, 'LinkedIn ↗', { link: 'https://www.linkedin.com/in/niklasmh/' }],
-  [0, ' // You can contact me here', { comment }],
+  [0, 'LinkedIn ↗ ', { link: 'https://www.linkedin.com/in/niklasmh/' }],
+  [0, '    // You can contact me here', { comment }],
   [0, '\n\t'],
   [0, 'Twitter ↗', { link: 'https://twitter.com/niklashole' }],
-  [0, ' // Not using this much, but here it is', { comment }],
+  [0, '      // Not using this much, but here it is', { comment }],
   [0, '\n'],
   [1, '}\n'],
   [0, '\n'],
   [0, 'skills = {'],
-  [0, '\n\t'],
-  [0, '   Frontend: ', { small }],
+  [0, '\n'],
+  [0, '     Frontend: ', { small }],
   [
     0,
-    'JavaScript, CSS, HTML, React.js, Vue.js, Angular, TypeScript, WebGL, Three.js, jQuery',
+    '  JavaScript, CSS, HTML, React.js, Vue.js, Angular, TypeScript, WebGL, Three.js, jQuery',
     { keyword, small },
   ],
-  [0, '\n\t'],
-  [0, '    Backend: ', { small }],
+  [0, '\n'],
+  [0, '      Backend: ', { small }],
   [
     0,
-    '.NET, Node.js, Express.js, Java, Kotlin, PHP, Django',
+    '  .NET, Node.js, Express.js, Java, Kotlin, PHP, Django',
     { keyword, small },
   ],
-  [0, '\n\t'],
-  [0, '           App: ', { small }],
-  [0, 'React Native, Android Automotive', { keyword, small }],
-  [0, '\n\t'],
-  [0, 'Databases: ', { small }],
+  [0, '\n'],
+  [0, '          App: ', { small }],
+  [0, '  React Native, Android Automotive', { keyword, small }],
+  [0, '\n'],
+  [0, '    Databases: ', { small }],
   [
     0,
-    'MS SQL, MySQL, Firebase, PostgreSQL, Redis, MongoDB',
+    '  MS SQL, MySQL, Firebase, PostgreSQL, Redis, MongoDB',
     { keyword, small },
   ],
-  [0, '\n\t'],
-  [0, '     DevOps: ', { small }],
-  [0, 'Docker, GitHub Actions, Jenkins, Drone CI', { keyword, small }],
-  [0, '\n\t'],
-  [0, '          Misc: ', { small }],
+  [0, '\n'],
+  [0, '       DevOps: ', { small }],
+  [0, '  Docker, GitHub Actions, Jenkins, Drone CI', { keyword, small }],
+  [0, '\n'],
+  [0, '         Misc: ', { small }],
   [
     0,
-    'Bash, PowerShell, Git, SVN, TFS, 3D printing, 3D modelling, 3D graphics',
+    '  Bash, PowerShell, Git, SVN, TFS, 3D printing, 3D modelling, 3D graphics',
     { keyword, small },
   ],
   [0, '\n}'],
@@ -326,6 +326,7 @@ const Code = styled.pre`
   text-align: left;
   line-height: 1.8;
   color: #666;
+  letter-spacing: 0;
 
   a {
     appearance: none;
@@ -375,6 +376,8 @@ interface ColorProps {
 const C = styled.span<ColorProps>`
   color: ${(props) => props.c || '#aaa'};
   display: inline-block;
+  letter-spacing: 0;
+  font-family: var(--font-family);
 `
 
 const Comment = styled.span<ColorProps>`

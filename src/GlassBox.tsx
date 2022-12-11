@@ -102,7 +102,7 @@ const Glass = styled.div`
 const GlassBox = styled(Glass)`
   max-width: calc(100% - 32px);
   width: 720px;
-  margin: 16px;
+  margin: 32px 16px 64px;
   display: inline-block;
   color: #fff9;
   font-weight: 400;
