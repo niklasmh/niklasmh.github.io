@@ -141,6 +141,10 @@ function App() {
     const canvas = canvasRef.current
     if (canvas !== null) {
       setCtx(canvas.getContext('2d'))
+      windowWidth = window.innerWidth
+      windowHeight = window.innerHeight
+      cw = canvas.width ?? 100
+      ch = canvas.height ?? 100
     }
     return () => setCtx(null)
   }, [])
@@ -154,67 +158,100 @@ function App() {
         vy = 0,
         bx = x,
         by = y,
-        first = true
+        rx = (Math.random() - 0.5) * 2,
+        ry = (Math.random() - 0.5) * 2,
+        startTime = Date.now(),
+        manualStartTime = Date.now(),
+        prevX = x,
+        prevY = y,
+        manual = false
       const animation = () => {
-        if (x > -1 && y > -1) {
-          if (first) {
-            first = false
-            bx = x
-            by = y
+        const hasChanged = prevX !== x || prevY !== y
+        if (startTime + 5 * 1000 < Date.now()) {
+          if (!hasChanged) {
+            x = -1
+            y = -1
           }
-
-          const dx = x - bx
-          const dy = y - by
-
-          const a = Math.atan2(dy, dx)
-          const d = Math.sqrt(dx * dx + dy * dy) * 0.1
-
-          const friction = 0.1
-          const damp = 0.05
-
-          ax = Math.cos(a) * d - vx * Math.abs(vx) * friction - vx * damp
-          ay = Math.sin(a) * d - vy * Math.abs(vy) * friction - vy * damp
-          vx += ax
-          vy += ay
-          bx += vx * 0.1
-          by += vy * 0.1
-
-          ctx.fillStyle = '#00000016'
-          ctx.fillRect(0, 0, cw, ch)
-          ctx.fillStyle = '#ff00ff01'
-
-          const ellipse = (r: number) => {
-            ctx.beginPath()
-            ctx.ellipse(
-              (bx + 0.5) * cw,
-              (by + 0.5) * ch,
-              (cw / windowWidth) * r,
-              (ch / windowHeight) * r,
-              0,
-              0,
-              2 * Math.PI
-            )
-            ctx.fill()
-          }
-
-          ellipse(100)
-          ellipse(200)
-          ellipse(300)
-          ellipse(400)
-          ellipse(600)
-          ellipse(800)
-
-          const direction = Math.atan2(by, bx) + Math.PI / 2
-          const distance = Math.min(1, Math.sqrt(bx * bx + by * by) / 0.4)
-          document.documentElement.style.setProperty(
-            '--glass-direction',
-            direction + 'rad'
-          )
-          document.documentElement.style.setProperty(
-            '--glass-distance',
-            distance + ''
-          )
         }
+        if (hasChanged) {
+          startTime = Date.now()
+        }
+
+        manual = x > -1 && y > -1
+        if (manual && prevX === -1 && prevY === -1) {
+          manualStartTime = Date.now()
+          rx = x
+          ry = y
+        }
+
+        prevX = x
+        prevY = y
+
+        const percent = Math.max(
+          0,
+          Math.min(1, manual ? 1 - (Date.now() - manualStartTime) / 2000 : 1)
+        )
+
+        const transition = (m: number, a: number) => {
+          return m * (1 - percent) + a * percent
+        }
+
+        const dx = transition(x, rx) - bx
+        const dy = transition(y, ry) - by
+
+        const a = Math.atan2(dy, dx)
+        const d = Math.sqrt(dx * dx + dy * dy)
+
+        if (!manual && d < 1) {
+          rx = (Math.random() - 0.5) * 2
+          ry = (Math.random() - 0.5) * 2
+        }
+
+        const friction = transition(0.1, 0.01)
+        const damp = transition(0.05, 0.005)
+
+        ax = Math.cos(a) * d * 0.1 - vx * Math.abs(vx) * friction - vx * damp
+        ay = Math.sin(a) * d * 0.1 - vy * Math.abs(vy) * friction - vy * damp
+        vx += ax
+        vy += ay
+        bx += vx * transition(0.1, 0.001)
+        by += vy * transition(0.1, 0.001)
+
+        ctx.fillStyle = '#00000016'
+        ctx.fillRect(0, 0, cw, ch)
+        ctx.fillStyle = '#ff00ff01'
+
+        const ellipse = (r: number) => {
+          ctx.beginPath()
+          ctx.ellipse(
+            (bx + 0.5) * cw,
+            (by + 0.5) * ch,
+            (cw / windowWidth) * r,
+            (ch / windowHeight) * r,
+            0,
+            0,
+            2 * Math.PI
+          )
+          ctx.fill()
+        }
+
+        ellipse(100)
+        ellipse(200)
+        ellipse(300)
+        ellipse(400)
+        ellipse(600)
+        ellipse(800)
+
+        const direction = Math.atan2(by, bx) + Math.PI / 2
+        const distance = Math.min(1, Math.sqrt(bx * bx + by * by) / 0.4)
+        document.documentElement.style.setProperty(
+          '--glass-direction',
+          direction + 'rad'
+        )
+        document.documentElement.style.setProperty(
+          '--glass-distance',
+          distance + ''
+        )
 
         requestAnimationFrame(animation)
       }
