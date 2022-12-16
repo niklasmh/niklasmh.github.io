@@ -167,7 +167,7 @@ function App() {
         manual = false
       const animation = () => {
         const hasChanged = prevX !== x || prevY !== y
-        if (startTime + 5 * 1000 < Date.now()) {
+        if (startTime + 10 * 1000 < Date.now()) {
           if (!hasChanged) {
             x = -1
             y = -1
@@ -178,8 +178,10 @@ function App() {
         }
 
         manual = x > -1 && y > -1
-        if (manual && prevX === -1 && prevY === -1) {
-          manualStartTime = Date.now()
+        if (manual) {
+          if (prevX === -1 && prevY === -1) {
+            manualStartTime = Date.now()
+          }
           rx = x
           ry = y
         }
@@ -207,15 +209,16 @@ function App() {
           ry = (Math.random() - 0.5) * 2
         }
 
-        const friction = transition(0.1, 0.01)
-        const damp = transition(0.05, 0.005)
+        const friction = transition(0.01, 0.001)
+        const damp = transition(0.005, 0.0005)
 
-        ax = Math.cos(a) * d * 0.1 - vx * Math.abs(vx) * friction - vx * damp
-        ay = Math.sin(a) * d * 0.1 - vy * Math.abs(vy) * friction - vy * damp
+        const scale = transition(0.1, 0.01)
+        ax = Math.cos(a) * d * scale - vx * Math.abs(vx) * friction - vx * damp
+        ay = Math.sin(a) * d * scale - vy * Math.abs(vy) * friction - vy * damp
         vx += ax
         vy += ay
-        bx += vx * transition(0.1, 0.001)
-        by += vy * transition(0.1, 0.001)
+        bx += vx * transition(0.01, 0.001)
+        by += vy * transition(0.01, 0.001)
 
         ctx.fillStyle = '#00000016'
         ctx.fillRect(0, 0, cw, ch)
