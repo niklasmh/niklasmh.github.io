@@ -115,7 +115,7 @@ function App() {
 
         return wordLength + 1
       })
-    }, timePerLetter * 1000)
+    }, timePerLetter * 100)
   }
 
   const prevIndex = useRef<number>(-1)
@@ -130,7 +130,7 @@ function App() {
         setTimeout(() => {
           setTimelineElementIndex((index) => index + 1)
           setWordLength(0)
-        }, Math.max(duration, timePerLetter * add.length) * 1000)
+        }, Math.max(duration, timePerLetter * add.length) * 100)
       } else {
         showCursor(false)
       }
@@ -238,8 +238,6 @@ function App() {
           ctx.fill()
         }
 
-        ellipse(100)
-        ellipse(200)
         ellipse(300)
         ellipse(400)
         ellipse(600)
@@ -272,12 +270,12 @@ function App() {
     <div
       className="App"
       onMouseMove={({ clientX, clientY }) => {
-        windowWidth = window.innerWidth
-        windowHeight = window.innerHeight
-        x = clientX / windowWidth - 0.5
-        y = clientY / windowHeight - 0.5
-        cw = canvasRef.current?.width ?? 100
-        ch = canvasRef.current?.height ?? 100
+        //windowWidth = window.innerWidth
+        //windowHeight = window.innerHeight
+        //x = clientX / windowWidth - 0.5
+        //y = clientY / windowHeight - 0.5
+        //cw = canvasRef.current?.width ?? 100
+        //ch = canvasRef.current?.height ?? 100
       }}
     >
       <Canvas ref={canvasRef}></Canvas>
