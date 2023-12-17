@@ -6,12 +6,12 @@ var blog = require('./blog')
 app.use(express.static(__dirname + '/build'))
 app.use('/api/v1/blog', express.static(__dirname + '/public/api/v1/blog'))
 
-var listener = app.listen(process.env.PORT || 8080, function() {
+var listener = app.listen(process.env.PORT || 8080, function () {
   console.log('Listening on http://localhost:' + listener.address().port)
 })
 
 // Backup API if static API is not enough in the future
-app.get('/api/v0/blog/:post?', function(req, res) {
+app.get('/api/v0/blog/:post?', function (req, res) {
   var data = null
 
   if (req.params.post) {
