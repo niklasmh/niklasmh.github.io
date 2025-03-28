@@ -1,29 +1,92 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <title>Niklas Molnes Hole | Portfolio</title>
-  </head>
-  <body>
-    <pre>
-name = NIKLAS MOLNES HOLE
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Niklas Molnes Hole</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            background: '#1a1a1a',
+            foreground: '#e0e0e0',
+            accent: '#c7ff8c',
+            card: '#2a2a2a'
+          },
+          fontFamily: {
+            sans: ['Inter', 'sans-serif']
+          }
+        }
+      }
+    };
+  </script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body class="dark bg-background text-foreground font-sans px-6 py-12">
+  <div class="max-w-3xl mx-auto space-y-10">
+    <header class="text-center">
+      <h1 class="text-5xl font-bold tracking-tight text-white">Niklas Molnes Hole</h1>
+      <p class="text-lg text-gray-400 mt-3">LLMs, web, graphics & physics</p>
+    </header>
 
-interests = { web 🕸, graphics 👓 & physics 🔬 }
+    <section>
+  <div class="flex justify-center gap-6">
+    <a href="https://github.com/niklasmh" target="_blank" class="flex items-center gap-2 px-4 py-2 rounded-lg bg-card hover:bg-gray-800 transition">
+      <i data-lucide="github" class="w-5 h-5 text-gray-300"></i>
+      <span class="text-gray-300">GitHub</span>
+    </a>
+    <a href="https://www.linkedin.com/in/niklasmh" target="_blank" class="flex items-center gap-2 px-4 py-2 rounded-lg bg-card hover:bg-gray-800 transition">
+      <i data-lucide="linkedin" class="w-5 h-5 text-gray-300"></i>
+      <span class="text-gray-300">LinkedIn</span>
+    </a>
+    <a href="https://twitter.com/niklashole" target="_blank" class="flex items-center gap-2 px-4 py-2 rounded-lg bg-card hover:bg-gray-800 transition">
+      <i data-lucide="twitter" class="w-5 h-5 text-gray-300"></i>
+      <span class="text-gray-300">Twitter</span>
+    </a>
+  </div>
+</section>
 
-links = {
-	  niklasmh @ GitHub      // Recent projects
-	  niklasmh @ LinkedIn    // Contact me here
-	niklashole @ Twitter
-}
+    <section>
+      <h2 class="text-2xl font-semibold text-white mb-4">Skills</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div class="bg-card p-4 rounded-xl">
+          <h3 class="text-xl font-bold text-white tracking-wide pb-1 mb-2 flex items-center gap-2"><i data-lucide="code" class="w-5 h-5 text-gray-400"></i>Frontend</h3>
+          <p class="text-gray-400"><strong class="text-gray-200">JavaScript</strong>, <strong class="text-gray-200">TypeScript</strong>, <strong class="text-gray-200">React.js</strong>, <strong class="text-gray-200">Next.js</strong>, HTML5, CSS, Angular, Vue.js, Redux, Zustand, Three.js, R3F, Tailwind CSS, Micro Frontends, Razor, Storybook</p>
+        </div>
+        <div class="bg-card p-4 rounded-xl">
+          <h3 class="text-xl font-bold text-white tracking-wide pb-1 mb-2 flex items-center gap-2"><i data-lucide="server" class="w-5 h-5 text-gray-400"></i>Backend</h3>
+          <p class="text-gray-400"><strong class="text-gray-200">.NET</strong>, <strong class="text-gray-200">.NET Core</strong>, <strong class="text-gray-200">Node.js</strong>, Express.js, Quarts, FastAPI, Django, REST, SignalR, WebSockets</p>
+        </div>
+        <div class="bg-card p-4 rounded-xl">
+          <h3 class="text-xl font-bold text-white tracking-wide pb-1 mb-2 flex items-center gap-2"><i data-lucide="bot" class="w-5 h-5 text-gray-400"></i>LLMs</h3>
+          <p class="text-gray-400"><strong class="text-gray-200">OpenAI API</strong>, <strong class="text-gray-200">Azure OpenAI Service</strong>, <strong class="text-gray-200">AWS Bedrock</strong>, <strong class="text-gray-200">GPT</strong>, <strong class="text-gray-200">Claude</strong>, Vector embeddings, Fine-tuning</p>
+        </div>
+        <div class="bg-card p-4 rounded-xl">
+          <h3 class="text-xl font-bold text-white tracking-wide pb-1 mb-2 flex items-center gap-2"><i data-lucide="smartphone" class="w-5 h-5 text-gray-400"></i>App</h3>
+          <p class="text-gray-400">React Native, Android Automotive, Electron</p>
+        </div>
+        <div class="bg-card p-4 rounded-xl">
+          <h3 class="text-xl font-bold text-white tracking-wide pb-1 mb-2 flex items-center gap-2"><i data-lucide="database" class="w-5 h-5 text-gray-400"></i>Databases</h3>
+          <p class="text-gray-400">Microsoft SQL, PostgreSQL, pgVector, Supabase, Firebase, Redis, Qdrant, ChromaDB</p>
+        </div>
+        <div class="bg-card p-4 rounded-xl">
+          <h3 class="text-xl font-bold text-white tracking-wide pb-1 mb-2 flex items-center gap-2"><i data-lucide="settings" class="w-5 h-5 text-gray-400"></i>DevOps</h3>
+          <p class="text-gray-400"><strong class="text-gray-200">Docker</strong>, <strong class="text-gray-200">Git</strong>, GitHub Actions, Azure DevOps, Jenkins, DroneCI</p>
+        </div>
+      </div>
+    </section>
 
-skills = {
-     Frontend: JavaScript, CSS, HTML, React.js, Vue.js, Angular, TypeScript, WebGL, Three.js, jQuery
-      Backend: .NET, Node.js, Next.js, Express.js, Java, Kotlin, PHP, Django
-         LLMs: OpenAI API, Azure OpenAI Service, GPT-3/4, Bard, Llama, smart search, embeddings, fine-tuning
-          App: React Native, Android Automotive, Electron
-    Databases: MS SQL, MySQL, Supabase, Firebase, PostgreSQL, Redis, MongoDB
-       DevOps: Docker, GitHub Actions, Jenkins, Drone CI
-         Misc: Bash, PowerShell, Git, SVN, TFS, 3D printing, 3D modelling, 3D graphics
-}
-    </pre>
-  </body>
+    <footer class="pt-10 border-t border-gray-700 text-sm text-center text-gray-500">
+      <p>© 2025 Niklas Molnes Hole - mostly made by ChatGPT</p>
+    </footer>
+  </div>
+
+  <script>
+    lucide.createIcons();
+  </script>
+</body>
 </html>
