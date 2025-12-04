@@ -1,99 +1,146 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%2280%22 font-size=%2280%22>👨‍💻</text></svg>">
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Niklas Molnes Hole</title>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script>
-    tailwind.config = {
-      darkMode: 'class',
-      theme: {
-        extend: {
-          colors: {
-            background: '#1a1a1a',
-            foreground: '#e0e0e0',
-            accent: '#c7ff8c',
-            card: '#2a2a2a'
+  <head>
+    <link
+      rel="icon"
+      href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%2280%22 font-size=%2280%22>👨‍💻</text></svg>"
+    />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Niklas Molnes Hole</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              background: "#1a1a1a",
+              foreground: "#e0e0e0",
+              accent: "#c7ff8c",
+              card: "#2a2a2a",
+            },
+            fontFamily: {
+              sans: ["Inter", "sans-serif"],
+            },
           },
-          fontFamily: {
-            sans: ['Inter', 'sans-serif']
-          }
-        }
-      }
-    };
-  </script>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
-  <script src="https://unpkg.com/lucide@latest"></script>
-</head>
-<body class="dark bg-background text-foreground font-sans px-6 py-12">
-  <div class="max-w-3xl mx-auto space-y-10">
-    <header class="text-center">
-      <h1 class="text-5xl font-bold tracking-tight text-white">Niklas Molnes Hole</h1>
-      <p class="text-lg text-gray-400 mt-3">LLMs, web, graphics & physics</p>
-    </header>
+        },
+      };
+    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
+    <script src="https://unpkg.com/lucide@latest"></script>
+  </head>
+  <body class="dark bg-background text-foreground font-sans px-6 py-12">
+    <div class="max-w-3xl mx-auto space-y-10">
+      <header class="text-center">
+        <h1 class="text-5xl font-bold tracking-tight text-white">Niklas Molnes Hole</h1>
+        <p class="text-lg text-gray-400 mt-3">LLMs, Web, Graphics & Physics</p>
+      </header>
 
-    <section>
-  <div class="flex justify-center gap-6">
-    <a href="https://github.com/niklasmh" target="_blank" class="flex items-center gap-2 px-4 py-2 rounded-lg bg-card hover:bg-gray-800 transition">
-      <i data-lucide="github" class="w-5 h-5 text-gray-300"></i>
-      <span class="text-gray-300">GitHub</span>
-    </a>
-    <a href="https://www.linkedin.com/in/niklasmh" target="_blank" class="flex items-center gap-2 px-4 py-2 rounded-lg bg-card hover:bg-gray-800 transition">
-      <i data-lucide="linkedin" class="w-5 h-5 text-gray-300"></i>
-      <span class="text-gray-300">LinkedIn</span>
-    </a>
-    <a href="https://twitter.com/niklashole" target="_blank" class="flex items-center gap-2 px-4 py-2 rounded-lg bg-card hover:bg-gray-800 transition">
-      <i data-lucide="twitter" class="w-5 h-5 text-gray-300"></i>
-      <span class="text-gray-300">Twitter</span>
-    </a>
-  </div>
-</section>
+      <section>
+        <div class="flex justify-center gap-6">
+          <a
+            href="https://github.com/niklasmh"
+            target="_blank"
+            class="flex items-center gap-2 px-4 py-2 rounded-lg bg-card hover:bg-gray-800 transition"
+          >
+            <i data-lucide="github" class="w-5 h-5 text-gray-300"></i>
+            <span class="text-gray-300">GitHub</span>
+          </a>
+          <a
+            href="https://www.linkedin.com/in/niklasmh"
+            target="_blank"
+            class="flex items-center gap-2 px-4 py-2 rounded-lg bg-card hover:bg-gray-800 transition"
+          >
+            <i data-lucide="linkedin" class="w-5 h-5 text-gray-300"></i>
+            <span class="text-gray-300">LinkedIn</span>
+          </a>
+          <a
+            href="https://twitter.com/niklashole"
+            target="_blank"
+            class="flex items-center gap-2 px-4 py-2 rounded-lg bg-card hover:bg-gray-800 transition"
+          >
+            <i data-lucide="twitter" class="w-5 h-5 text-gray-300"></i>
+            <span class="text-gray-300">Twitter</span>
+          </a>
+        </div>
+      </section>
 
-    <section>
-  <h2 class="text-2xl font-semibold text-white mb-4">Recent Work</h2>
-  <div class="bg-card p-4 rounded-xl text-gray-400">
-    I've been busy lately building advanced chat UIs and internal tools powered by LLMs for customers, and deep diving into how to create business value using vector embeddings and LLMs. A big part of that has been making the experiences <span class="text-white font-medium">reliable</span>, <span class="text-white font-medium">safe</span>, as well as <span class="text-white font-medium">fast</span> — ensuring smooth performance for end users.</div>
-</section>
+      <section>
+        <h2 class="text-2xl font-semibold text-white mb-4">Recent Work</h2>
+        <div class="bg-card p-4 rounded-xl text-gray-400">
+          Web nerd with a passion for solving complex problems. Lately, I've been working quite intensely with LLMs and
+          vector search, both professionally and in my spare time.
+        </div>
+      </section>
 
-<section>
-  <h2 class="text-2xl font-semibold text-white mb-4">Skills</h2>
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-        <div class="bg-card p-4 rounded-xl">
-          <h3 class="text-xl font-bold text-white tracking-wide pb-1 mb-2 flex items-center gap-2"><i data-lucide="code" class="w-5 h-5 text-gray-400"></i>Frontend</h3>
-          <p class="text-gray-400"><strong class="text-gray-200">JavaScript</strong>, <strong class="text-gray-200">TypeScript</strong>, <strong class="text-gray-200">React.js</strong>, <strong class="text-gray-200">Next.js</strong>, HTML5, CSS, Angular, Vue.js, Redux, Zustand, Three.js, R3F, Tailwind CSS, Micro Frontends, Razor, Storybook</p>
+      <section>
+        <h2 class="text-2xl font-semibold text-white mb-4">Skills</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div class="bg-card p-4 rounded-xl">
+            <h3 class="text-xl font-bold text-white tracking-wide pb-1 mb-2 flex items-center gap-2">
+              <i data-lucide="code" class="w-5 h-5 text-gray-400"></i>Frontend
+            </h3>
+            <p class="text-gray-400">
+              <strong class="text-gray-200">JavaScript</strong>, <strong class="text-gray-200">TypeScript</strong>,
+              <strong class="text-gray-200">React.js</strong>, <strong class="text-gray-200">Next.js</strong>, HTML,
+              CSS, Vue.js, Redux, Zustand, Three.js, R3F, Tailwind CSS, Micro Frontends, Storybook
+            </p>
+          </div>
+          <div class="bg-card p-4 rounded-xl">
+            <h3 class="text-xl font-bold text-white tracking-wide pb-1 mb-2 flex items-center gap-2">
+              <i data-lucide="server" class="w-5 h-5 text-gray-400"></i>Backend
+            </h3>
+            <p class="text-gray-400">
+              <strong class="text-gray-200">.NET</strong>, <strong class="text-gray-200">.NET Core</strong>,
+              <strong class="text-gray-200">Node.js</strong>, Quarts, FastAPI, Django, REST, SignalR, WebSockets
+            </p>
+          </div>
+          <div class="bg-card p-4 rounded-xl">
+            <h3 class="text-xl font-bold text-white tracking-wide pb-1 mb-2 flex items-center gap-2">
+              <i data-lucide="bot" class="w-5 h-5 text-gray-400"></i>LLMs
+            </h3>
+            <p class="text-gray-400">
+              <strong class="text-gray-200">OpenAI API</strong>,
+              <strong class="text-gray-200">Azure OpenAI Service</strong>,
+              <strong class="text-gray-200">AWS Bedrock</strong>, <strong class="text-gray-200">GPT</strong>,
+              <strong class="text-gray-200">Claude</strong>, <strong class="text-gray-200">MCP</strong>, Vector Search,
+              Fine-tuning
+            </p>
+          </div>
+          <div class="bg-card p-4 rounded-xl">
+            <h3 class="text-xl font-bold text-white tracking-wide pb-1 mb-2 flex items-center gap-2">
+              <i data-lucide="smartphone" class="w-5 h-5 text-gray-400"></i>App
+            </h3>
+            <p class="text-gray-400">React Native, Android Automotive, Xamarin, Electron</p>
+          </div>
+          <div class="bg-card p-4 rounded-xl">
+            <h3 class="text-xl font-bold text-white tracking-wide pb-1 mb-2 flex items-center gap-2">
+              <i data-lucide="database" class="w-5 h-5 text-gray-400"></i>Databases
+            </h3>
+            <p class="text-gray-400">
+              Microsoft SQL, PostgreSQL, pgVector, Supabase, Firebase, Redis, Qdrant, ChromaDB
+            </p>
+          </div>
+          <div class="bg-card p-4 rounded-xl">
+            <h3 class="text-xl font-bold text-white tracking-wide pb-1 mb-2 flex items-center gap-2">
+              <i data-lucide="settings" class="w-5 h-5 text-gray-400"></i>DevOps
+            </h3>
+            <p class="text-gray-400">
+              <strong class="text-gray-200">Docker</strong>, <strong class="text-gray-200">Git</strong>, GitHub Actions,
+              Azure DevOps, Jenkins, DroneCI
+            </p>
+          </div>
         </div>
-        <div class="bg-card p-4 rounded-xl">
-          <h3 class="text-xl font-bold text-white tracking-wide pb-1 mb-2 flex items-center gap-2"><i data-lucide="server" class="w-5 h-5 text-gray-400"></i>Backend</h3>
-          <p class="text-gray-400"><strong class="text-gray-200">.NET</strong>, <strong class="text-gray-200">.NET Core</strong>, <strong class="text-gray-200">Node.js</strong>, Express.js, Quarts, FastAPI, Django, REST, SignalR, WebSockets</p>
-        </div>
-        <div class="bg-card p-4 rounded-xl">
-          <h3 class="text-xl font-bold text-white tracking-wide pb-1 mb-2 flex items-center gap-2"><i data-lucide="bot" class="w-5 h-5 text-gray-400"></i>LLMs</h3>
-          <p class="text-gray-400"><strong class="text-gray-200">OpenAI API</strong>, <strong class="text-gray-200">Azure OpenAI Service</strong>, <strong class="text-gray-200">AWS Bedrock</strong>, <strong class="text-gray-200">GPT</strong>, <strong class="text-gray-200">Claude</strong>, Vector embeddings, Fine-tuning</p>
-        </div>
-        <div class="bg-card p-4 rounded-xl">
-          <h3 class="text-xl font-bold text-white tracking-wide pb-1 mb-2 flex items-center gap-2"><i data-lucide="smartphone" class="w-5 h-5 text-gray-400"></i>App</h3>
-          <p class="text-gray-400">React Native, Android Automotive, Xamarin, Electron</p>
-        </div>
-        <div class="bg-card p-4 rounded-xl">
-          <h3 class="text-xl font-bold text-white tracking-wide pb-1 mb-2 flex items-center gap-2"><i data-lucide="database" class="w-5 h-5 text-gray-400"></i>Databases</h3>
-          <p class="text-gray-400">Microsoft SQL, PostgreSQL, pgVector, Supabase, Firebase, Redis, Qdrant, ChromaDB</p>
-        </div>
-        <div class="bg-card p-4 rounded-xl">
-          <h3 class="text-xl font-bold text-white tracking-wide pb-1 mb-2 flex items-center gap-2"><i data-lucide="settings" class="w-5 h-5 text-gray-400"></i>DevOps</h3>
-          <p class="text-gray-400"><strong class="text-gray-200">Docker</strong>, <strong class="text-gray-200">Git</strong>, GitHub Actions, Azure DevOps, Jenkins, DroneCI</p>
-        </div>
-      </div>
-    </section>
+      </section>
 
-    <footer class="pt-10 border-t border-gray-700 text-sm text-center text-gray-500">
-      <p>© 2025 Niklas Molnes Hole - mostly made by ChatGPT</p>
-    </footer>
-  </div>
+      <footer class="pt-10 border-t border-gray-700 text-sm text-center text-gray-500">
+        <p>© 2025 Niklas Molnes Hole</p>
+      </footer>
+    </div>
 
-  <script>
-    lucide.createIcons();
-  </script>
-</body>
+    <script>
+      lucide.createIcons();
+    </script>
+  </body>
 </html>
