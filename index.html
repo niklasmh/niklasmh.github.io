@@ -359,29 +359,20 @@
         height: 16px;
         background: transparent;
         background-image: none;
-        border-left: 1px solid rgba(184, 169, 255, 0.28);
-        border-right: 1px solid rgba(184, 169, 255, 0.28);
+        border-left: 1px solid transparent;
+        border-right: 1px solid transparent;
         border-radius: 0;
       }
       .chart-row:not(.chart-subrow) + .chart-subrow .chart-track {
-        border-top: 1px solid rgba(184, 169, 255, 0.28);
+        border-top: 1px solid transparent;
         border-top-left-radius: 6px;
         border-top-right-radius: 6px;
-        height: 20px;
-      }
-      .chart-row:not(.chart-subrow) + .chart-subrow .chart-bar {
-        top: 9.5px;
       }
       .chart-subrow:has(+ .chart-row:not(.chart-subrow)) .chart-track,
       .chart-subrow:last-child .chart-track {
-        border-bottom: 1px solid rgba(184, 169, 255, 0.28);
+        border-bottom: 1px solid transparent;
         border-bottom-left-radius: 6px;
         border-bottom-right-radius: 6px;
-        height: 20px;
-      }
-      .chart-subrow:has(+ .chart-row:not(.chart-subrow)) .chart-bar,
-      .chart-subrow:last-child .chart-bar {
-        bottom: 9.5px;
       }
       .chart-subrow .chart-label {
         position: absolute;
@@ -425,15 +416,15 @@
         box-shadow: none;
       }
       .chart-subrow.alt .chart-track {
-        border-left-color: rgba(255, 144, 84, 0.28);
-        border-right-color: rgba(255, 144, 84, 0.28);
+        border-left-color: transparent;
+        border-right-color: transparent;
       }
       .chart-row:not(.chart-subrow) + .chart-subrow.alt .chart-track {
-        border-top-color: rgba(255, 144, 84, 0.28);
+        border-top-color: transparent;
       }
       .chart-subrow.alt:has(+ .chart-row:not(.chart-subrow)) .chart-track,
       .chart-subrow.alt:last-child .chart-track {
-        border-bottom-color: rgba(255, 144, 84, 0.28);
+        border-bottom-color: transparent;
       }
       .chart-subrow .chart-bar.alt {
         background: linear-gradient(90deg, rgba(199, 103, 56, 0.4), rgba(255, 144, 84, 0.55));
@@ -444,15 +435,15 @@
         border-color: rgba(255, 144, 84, 0.9);
       }
       .chart-subrow.personal .chart-track {
-        border-left-color: rgba(74, 222, 128, 0.28);
-        border-right-color: rgba(74, 222, 128, 0.28);
+        border-left-color: transparent;
+        border-right-color: transparent;
       }
       .chart-row:not(.chart-subrow) + .chart-subrow.personal .chart-track {
-        border-top-color: rgba(74, 222, 128, 0.28);
+        border-top-color: transparent;
       }
       .chart-subrow.personal:has(+ .chart-row:not(.chart-subrow)) .chart-track,
       .chart-subrow.personal:last-child .chart-track {
-        border-bottom-color: rgba(74, 222, 128, 0.28);
+        border-bottom-color: transparent;
       }
       .chart-subrow .chart-bar.personal {
         background: linear-gradient(90deg, rgba(22, 163, 74, 0.4), rgba(74, 222, 128, 0.55));
@@ -649,7 +640,7 @@
       <section class="section" aria-labelledby="stack-heading">
         <div class="container">
           <p class="kicker">03 · Stack</p>
-          <h2 id="stack-heading">Tools of the trade</h2>
+          <h2 id="stack-heading">Skills</h2>
           <div class="grid stack">
             <div>
               <p class="col-label">Frontend</p>
