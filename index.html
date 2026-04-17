@@ -1,161 +1,1033 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
-    <link
-      rel="icon"
-      href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%2280%22 font-size=%2280%22>👨‍💻</text></svg>"
-    />
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Niklas Molnes Hole</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-      tailwind.config = {
-        darkMode: "class",
-        theme: {
-          extend: {
-            colors: {
-              background: "#1a1a1a",
-              foreground: "#e0e0e0",
-              accent: "#c7ff8c",
-              card: "#2a2a2a",
-            },
-            fontFamily: {
-              sans: ["Inter", "sans-serif"],
-            },
-          },
-        },
-      };
-    </script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
-    <script src="https://unpkg.com/lucide@latest"></script>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Niklas Molnes Hole — Fullstack & LLM engineer</title>
+    <meta name="description" content="Fullstack and LLM engineer based in Oslo. Currently Frontend Lead at Equinor building LLM-powered agents." />
+
+    <meta property="og:title" content="Niklas Molnes Hole — Fullstack & LLM engineer" />
+    <meta property="og:description" content="Fullstack and LLM engineer based in Oslo." />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://niklasmh.no" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+
     <style>
+      :root {
+        --bg: #0a0a0f;
+        --bg-2: #1a1a2e;
+        --panel: rgba(255, 255, 255, 0.02);
+        --border: rgba(255, 255, 255, 0.08);
+        --border-hover: rgba(255, 255, 255, 0.18);
+        --text: #ededf2;
+        --text-dim: #c0c0e0;
+        --text-muted: #8a8aa0;
+        --accent: #b8a9ff;
+        --accent-dim: #8b8bd4;
+        --glow: rgba(120, 80, 255, 0.35);
+        --band: rgba(120, 80, 255, 0.05);
+        --radius: 12px;
+        --max: 1080px;
+        --pad-x: clamp(20px, 5vw, 48px);
+        --font-sans: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+        --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+      }
+
+      * { box-sizing: border-box; }
+      html { scroll-behavior: smooth; }
+      @media (prefers-reduced-motion: reduce) {
+        html { scroll-behavior: auto; }
+        * { transition: none !important; animation: none !important; }
+      }
+
       body {
-        background-image: linear-gradient(0deg, #0004, #0004), url(img/hex.jpg);
-        background-size: cover, contain;
+        margin: 0;
+        min-height: 100vh;
+        background:
+          radial-gradient(ellipse at top, rgba(120, 80, 255, 0.10), transparent 60%),
+          linear-gradient(180deg, var(--bg) 0%, var(--bg-2) 100%);
         background-attachment: fixed;
+        color: var(--text);
+        font-family: var(--font-sans);
+        font-size: 16px;
+        line-height: 1.6;
+        -webkit-font-smoothing: antialiased;
       }
-      .bg-card {
-        background-color: transparent !important;
+
+      a { color: inherit; text-decoration: none; }
+      ::selection { background: var(--accent); color: var(--bg); }
+
+      .container { max-width: var(--max); margin: 0 auto; padding: 0 var(--pad-x); }
+      .kicker {
+        font-size: 11px;
+        letter-spacing: 0.2em;
+        text-transform: uppercase;
+        color: var(--accent-dim);
+        font-weight: 500;
+        margin: 0;
       }
-      h1,
-      h2,
-      h3 {
-        text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.6), 4px 4px 12px rgba(0, 0, 0, 0.4);
+
+      .nav {
+        position: sticky;
+        top: 0;
+        z-index: 10;
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+        background: rgba(10, 10, 15, 0.6);
+        border-bottom: 1px solid var(--border);
+      }
+      .nav-inner {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        height: 56px;
+      }
+      .monogram {
+        font-weight: 800;
+        letter-spacing: 0.05em;
+        font-size: 14px;
+      }
+      .nav nav { display: flex; gap: 28px; font-size: 13px; color: var(--text-dim); }
+      .nav nav a { transition: color 0.15s ease; }
+      .nav nav a:hover { color: var(--text); }
+      .nav nav a.active { color: var(--accent); }
+      @media (max-width: 560px) {
+        .nav nav { display: none; }
+      }
+
+      .hero {
+        position: relative;
+        padding: 120px 0 100px;
+        text-align: center;
+        overflow: hidden;
+      }
+      .hero-glow {
+        position: absolute;
+        top: -140px; left: 50%;
+        transform: translateX(-50%);
+        width: 720px; height: 720px;
+        max-width: 100vw;
+        background: radial-gradient(circle, var(--glow), transparent 60%);
+        pointer-events: none;
+        filter: blur(20px);
+      }
+      .hero-inner { position: relative; }
+      .hero h1 {
+        font-size: clamp(40px, 7vw, 72px);
+        font-weight: 800;
+        letter-spacing: -0.02em;
+        line-height: 1.05;
+        margin: 18px 0 18px;
+      }
+      .gradient {
+        background: linear-gradient(90deg, #ffffff 0%, var(--accent) 100%);
+        -webkit-background-clip: text; background-clip: text;
+        -webkit-text-fill-color: transparent; color: transparent;
+      }
+      .tagline {
+        font-size: clamp(16px, 1.6vw, 19px);
+        color: var(--text-dim);
+        max-width: 540px;
+        margin: 0 auto;
+      }
+      .cta-row {
+        display: flex; gap: 10px; justify-content: center;
+        margin-top: 32px; flex-wrap: wrap;
+      }
+      .btn {
+        display: inline-flex; align-items: center;
+        font-size: 14px; font-weight: 600;
+        padding: 11px 20px; border-radius: 10px;
+        transition: transform 0.15s ease, background 0.15s ease, border-color 0.15s ease;
+      }
+      .btn-primary { background: #fff; color: var(--bg); }
+      .btn-primary:hover { transform: translateY(-1px); }
+      .btn-ghost {
+        border: 1px solid var(--border-hover);
+        color: var(--text);
+      }
+      .btn-ghost:hover { background: rgba(255, 255, 255, 0.04); transform: translateY(-1px); }
+
+      .currently {
+        padding: 36px 0;
+        background: var(--band);
+        border-top: 1px solid var(--border);
+        border-bottom: 1px solid var(--border);
+      }
+      .currently-title {
+        font-size: clamp(18px, 2.2vw, 22px);
+        font-weight: 600;
+        margin: 8px 0 4px;
+      }
+      .currently-sub { color: var(--text-muted); font-size: 14px; margin: 0; }
+      .accent { color: var(--accent); }
+
+      .section { padding: 96px 0; border-top: 1px solid var(--border); }
+      .section h2 {
+        font-size: clamp(26px, 3.4vw, 36px);
+        font-weight: 700;
+        letter-spacing: -0.01em;
+        margin: 10px 0 32px;
+      }
+      .grid { display: grid; gap: 14px; }
+      .projects { grid-template-columns: repeat(2, 1fr); }
+      @media (max-width: 720px) { .projects { grid-template-columns: 1fr; } }
+
+      .card {
+        border: 1px solid var(--border);
+        background: var(--panel);
+        padding: 22px;
+        border-radius: var(--radius);
+        transition: transform 0.15s ease, border-color 0.15s ease, background 0.15s ease;
+      }
+      .card:hover {
+        border-color: var(--border-hover);
+        background: rgba(255, 255, 255, 0.04);
+        transform: translateY(-1px);
+      }
+      .card-date {
+        font-family: var(--font-mono);
+        font-size: 12px;
+        color: var(--accent-dim);
+        margin: 0 0 6px;
+      }
+      .card h3 { font-size: 17px; font-weight: 600; margin: 0 0 8px; }
+      .card-body { color: var(--text-dim); font-size: 14px; margin: 0; }
+
+      .stack { grid-template-columns: repeat(4, 1fr); gap: 28px; }
+      @media (max-width: 960px) { .stack { grid-template-columns: repeat(2, 1fr); } }
+      @media (max-width: 560px) { .stack { grid-template-columns: 1fr; } }
+      .col-label {
+        font-size: 11px;
+        letter-spacing: 0.15em;
+        text-transform: uppercase;
+        color: var(--accent-dim);
+        margin: 0 0 10px;
+        font-weight: 600;
+      }
+      .col-body { color: var(--text-dim); font-size: 14px; line-height: 1.8; margin: 0; }
+
+      .chart-toggle {
+        display: flex;
+        justify-content: flex-start;
+        margin-bottom: 12px;
+      }
+      .chart-toggle label {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        cursor: pointer;
+        font-size: 12px;
+        color: var(--text-muted);
+        user-select: none;
+      }
+      .chart-toggle input[type="checkbox"] {
+        appearance: none;
+        -webkit-appearance: none;
+        width: 32px;
+        height: 18px;
+        background: rgba(255, 255, 255, 0.08);
+        border: 1px solid var(--border);
+        border-radius: 10px;
+        position: relative;
+        cursor: pointer;
+        transition: background 0.15s ease, border-color 0.15s ease;
+        margin: 0;
+      }
+      .chart-toggle input[type="checkbox"]::before {
+        content: '';
+        position: absolute;
+        top: 2px;
+        left: 2px;
+        width: 12px;
+        height: 12px;
+        background: var(--text-muted);
+        border-radius: 50%;
+        transition: transform 0.15s ease, background 0.15s ease;
+      }
+      .chart-toggle input[type="checkbox"]:checked {
+        background: rgba(120, 80, 255, 0.35);
+        border-color: var(--accent-dim);
+      }
+      .chart-toggle input[type="checkbox"]:checked::before {
+        transform: translateX(14px);
+        background: var(--accent);
+      }
+      .chart-toggle:has(input:not(:checked)) + .chart .chart-subrow {
+        display: none;
+      }
+
+      .chart { font-size: 13px; }
+      .chart-head,
+      .chart-row {
+        display: grid;
+        grid-template-columns: 170px 1fr;
+        gap: 16px;
+        align-items: center;
+      }
+      .chart-head { margin-bottom: 10px; }
+      .chart-axis {
+        position: relative;
+        height: 22px;
+        border-bottom: 1px solid var(--border);
+      }
+      .chart-axis span {
+        position: absolute;
+        top: 2px;
+        transform: translateX(-50%);
+        font-family: var(--font-mono);
+        font-size: 11px;
+        color: var(--text-muted);
+      }
+      .chart-rows {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        flex-direction: column;
+        gap: 6px;
+      }
+      .chart-label {
+        display: flex;
+        flex-direction: column;
+        gap: 1px;
+        text-align: right;
+        padding-right: 6px;
+        line-height: 1.3;
+      }
+      .chart-label .company {
+        color: var(--text-dim);
+        font-weight: 500;
+        font-size: 13px;
+      }
+      .chart-label .meta {
+        color: var(--text-muted);
+        font-size: 11px;
+      }
+      .chart-track {
+        position: relative;
+        height: 24px;
+        background: rgba(255, 255, 255, 0.015);
+        border-radius: 4px;
+        background-image: repeating-linear-gradient(
+          90deg,
+          transparent 0,
+          transparent calc(9.836% - 1px),
+          rgba(255, 255, 255, 0.05) 9.836%
+        );
+      }
+      .chart-marker {
+        position: absolute;
+        top: 3px;
+        bottom: 3px;
+        width: 5px;
+        background: #ff9054;
+        border-radius: 2px;
+        transform: translateX(-50%);
+        box-shadow: 0 0 8px rgba(255, 144, 84, 0.45);
+        transition: transform 0.15s ease, box-shadow 0.15s ease;
+        cursor: default;
+      }
+      .chart-marker:hover {
+        transform: translateX(-50%) scaleX(1.8);
+        box-shadow: 0 0 14px rgba(255, 144, 84, 0.75);
+      }
+      .chart-bar.alt {
+        background: linear-gradient(90deg, #c76738, #ff9054);
+      }
+      .chart-bar.alt:hover {
+        box-shadow: 0 0 10px rgba(255, 144, 84, 0.35);
+      }
+      .chart-bar.personal {
+        background: linear-gradient(90deg, #16a34a, #4ade80);
+      }
+      .chart-bar.personal:hover {
+        box-shadow: 0 0 10px rgba(74, 222, 128, 0.35);
+      }
+      .chart-subrow {
+        margin-top: -6px;
+        position: relative;
+      }
+      .chart-row:not(.chart-subrow) + .chart-subrow {
+        margin-top: -2px;
+      }
+      .chart-subrow .chart-track {
+        grid-column: 2;
+        height: 16px;
+        background: transparent;
+        background-image: none;
+        border-left: 1px solid rgba(184, 169, 255, 0.28);
+        border-right: 1px solid rgba(184, 169, 255, 0.28);
+        border-radius: 0;
+      }
+      .chart-row:not(.chart-subrow) + .chart-subrow .chart-track {
+        border-top: 1px solid rgba(184, 169, 255, 0.28);
+        border-top-left-radius: 6px;
+        border-top-right-radius: 6px;
+        height: 20px;
+      }
+      .chart-row:not(.chart-subrow) + .chart-subrow .chart-bar {
+        top: 9.5px;
+      }
+      .chart-subrow:has(+ .chart-row:not(.chart-subrow)) .chart-track,
+      .chart-subrow:last-child .chart-track {
+        border-bottom: 1px solid rgba(184, 169, 255, 0.28);
+        border-bottom-left-radius: 6px;
+        border-bottom-right-radius: 6px;
+        height: 20px;
+      }
+      .chart-subrow:has(+ .chart-row:not(.chart-subrow)) .chart-bar,
+      .chart-subrow:last-child .chart-bar {
+        bottom: 9.5px;
+      }
+      .chart-subrow .chart-label {
+        position: absolute;
+        left: 186px;
+        right: 8px;
+        top: 0;
+        bottom: 0;
+        flex-direction: row;
+        align-items: center;
+        justify-content: flex-start;
+        text-align: left;
+        padding: 0 0 0 8px;
+        line-height: 16px;
+        z-index: 2;
+        pointer-events: none;
+      }
+      .chart-subrow .chart-label .company {
+        font-size: 11px;
+        font-weight: 400;
+        color: #5e5e75;
+      }
+      @media (max-width: 720px) {
+        .chart-subrow .chart-label {
+          position: static;
+          left: auto;
+          right: auto;
+          padding-left: 0;
+        }
+      }
+      .chart-subrow .chart-bar {
+        top: 5.5px;
+        bottom: 5.5px;
+        max-width: calc(100% - 8px);
+        background: linear-gradient(90deg, rgba(139, 139, 212, 0.4), rgba(184, 169, 255, 0.55));
+        border: 1px solid rgba(184, 169, 255, 0.55);
+        box-shadow: none;
+      }
+      .chart-subrow .chart-bar:hover {
+        background: linear-gradient(90deg, rgba(139, 139, 212, 0.7), rgba(184, 169, 255, 0.85));
+        border-color: rgba(184, 169, 255, 0.9);
+        box-shadow: none;
+      }
+      .chart-subrow.alt .chart-track {
+        border-left-color: rgba(255, 144, 84, 0.28);
+        border-right-color: rgba(255, 144, 84, 0.28);
+      }
+      .chart-row:not(.chart-subrow) + .chart-subrow.alt .chart-track {
+        border-top-color: rgba(255, 144, 84, 0.28);
+      }
+      .chart-subrow.alt:has(+ .chart-row:not(.chart-subrow)) .chart-track,
+      .chart-subrow.alt:last-child .chart-track {
+        border-bottom-color: rgba(255, 144, 84, 0.28);
+      }
+      .chart-subrow .chart-bar.alt {
+        background: linear-gradient(90deg, rgba(199, 103, 56, 0.4), rgba(255, 144, 84, 0.55));
+        border: 1px solid rgba(255, 144, 84, 0.55);
+      }
+      .chart-subrow .chart-bar.alt:hover {
+        background: linear-gradient(90deg, rgba(199, 103, 56, 0.7), rgba(255, 144, 84, 0.85));
+        border-color: rgba(255, 144, 84, 0.9);
+      }
+      .chart-subrow.personal .chart-track {
+        border-left-color: rgba(74, 222, 128, 0.28);
+        border-right-color: rgba(74, 222, 128, 0.28);
+      }
+      .chart-row:not(.chart-subrow) + .chart-subrow.personal .chart-track {
+        border-top-color: rgba(74, 222, 128, 0.28);
+      }
+      .chart-subrow.personal:has(+ .chart-row:not(.chart-subrow)) .chart-track,
+      .chart-subrow.personal:last-child .chart-track {
+        border-bottom-color: rgba(74, 222, 128, 0.28);
+      }
+      .chart-subrow .chart-bar.personal {
+        background: linear-gradient(90deg, rgba(22, 163, 74, 0.4), rgba(74, 222, 128, 0.55));
+        border: 1px solid rgba(74, 222, 128, 0.55);
+      }
+      .chart-subrow .chart-bar.personal:hover {
+        background: linear-gradient(90deg, rgba(22, 163, 74, 0.7), rgba(74, 222, 128, 0.85));
+        border-color: rgba(74, 222, 128, 0.9);
+      }
+      .chart-marker.personal {
+        background: #4ade80;
+        box-shadow: 0 0 8px rgba(74, 222, 128, 0.45);
+      }
+      .chart-marker.personal:hover {
+        box-shadow: 0 0 14px rgba(74, 222, 128, 0.75);
+      }
+      .chart-marker.trail-right::after,
+      .chart-marker.trail-left::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        width: 50px;
+        pointer-events: none;
+        border-radius: 2px;
+      }
+      .chart-marker.trail-right::after {
+        left: 100%;
+        background: linear-gradient(90deg, rgba(255, 144, 84, 0.35), rgba(255, 144, 84, 0));
+      }
+      .chart-marker.trail-left::after {
+        right: 100%;
+        background: linear-gradient(90deg, rgba(255, 144, 84, 0), rgba(255, 144, 84, 0.35));
+      }
+      .chart-marker.personal.trail-right::after {
+        background: linear-gradient(90deg, rgba(74, 222, 128, 0.35), rgba(74, 222, 128, 0));
+      }
+      .chart-marker.personal.trail-left::after {
+        background: linear-gradient(90deg, rgba(74, 222, 128, 0), rgba(74, 222, 128, 0.35));
+      }
+      .chart-section-label {
+        font-size: 10px;
+        letter-spacing: 0.2em;
+        text-transform: uppercase;
+        color: var(--text-muted);
+        font-weight: 600;
+        margin: 10px 0;
+      }
+      .chart-divider {
+        height: 1px;
+        background: var(--border);
+        margin: 14px 0 14px 236px;
+      }
+      @media (max-width: 720px) {
+        .chart-divider { margin: 10px 0; }
+      }
+      .chart-bar {
+        position: absolute;
+        top: 3px;
+        bottom: 3px;
+        min-width: 4px;
+        background: linear-gradient(90deg, var(--accent-dim), var(--accent));
+        border-radius: 3px;
+        transition: transform 0.15s ease, box-shadow 0.15s ease;
+        cursor: default;
+      }
+      .chart-bar:hover {
+        transform: scaleY(1.2);
+        box-shadow: 0 0 10px rgba(184, 169, 255, 0.3);
+        z-index: 2;
+      }
+      .chart-bar.current {
+        background: linear-gradient(90deg, var(--accent), #ffffff);
+        box-shadow: 0 0 12px rgba(184, 169, 255, 0.35);
+        animation: chart-glow 2.4s ease-in-out infinite;
+      }
+      @keyframes chart-glow {
+        0%, 100% { box-shadow: 0 0 10px rgba(184, 169, 255, 0.25); }
+        50% { box-shadow: 0 0 18px rgba(184, 169, 255, 0.5); }
+      }
+      @media (prefers-reduced-motion: reduce) {
+        .chart-bar.current { animation: none; }
+      }
+
+      @media (max-width: 720px) {
+        .chart-head { grid-template-columns: 1fr; gap: 0; margin-bottom: 6px; }
+        .chart-head > .chart-head-spacer { display: none; }
+        .chart-row { grid-template-columns: 1fr; gap: 4px; }
+        .chart-rows { gap: 16px; }
+        .chart-label {
+          text-align: left;
+          padding-right: 0;
+          flex-direction: row;
+          gap: 8px;
+          align-items: baseline;
+          flex-wrap: wrap;
+        }
+        .chart-label .meta { font-size: 11px; }
+        .chart-track { height: 20px; }
+        .chart-axis span { font-size: 10px; }
+      }
+      .timeline-footer {
+        margin-top: 20px;
+        font-size: 13px;
+        color: var(--text-muted);
+      }
+      .timeline-footer a { color: var(--accent); }
+      .timeline-footer a:hover { text-decoration: underline; }
+
+      .contact { background: var(--band); text-align: center; }
+      .contact-inner { display: flex; flex-direction: column; align-items: center; }
+      .contact-sub {
+        color: var(--text-dim);
+        font-size: 15px;
+        max-width: 520px;
+        margin: 0 0 28px;
+      }
+      .contact-links {
+        display: flex; gap: 10px; flex-wrap: wrap; justify-content: center;
+      }
+
+      .footer {
+        padding: 28px 0;
+        font-size: 12px;
+        color: var(--text-muted);
+        text-align: center;
+        border-top: 1px solid var(--border);
       }
     </style>
   </head>
-  <body class="dark bg-background text-foreground font-sans px-6 py-12">
-    <div class="max-w-3xl mx-auto space-y-10">
-      <header class="text-center">
-        <h1 class="text-5xl font-bold tracking-tight text-white">Niklas Molnes Hole</h1>
-        <p class="text-lg text-gray-400 mt-3">LLMs, Web, Graphics & Physics</p>
-      </header>
+  <body>
+    <header class="nav">
+      <div class="container nav-inner">
+        <a href="#top" class="monogram" aria-label="Home">NMH</a>
+        <nav aria-label="Primary">
+          <a href="#projects">Projects</a>
+          <a href="#experience">Experience</a>
+          <a href="#contact">Contact</a>
+        </nav>
+      </div>
+    </header>
 
-      <section>
-        <div class="flex justify-center gap-6">
-          <a
-            href="https://github.com/niklasmh"
-            target="_blank"
-            class="flex items-center gap-2 px-4 py-2 rounded-lg bg-card hover:bg-gray-800 transition"
-          >
-            <i data-lucide="github" class="w-5 h-5 text-gray-300"></i>
-            <span class="text-gray-300">GitHub</span>
-          </a>
-          <a
-            href="https://www.linkedin.com/in/niklasmh"
-            target="_blank"
-            class="flex items-center gap-2 px-4 py-2 rounded-lg bg-card hover:bg-gray-800 transition"
-          >
-            <i data-lucide="linkedin" class="w-5 h-5 text-gray-300"></i>
-            <span class="text-gray-300">LinkedIn</span>
-          </a>
-          <a
-            href="https://twitter.com/niklashole"
-            target="_blank"
-            class="flex items-center gap-2 px-4 py-2 rounded-lg bg-card hover:bg-gray-800 transition"
-          >
-            <i data-lucide="twitter" class="w-5 h-5 text-gray-300"></i>
-            <span class="text-gray-300">Twitter</span>
-          </a>
-        </div>
-      </section>
-
-      <section>
-        <h2 class="text-2xl font-semibold text-white mb-4">Recent Work</h2>
-        <div class="bg-card p-4 rounded-xl text-gray-400">
-          Web nerd with a passion for solving complex problems. Lately, I've been working quite intensely with LLMs and
-          vector search, both professionally and in my spare time.
-        </div>
-      </section>
-
-      <section>
-        <h2 class="text-2xl font-semibold text-white mb-4">Skills</h2>
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-          <div class="bg-card p-4 rounded-xl">
-            <h3 class="text-xl font-bold text-white tracking-wide pb-1 mb-2 flex items-center gap-2">
-              <i data-lucide="code" class="w-5 h-5 text-gray-400"></i>Frontend
-            </h3>
-            <p class="text-gray-400">
-              <strong class="text-gray-200">JavaScript</strong>, <strong class="text-gray-200">TypeScript</strong>,
-              <strong class="text-gray-200">React.js</strong>, <strong class="text-gray-200">Next.js</strong>, HTML,
-              CSS, Vue.js, Redux, Zustand, Three.js, R3F, Tailwind CSS, Micro Frontends, Storybook
-            </p>
-          </div>
-          <div class="bg-card p-4 rounded-xl">
-            <h3 class="text-xl font-bold text-white tracking-wide pb-1 mb-2 flex items-center gap-2">
-              <i data-lucide="server" class="w-5 h-5 text-gray-400"></i>Backend
-            </h3>
-            <p class="text-gray-400">
-              <strong class="text-gray-200">.NET</strong>, <strong class="text-gray-200">.NET Core</strong>,
-              <strong class="text-gray-200">Node.js</strong>, Quarts, FastAPI, Django, REST, SignalR, WebSockets
-            </p>
-          </div>
-          <div class="bg-card p-4 rounded-xl">
-            <h3 class="text-xl font-bold text-white tracking-wide pb-1 mb-2 flex items-center gap-2">
-              <i data-lucide="bot" class="w-5 h-5 text-gray-400"></i>LLMs
-            </h3>
-            <p class="text-gray-400">
-              <strong class="text-gray-200">OpenAI API</strong>,
-              <strong class="text-gray-200">Azure OpenAI Service</strong>,
-              <strong class="text-gray-200">AWS Bedrock</strong>, <strong class="text-gray-200">GPT</strong>,
-              <strong class="text-gray-200">Claude</strong>, <strong class="text-gray-200">MCP</strong>, Vector Search,
-              Fine-tuning
-            </p>
-          </div>
-          <div class="bg-card p-4 rounded-xl">
-            <h3 class="text-xl font-bold text-white tracking-wide pb-1 mb-2 flex items-center gap-2">
-              <i data-lucide="smartphone" class="w-5 h-5 text-gray-400"></i>App
-            </h3>
-            <p class="text-gray-400">React Native, Android Automotive, Xamarin, Electron</p>
-          </div>
-          <div class="bg-card p-4 rounded-xl">
-            <h3 class="text-xl font-bold text-white tracking-wide pb-1 mb-2 flex items-center gap-2">
-              <i data-lucide="database" class="w-5 h-5 text-gray-400"></i>Databases
-            </h3>
-            <p class="text-gray-400">
-              Microsoft SQL, PostgreSQL, pgVector, Supabase, Firebase, Redis, Qdrant, ChromaDB
-            </p>
-          </div>
-          <div class="bg-card p-4 rounded-xl">
-            <h3 class="text-xl font-bold text-white tracking-wide pb-1 mb-2 flex items-center gap-2">
-              <i data-lucide="settings" class="w-5 h-5 text-gray-400"></i>DevOps
-            </h3>
-            <p class="text-gray-400">
-              <strong class="text-gray-200">Docker</strong>, <strong class="text-gray-200">Git</strong>, GitHub Actions,
-              Azure DevOps, Jenkins, DroneCI
-            </p>
+    <main id="top">
+      <section class="hero" aria-labelledby="hero-heading">
+        <div class="hero-glow" aria-hidden="true"></div>
+        <div class="container hero-inner">
+          <p class="kicker">Based in Oslo · Available</p>
+          <h1 id="hero-heading">Niklas Molnes <span class="gradient">Hole</span></h1>
+          <p class="tagline">Fullstack &amp; LLM engineer based in Oslo.</p>
+          <div class="cta-row">
+            <a class="btn btn-primary" href="#projects">See projects →</a>
+            <a class="btn btn-ghost" href="https://github.com/niklasmh" target="_blank" rel="noopener">GitHub ↗</a>
           </div>
         </div>
       </section>
 
-      <footer class="pt-10 border-t border-gray-700 text-sm text-center text-gray-500">
-        <p>© 2025 Niklas Molnes Hole</p>
-      </footer>
-    </div>
+      <section class="currently" aria-label="Currently">
+        <div class="container">
+          <p class="kicker">Currently</p>
+          <p class="currently-title">Frontend Lead &amp; Prompt Engineer at <span class="accent">Equinor — mBot</span></p>
+          <p class="currently-sub">Building LLM-powered agents at scale. Since February 2023.</p>
+        </div>
+      </section>
+
+      <section class="section" id="projects" aria-labelledby="projects-heading">
+        <div class="container">
+          <p class="kicker">02 · Recent projects</p>
+          <h2 id="projects-heading">Recent projects</h2>
+          <div class="grid projects">
+            <article class="card">
+              <p class="card-date">2024 — now</p>
+              <h3>Equinor — mBot</h3>
+              <p class="card-body">Frontend Lead · Prompt Engineer. LLM-powered product at scale with generative AI agents and RAG.</p>
+            </article>
+            <article class="card">
+              <p class="card-date">2024</p>
+              <h3>CV Partner</h3>
+              <p class="card-body">Prompt Engineer. LLM experiments with RAG, fine-tuning, vector search, and agents.</p>
+            </article>
+            <article class="card">
+              <p class="card-date">2023 — 2024</p>
+              <h3>BevarHMS — AI-søk</h3>
+              <p class="card-body">Prompt Engineer · Frontend. AI-powered natural-language search with OpenAI and vector embeddings.</p>
+            </article>
+            <article class="card">
+              <p class="card-date">2023</p>
+              <h3>Webstep — CV-assistent</h3>
+              <p class="card-body">Frontend · Prompt Engineer. RAG over consultant CVs with GPT-4 and React.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" aria-labelledby="stack-heading">
+        <div class="container">
+          <p class="kicker">03 · Stack</p>
+          <h2 id="stack-heading">Tools of the trade</h2>
+          <div class="grid stack">
+            <div>
+              <p class="col-label">Frontend</p>
+              <p class="col-body">React · TypeScript · Next.js · Tailwind · React Native · Vue · Angular · Storybook · Three.js · Playwright · D3.js</p>
+            </div>
+            <div>
+              <p class="col-label">AI / LLM</p>
+              <p class="col-body">Claude · Claude Code · GPT · Gemini · Microsoft Agent Framework · Vercel AI SDK · MCP · AG-UI · Tool calling · Structured Outputs · RAG · pgVector · Qdrant · Jupyter Notebooks</p>
+            </div>
+            <div>
+              <p class="col-label">Backend</p>
+              <p class="col-body">.NET · C# · Python · FastAPI · Pydantic · Node.js · PostgreSQL · Server-Sent Events · WebSockets · gRPC</p>
+            </div>
+            <div>
+              <p class="col-label">Cloud</p>
+              <p class="col-body">Azure (OpenAI, AI Search, Container Apps, Functions, Entra ID) · AWS (Bedrock, Lambda, S3) · GCP Vertex AI · Firebase · GitHub Actions · Docker</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="experience" aria-labelledby="experience-heading">
+        <div class="container">
+          <p class="kicker">04 · Experience</p>
+          <h2 id="experience-heading">Timeline</h2>
+          <div class="chart-toggle">
+            <label>
+              <input type="checkbox" id="show-subprojects">
+              <span>Show more details</span>
+            </label>
+          </div>
+          <div class="chart">
+            <div class="chart-head">
+              <span class="chart-head-spacer" aria-hidden="true"></span>
+              <div class="chart-axis" aria-hidden="true">
+                <span style="left: 0%">'06</span>
+                <span style="left: 9.84%">'08</span>
+                <span style="left: 19.67%">'10</span>
+                <span style="left: 29.51%">'12</span>
+                <span style="left: 39.34%">'14</span>
+                <span style="left: 49.18%">'16</span>
+                <span style="left: 59.02%">'18</span>
+                <span style="left: 68.85%">'20</span>
+                <span style="left: 78.69%">'22</span>
+                <span style="left: 88.52%">'24</span>
+                <span style="left: 98.36%">'26</span>
+              </div>
+            </div>
+            <p class="chart-section-label">Professional work</p>
+            <ol class="chart-rows">
+              <li class="chart-row">
+                <div class="chart-label">
+                  <span class="company">Webstep</span>
+                  <span class="meta">Consultant</span>
+                </div>
+                <div class="chart-track">
+                  <div class="chart-bar current" style="left: 83.61%; width: 15.98%" title="Webstep · Jan 2023 — now"></div>
+                </div>
+              </li>
+              <li class="chart-row chart-subrow">
+                <div class="chart-label">
+                  <span class="company">Equinor mBot</span>
+                </div>
+                <div class="chart-track">
+                  <div class="chart-bar" style="left: 90.16%; width: 9.43%" title="Equinor mBot · May 2024 — now"></div>
+                </div>
+              </li>
+              <li class="chart-row chart-subrow">
+                <div class="chart-label">
+                  <span class="company">CV Partner LLM</span>
+                </div>
+                <div class="chart-track">
+                  <div class="chart-bar" style="left: 88.52%; width: 1.23%" title="CV Partner · Jan 2024 — Apr 2024"></div>
+                </div>
+              </li>
+              <li class="chart-row chart-subrow">
+                <div class="chart-label">
+                  <span class="company">BevarHMS AI-søk</span>
+                </div>
+                <div class="chart-track">
+                  <div class="chart-bar" style="left: 88.11%; width: 0.82%" title="BevarHMS · Dec 2023 — Feb 2024"></div>
+                </div>
+              </li>
+              <li class="chart-row chart-subrow">
+                <div class="chart-label">
+                  <span class="company">Webstep CV-assistent</span>
+                </div>
+                <div class="chart-track">
+                  <div class="chart-bar" style="left: 83.61%; width: 4.51%" title="CV-assistent · Jan 2023 — Dec 2023"></div>
+                </div>
+              </li>
+              <li class="chart-row">
+                <div class="chart-label">
+                  <span class="company">Bekk Consulting</span>
+                  <span class="meta">Consultant</span>
+                </div>
+                <div class="chart-track">
+                  <div class="chart-bar" style="left: 71.72%; width: 11.07%" title="Bekk Consulting · Aug 2020 — Nov 2022"></div>
+                </div>
+              </li>
+              <li class="chart-row chart-subrow">
+                <div class="chart-label">
+                  <span class="company">Fremtind Service</span>
+                </div>
+                <div class="chart-track">
+                  <div class="chart-bar" style="left: 82.38%; width: 0.82%" title="Fremtind Service · Oct 2022 — Dec 2022"></div>
+                </div>
+              </li>
+              <li class="chart-row chart-subrow">
+                <div class="chart-label">
+                  <span class="company">Pasienreiser</span>
+                </div>
+                <div class="chart-track">
+                  <div class="chart-bar" style="left: 71.72%; width: 10.25%" title="Pasienreiser · Aug 2020 — Sep 2022"></div>
+                </div>
+              </li>
+              <li class="chart-row">
+                <div class="chart-label">
+                  <span class="company">Startups</span>
+                  <span class="meta">Various</span>
+                </div>
+                <div class="chart-track">
+                  <div class="chart-bar" style="left: 65.16%; width: 0.41%" title="Versor · Apr — May 2019"></div>
+                  <div class="chart-bar" style="left: 67.21%; width: 2.46%" title="Ragnarock Geo + Sensero · Sep 2019 — Mar 2020"></div>
+                  <div class="chart-bar" style="left: 75.82%; width: 2.46%" title="Glede Norway · Jun — Dec 2021"></div>
+                </div>
+              </li>
+              <li class="chart-row chart-subrow">
+                <div class="chart-label">
+                  <span class="company">Glede Norway</span>
+                </div>
+                <div class="chart-track">
+                  <div class="chart-bar" style="left: 75.82%; width: 2.46%" title="Glede Norway · App developer · Jun 2021 — Dec 2021"></div>
+                </div>
+              </li>
+              <li class="chart-row chart-subrow">
+                <div class="chart-label">
+                  <span class="company">Ragnarock Geo</span>
+                </div>
+                <div class="chart-track">
+                  <div class="chart-bar" style="left: 67.21%; width: 2.46%" title="Ragnarock Geo · Developer · Sep 2019 — Mar 2020"></div>
+                </div>
+              </li>
+              <li class="chart-row chart-subrow">
+                <div class="chart-label">
+                  <span class="company">Sensero</span>
+                </div>
+                <div class="chart-track">
+                  <div class="chart-bar" style="left: 67.62%; width: 0.41%" title="Sensero · Consultant · Oct — Nov 2019"></div>
+                </div>
+              </li>
+              <li class="chart-row chart-subrow">
+                <div class="chart-label">
+                  <span class="company">Versor</span>
+                </div>
+                <div class="chart-track">
+                  <div class="chart-bar" style="left: 65.16%; width: 0.41%" title="Versor · Web developer · Apr — May 2019"></div>
+                </div>
+              </li>
+              <li class="chart-row">
+                <div class="chart-label">
+                  <span class="company">Asolvi</span>
+                  <span class="meta">Developer</span>
+                </div>
+                <div class="chart-track">
+                  <div class="chart-bar" style="left: 61.89%; width: 4.10%" title="Asolvi · Aug 2018 — Jun 2019"></div>
+                </div>
+              </li>
+              <li class="chart-row">
+                <div class="chart-label">
+                  <span class="company">Itera</span>
+                  <span class="meta">Consultant</span>
+                </div>
+                <div class="chart-track">
+                  <div class="chart-bar" style="left: 61.07%; width: 0.82%" title="Itera · Jun — Aug 2018"></div>
+                </div>
+              </li>
+              <li class="chart-row">
+                <div class="chart-label">
+                  <span class="company">ViaTech</span>
+                  <span class="meta">Developer</span>
+                </div>
+                <div class="chart-track">
+                  <div class="chart-bar" style="left: 51.23%; width: 5.74%" title="ViaTech · Jun 2016 — Aug 2017"></div>
+                </div>
+              </li>
+              <li class="chart-row chart-subrow">
+                <div class="chart-label">
+                  <span class="company">Summer job</span>
+                </div>
+                <div class="chart-track">
+                  <div class="chart-bar" style="left: 51.23%; width: 0.82%" title="Summer job · Jun — Jul 2016"></div>
+                  <div class="chart-bar" style="left: 56.15%; width: 0.82%" title="Summer job · Jun — Jul 2017"></div>
+                </div>
+              </li>
+              <li class="chart-row chart-subrow">
+                <div class="chart-label">
+                  <span class="company">Part-time</span>
+                </div>
+                <div class="chart-track">
+                  <div class="chart-bar" style="left: 52.05%; width: 4.10%" title="Part-time · Aug 2016 — May 2017"></div>
+                </div>
+              </li>
+            </ol>
+            <div class="chart-divider" aria-hidden="true"></div>
+            <p class="chart-section-label">Community</p>
+            <ol class="chart-rows">
+              <li class="chart-row">
+                <div class="chart-label">
+                  <span class="company">dotKom NTNU</span>
+                  <span class="meta">Developer &amp; sysadmin</span>
+                </div>
+                <div class="chart-track">
+                  <div class="chart-bar alt" style="left: 47.13%; width: 23.77%" title="dotKom NTNU · Aug 2015 — Jun 2020"></div>
+                </div>
+              </li>
+              <li class="chart-row">
+                <div class="chart-label">
+                  <span class="company">Ascend NTNU</span>
+                  <span class="meta">Drone team</span>
+                </div>
+                <div class="chart-track">
+                  <div class="chart-bar alt" style="left: 52.46%; width: 9.43%" title="Ascend NTNU · Sep 2016 — Aug 2018"></div>
+                </div>
+              </li>
+              <li class="chart-row chart-subrow alt">
+                <div class="chart-label">
+                  <span class="company">AI developer</span>
+                </div>
+                <div class="chart-track">
+                  <div class="chart-bar alt" style="left: 57.38%; width: 4.51%" title="AI developer · Sep 2017 — Aug 2018"></div>
+                </div>
+              </li>
+              <li class="chart-row chart-subrow alt">
+                <div class="chart-label">
+                  <span class="company">Web developer</span>
+                </div>
+                <div class="chart-track">
+                  <div class="chart-bar alt" style="left: 52.46%; width: 4.51%" title="Web developer · Sep 2016 — Aug 2017"></div>
+                </div>
+              </li>
+              <li class="chart-row">
+                <div class="chart-label">
+                  <span class="company">NDC Crew</span>
+                  <span class="meta">2014 · 2015 · 2017</span>
+                </div>
+                <div class="chart-track">
+                  <div class="chart-marker" style="left: 41.39%" title="NDC Crew · Jun 2014"></div>
+                  <div class="chart-marker" style="left: 46.31%" title="NDC Crew · Jun 2015"></div>
+                  <div class="chart-marker" style="left: 56.15%" title="NDC Crew · Jun 2017"></div>
+                </div>
+              </li>
+              <li class="chart-row">
+                <div class="chart-label">
+                  <span class="company">Itemize NTNU</span>
+                  <span class="meta">Member · security / CTF</span>
+                </div>
+                <div class="chart-track">
+                  <div class="chart-bar alt" style="left: 47.54%; width: 8.20%" title="Itemize · Sep 2015 — May 2017"></div>
+                </div>
+              </li>
+              <li class="chart-row">
+                <div class="chart-label">
+                  <span class="company">Lektordokka</span>
+                  <span class="meta">Web developer</span>
+                </div>
+                <div class="chart-track">
+                  <div class="chart-bar alt" style="left: 43.03%; width: 5.74%" title="Lektordokka · Oct 2014 — Dec 2015"></div>
+                </div>
+              </li>
+            </ol>
+            <div class="chart-divider" aria-hidden="true"></div>
+            <p class="chart-section-label">Personal</p>
+            <ol class="chart-rows">
+              <li class="chart-row">
+                <div class="chart-label">
+                  <span class="company">NTNU</span>
+                  <span class="meta">Informatics</span>
+                </div>
+                <div class="chart-track">
+                  <div class="chart-bar personal" style="left: 47.13%; width: 23.77%" title="NTNU · Informatics · 2015 — 2020"></div>
+                </div>
+              </li>
+              <li class="chart-row chart-subrow personal">
+                <div class="chart-label">
+                  <span class="company">MSc · Databases &amp; Search</span>
+                </div>
+                <div class="chart-track">
+                  <div class="chart-bar personal" style="left: 61.89%; width: 9.02%" title="MSc Informatics · Databases &amp; Search · 2018 — 2020"></div>
+                </div>
+              </li>
+              <li class="chart-row chart-subrow personal">
+                <div class="chart-label">
+                  <span class="company">BSc</span>
+                </div>
+                <div class="chart-track">
+                  <div class="chart-bar personal" style="left: 47.13%; width: 13.93%" title="BSc Informatics · 2015 — 2018"></div>
+                </div>
+              </li>
+              <li class="chart-row">
+                <div class="chart-label">
+                  <span class="company">2D physics engine</span>
+                  <span class="meta">Built 2014</span>
+                </div>
+                <div class="chart-track">
+                  <div class="chart-marker personal trail-left" style="left: 39.34%" title="2D physics engine · 2014"></div>
+                </div>
+              </li>
+              <li class="chart-row">
+                <div class="chart-label">
+                  <span class="company">First mobile game</span>
+                  <span class="meta">Published 2012</span>
+                </div>
+                <div class="chart-track">
+                  <div class="chart-marker personal trail-left" style="left: 29.51%" title="First mobile game · 2012"></div>
+                </div>
+              </li>
+              <li class="chart-row">
+                <div class="chart-label">
+                  <span class="company">Started coding</span>
+                  <span class="meta">2006 · age 9</span>
+                </div>
+                <div class="chart-track">
+                  <div class="chart-marker personal trail-right" style="left: 0%" title="Started coding · 2006"></div>
+                </div>
+              </li>
+            </ol>
+          </div>
+          <p class="timeline-footer">More detail on <a href="https://linkedin.com/in/niklasmh" target="_blank" rel="noopener">LinkedIn ↗</a>.</p>
+        </div>
+      </section>
+
+      <section class="section contact" id="contact" aria-labelledby="contact-heading">
+        <div class="container contact-inner">
+          <p class="kicker">05 · Say hi</p>
+          <h2 id="contact-heading">Get in touch.</h2>
+          <p class="contact-sub">Reach out on any of these.</p>
+          <div class="contact-links">
+            <a class="btn btn-ghost" href="https://github.com/niklasmh" target="_blank" rel="noopener">GitHub ↗</a>
+            <a class="btn btn-ghost" href="https://linkedin.com/in/niklasmh" target="_blank" rel="noopener">LinkedIn ↗</a>
+            <a class="btn btn-ghost" href="https://x.com/niklashole" target="_blank" rel="noopener">X ↗</a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="container">© 2026 Niklas Molnes Hole</div>
+    </footer>
 
     <script>
-      lucide.createIcons();
+      (function () {
+        const links = document.querySelectorAll('.nav nav a[href^="#"]');
+        if (!("IntersectionObserver" in window) || !links.length) return;
+
+        const map = new Map();
+        links.forEach((a) => {
+          const id = a.getAttribute("href").slice(1);
+          const target = document.getElementById(id);
+          if (target) map.set(target, a);
+        });
+
+        const io = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((e) => {
+              const a = map.get(e.target);
+              if (!a) return;
+              if (e.isIntersecting) {
+                links.forEach((l) => l.classList.remove("active"));
+                a.classList.add("active");
+              }
+            });
+          },
+          { rootMargin: "-40% 0px -50% 0px", threshold: 0 }
+        );
+
+        map.forEach((_, section) => io.observe(section));
+      })();
     </script>
   </body>
 </html>
