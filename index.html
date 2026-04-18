@@ -183,12 +183,6 @@
         background: var(--panel);
         padding: 22px;
         border-radius: var(--radius);
-        transition: transform 0.15s ease, border-color 0.15s ease, background 0.15s ease;
-      }
-      .card:hover {
-        border-color: var(--border-hover);
-        background: rgba(255, 255, 255, 0.04);
-        transform: translateY(-1px);
       }
       .card-date {
         font-family: var(--font-mono);
@@ -270,7 +264,22 @@
         gap: 16px;
         align-items: center;
       }
-      .chart-head { margin-bottom: 10px; }
+      .chart-head {
+        margin-bottom: 10px;
+        position: sticky;
+        top: 56px;
+        z-index: 5;
+        padding: 6px 0;
+        transition: background 0.15s ease;
+      }
+      .chart-head.stuck {
+        background: rgba(10, 10, 15, 0.82);
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+      }
+      .chart-head.stuck .chart-axis {
+        border-bottom: none;
+      }
       .chart-axis {
         position: relative;
         height: 22px;
@@ -397,11 +406,23 @@
         color: #5e5e75;
       }
       @media (max-width: 720px) {
+        .chart-subrow .chart-track {
+          grid-column: 1;
+          height: 20px;
+        }
         .chart-subrow .chart-label {
-          position: static;
-          left: auto;
-          right: auto;
-          padding-left: 0;
+          position: absolute;
+          left: 0;
+          right: 0;
+          top: 0;
+          bottom: 0;
+          flex-direction: row;
+          align-items: center;
+          justify-content: flex-start;
+          padding: 0 10px;
+          line-height: 20px;
+          z-index: 2;
+          pointer-events: none;
         }
       }
       .chart-subrow .chart-bar {
@@ -582,7 +603,8 @@
         <a href="#top" class="monogram" aria-label="Home">NMH</a>
         <nav aria-label="Primary">
           <a href="#projects">Projects</a>
-          <a href="#experience">Experience</a>
+          <a href="#skills">Skills</a>
+          <a href="#experience">Timeline</a>
           <a href="#contact">Contact</a>
         </nav>
       </div>
@@ -596,7 +618,6 @@
           <h1 id="hero-heading">Niklas Molnes <span class="gradient">Hole</span></h1>
           <p class="tagline">Fullstack &amp; LLM engineer based in Oslo.</p>
           <div class="cta-row">
-            <a class="btn btn-primary" href="#projects">See projects →</a>
             <a class="btn btn-ghost" href="https://github.com/niklasmh" target="_blank" rel="noopener">GitHub ↗</a>
           </div>
         </div>
@@ -612,7 +633,6 @@
 
       <section class="section" id="projects" aria-labelledby="projects-heading">
         <div class="container">
-          <p class="kicker">02 · Recent projects</p>
           <h2 id="projects-heading">Recent projects</h2>
           <div class="grid projects">
             <article class="card">
@@ -622,7 +642,7 @@
             </article>
             <article class="card">
               <p class="card-date">2024</p>
-              <h3>CV Partner</h3>
+              <h3>CV Partner — LLM Experiments</h3>
               <p class="card-body">Prompt Engineer. LLM experiments with RAG, fine-tuning, vector search, and agents.</p>
             </article>
             <article class="card">
@@ -639,9 +659,8 @@
         </div>
       </section>
 
-      <section class="section" aria-labelledby="stack-heading">
+      <section class="section" id="skills" aria-labelledby="stack-heading">
         <div class="container">
-          <p class="kicker">03 · Stack</p>
           <h2 id="stack-heading">Skills</h2>
           <div class="grid stack">
             <div>
@@ -666,12 +685,11 @@
 
       <section class="section" id="experience" aria-labelledby="experience-heading">
         <div class="container">
-          <p class="kicker">04 · Experience</p>
           <h2 id="experience-heading">Timeline</h2>
           <div class="chart-toggle">
             <label>
               <input type="checkbox" id="show-subprojects">
-              <span>Show more details</span>
+              <span>Show details</span>
             </label>
           </div>
           <div class="chart">
@@ -886,17 +904,6 @@
               </li>
               <li class="chart-row">
                 <div class="chart-label">
-                  <span class="company">NDC Crew</span>
-                  <span class="meta">2014 · 2015 · 2017</span>
-                </div>
-                <div class="chart-track">
-                  <div class="chart-marker" style="left: 41.39%" title="NDC Crew · Jun 2014"></div>
-                  <div class="chart-marker" style="left: 46.31%" title="NDC Crew · Jun 2015"></div>
-                  <div class="chart-marker" style="left: 56.15%" title="NDC Crew · Jun 2017"></div>
-                </div>
-              </li>
-              <li class="chart-row">
-                <div class="chart-label">
                   <span class="company">Itemize NTNU</span>
                   <span class="meta">Member · security / CTF</span>
                 </div>
@@ -911,6 +918,17 @@
                 </div>
                 <div class="chart-track">
                   <div class="chart-bar alt" style="left: 43.03%; width: 5.74%" title="Lektordokka · Oct 2014 — Dec 2015"></div>
+                </div>
+              </li>
+              <li class="chart-row">
+                <div class="chart-label">
+                  <span class="company">NDC Crew</span>
+                  <span class="meta">2014 · 2015 · 2017</span>
+                </div>
+                <div class="chart-track">
+                  <div class="chart-marker" style="left: 41.39%" title="NDC Crew · Jun 2014"></div>
+                  <div class="chart-marker" style="left: 46.31%" title="NDC Crew · Jun 2015"></div>
+                  <div class="chart-marker" style="left: 56.15%" title="NDC Crew · Jun 2017"></div>
                 </div>
               </li>
             </ol>
@@ -977,7 +995,6 @@
 
       <section class="section contact" id="contact" aria-labelledby="contact-heading">
         <div class="container contact-inner">
-          <p class="kicker">05 · Say hi</p>
           <h2 id="contact-heading">Get in touch.</h2>
           <p class="contact-sub">Reach out on any of these.</p>
           <div class="contact-links">
@@ -1020,6 +1037,16 @@
         );
 
         map.forEach((_, section) => io.observe(section));
+      })();
+
+      (function () {
+        const chartHead = document.querySelector('.chart-head');
+        if (!chartHead) return;
+        const onScroll = () => {
+          chartHead.classList.toggle('stuck', chartHead.getBoundingClientRect().top <= 56);
+        };
+        window.addEventListener('scroll', onScroll, { passive: true });
+        onScroll();
       })();
     </script>
   </body>
