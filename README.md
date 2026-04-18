@@ -1,4 +1,4 @@
-# niklasmh.github.io — Portfolio
+# Portfolio
 
 Personal site for Niklas Molnes Hole — [niklasmh.no](https://niklasmh.no).
 
