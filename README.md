@@ -6,11 +6,3 @@ The current site is a single static `index.html` at the repo root, served via Gi
 
 - `2025/` — previous design iteration
 - `2023/` — original React/Vite version
-
-## Local preview
-
-```sh
-python3 -m http.server 8000
-```
-
-Then open <http://localhost:8000>.
