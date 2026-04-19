@@ -527,7 +527,9 @@
         box-shadow: 0 0 14px rgba(74, 222, 128, 0.75);
       }
       .chart-marker.trail-right::after,
-      .chart-marker.trail-left::after {
+      .chart-marker.trail-left::after,
+      .chart-marker.trail-both::before,
+      .chart-marker.trail-both::after {
         content: '';
         position: absolute;
         top: 0;
@@ -536,18 +538,22 @@
         pointer-events: none;
         border-radius: 2px;
       }
-      .chart-marker.trail-right::after {
+      .chart-marker.trail-right::after,
+      .chart-marker.trail-both::after {
         left: 100%;
         background: linear-gradient(90deg, rgba(255, 144, 84, 0.35), rgba(255, 144, 84, 0));
       }
-      .chart-marker.trail-left::after {
+      .chart-marker.trail-left::after,
+      .chart-marker.trail-both::before {
         right: 100%;
         background: linear-gradient(90deg, rgba(255, 144, 84, 0), rgba(255, 144, 84, 0.35));
       }
-      .chart-marker.personal.trail-right::after {
+      .chart-marker.personal.trail-right::after,
+      .chart-marker.personal.trail-both::after {
         background: linear-gradient(90deg, rgba(74, 222, 128, 0.35), rgba(74, 222, 128, 0));
       }
-      .chart-marker.personal.trail-left::after {
+      .chart-marker.personal.trail-left::after,
+      .chart-marker.personal.trail-both::before {
         background: linear-gradient(90deg, rgba(74, 222, 128, 0), rgba(74, 222, 128, 0.35));
       }
       .chart-section-label {
@@ -1019,6 +1025,15 @@
                 </div>
                 <div class="chart-track">
                   <div class="chart-marker personal trail-left" style="left: 29.51%" title="First mobile game · 2012"></div>
+                </div>
+              </li>
+              <li class="chart-row">
+                <div class="chart-label">
+                  <span class="company">First website</span>
+                  <span class="meta">Published 2010</span>
+                </div>
+                <div class="chart-track">
+                  <div class="chart-marker personal trail-both" style="left: 19.67%" title="First website · 2010"></div>
                 </div>
               </li>
               <li class="chart-row">
