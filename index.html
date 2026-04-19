@@ -1109,6 +1109,23 @@
         window.addEventListener('scroll', onScroll, { passive: true });
         onScroll();
       })();
+
+      // Dev-only auto-reload: polls the current page for changes and
+      // reloads when Last-Modified / ETag updates. Localhost-gated so
+      // it never runs in production.
+      (function () {
+        const host = location.hostname;
+        if (host !== "localhost" && host !== "127.0.0.1" && host !== "0.0.0.0") return;
+        let tag = null;
+        setInterval(async () => {
+          try {
+            const r = await fetch(location.pathname, { method: "HEAD", cache: "no-store" });
+            const next = r.headers.get("last-modified") || r.headers.get("etag");
+            if (tag && next && next !== tag) location.reload();
+            if (next) tag = next;
+          } catch {}
+        }, 1000);
+      })();
     </script>
   </body>
 </html>
