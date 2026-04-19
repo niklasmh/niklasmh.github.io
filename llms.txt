@@ -1,0 +1,31 @@
+# Niklas Molnes Hole
+
+> Fullstack and LLM engineer based in Oslo. Currently Frontend Lead and Prompt Engineer at Equinor, building LLM-powered agents at scale.
+
+- Site: https://niklasmh.no
+- Based in: Oslo, Norway
+- Focus: LLM-powered products, agents, RAG, prompt engineering, frontend architecture
+
+## Currently
+
+- Frontend Lead and Prompt Engineer at Equinor — mBot (since May 2024). Building LLM-powered agents at scale with generative AI and RAG.
+
+## Recent projects
+
+- Equinor — mBot (2024 — now): LLM-powered product with generative AI agents and RAG.
+- CV Partner — LLM Experiments (2024): LLM experiments with RAG, fine-tuning, vector search, and agents.
+- BevarHMS — AI-søk (2023 — 2024): AI-powered natural-language search with OpenAI and vector embeddings.
+- Webstep — CV-assistent (2023): RAG over consultant CVs with GPT-4 and React.
+
+## Skills
+
+- Frontend: React, TypeScript, Next.js, Tailwind, React Native, Vue, Angular, Storybook, Three.js, Playwright, D3.js
+- AI / LLM: Claude, Claude Code, GPT, Gemini, MAF, Vercel AI SDK, MCP, AG-UI, tool calling, structured outputs, RAG, pgVector, Qdrant, Jupyter Notebooks
+- Backend: .NET, C#, Python, FastAPI, Pydantic, Node.js, PostgreSQL, Server-Sent Events, WebSockets, gRPC
+- Cloud: Azure (OpenAI, AI Search, AI Foundry), AWS Bedrock, GCP Vertex AI, Firebase, Supabase, Vercel, GitHub Actions, Docker
+
+## Links
+
+- [GitHub](https://github.com/niklasmh)
+- [LinkedIn](https://linkedin.com/in/niklasmh)
+- [X](https://x.com/niklashole)
