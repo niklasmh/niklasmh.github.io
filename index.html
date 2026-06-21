@@ -527,7 +527,9 @@
         box-shadow: 0 0 14px rgba(74, 222, 128, 0.75);
       }
       .chart-marker.trail-right::after,
-      .chart-marker.trail-left::after {
+      .chart-marker.trail-left::after,
+      .chart-marker.trail-both::before,
+      .chart-marker.trail-both::after {
         content: '';
         position: absolute;
         top: 0;
@@ -544,11 +546,25 @@
         right: 100%;
         background: linear-gradient(90deg, rgba(255, 144, 84, 0), rgba(255, 144, 84, 0.35));
       }
+      .chart-marker.trail-both::before {
+        right: 100%;
+        background: linear-gradient(90deg, rgba(255, 144, 84, 0), rgba(255, 144, 84, 0.35));
+      }
+      .chart-marker.trail-both::after {
+        left: 100%;
+        background: linear-gradient(90deg, rgba(255, 144, 84, 0.35), rgba(255, 144, 84, 0));
+      }
       .chart-marker.personal.trail-right::after {
         background: linear-gradient(90deg, rgba(74, 222, 128, 0.35), rgba(74, 222, 128, 0));
       }
       .chart-marker.personal.trail-left::after {
         background: linear-gradient(90deg, rgba(74, 222, 128, 0), rgba(74, 222, 128, 0.35));
+      }
+      .chart-marker.personal.trail-both::before {
+        background: linear-gradient(90deg, rgba(74, 222, 128, 0), rgba(74, 222, 128, 0.35));
+      }
+      .chart-marker.personal.trail-both::after {
+        background: linear-gradient(90deg, rgba(74, 222, 128, 0.35), rgba(74, 222, 128, 0));
       }
       .chart-section-label {
         font-size: 10px;
@@ -659,7 +675,7 @@
         <div class="container hero-inner">
           <p class="kicker">Based in Oslo · Available</p>
           <h1 id="hero-heading">Niklas Molnes <span class="gradient">Hole</span></h1>
-          <p class="tagline">Fullstack &amp; LLM engineer based in Oslo.</p>
+          <p class="tagline">AI Engineer &amp; Full Stack Developer based in Oslo.</p>
           <div class="cta-row">
             <a class="btn btn-ghost" href="https://github.com/niklasmh" target="_blank" rel="noopener">GitHub ↗</a>
           </div>
@@ -707,12 +723,12 @@
           <h2 id="stack-heading">Skills</h2>
           <div class="grid stack">
             <div>
-              <p class="col-label">Frontend</p>
-              <p class="col-body">React&nbsp;· TypeScript&nbsp;· Next.js&nbsp;· Tailwind&nbsp;· React&nbsp;Native&nbsp;· Vue&nbsp;· Angular&nbsp;· Storybook&nbsp;· Three.js&nbsp;· Playwright&nbsp;· D3.js</p>
-            </div>
-            <div>
               <p class="col-label">AI / LLM</p>
               <p class="col-body">Claude&nbsp;· Claude&nbsp;Code&nbsp;· GPT&nbsp;· Gemini&nbsp;· MAF&nbsp;· Vercel&nbsp;AI&nbsp;SDK&nbsp;· MCP&nbsp;· AG-UI&nbsp;· Tool&nbsp;calling&nbsp;· Structured&nbsp;Outputs&nbsp;· RAG&nbsp;· pgVector&nbsp;· Qdrant&nbsp;· Jupyter&nbsp;Notebooks</p>
+            </div>
+            <div>
+              <p class="col-label">Frontend</p>
+              <p class="col-body">React&nbsp;· TypeScript&nbsp;· Next.js&nbsp;· Tailwind&nbsp;· React&nbsp;Native&nbsp;· Vue&nbsp;· Angular&nbsp;· Storybook&nbsp;· Three.js&nbsp;· Playwright&nbsp;· D3.js</p>
             </div>
             <div>
               <p class="col-label">Backend</p>
@@ -993,6 +1009,7 @@
                   <span class="meta">Self-study</span>
                 </div>
                 <div class="chart-track">
+                  <div class="chart-marker personal trail-both" style="left: 46.31%" title="Study AI/LLMs · Jun 2015"></div>
                   <div class="chart-bar personal" style="left: 83.61%; width: 15.98%" title="Study AI/LLMs · Jan 2023 — now"></div>
                 </div>
               </li>
