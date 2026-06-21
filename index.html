@@ -527,9 +527,7 @@
         box-shadow: 0 0 14px rgba(74, 222, 128, 0.75);
       }
       .chart-marker.trail-right::after,
-      .chart-marker.trail-left::after,
-      .chart-marker.trail-both::before,
-      .chart-marker.trail-both::after {
+      .chart-marker.trail-left::after {
         content: '';
         position: absolute;
         top: 0;
@@ -546,25 +544,11 @@
         right: 100%;
         background: linear-gradient(90deg, rgba(255, 144, 84, 0), rgba(255, 144, 84, 0.35));
       }
-      .chart-marker.trail-both::before {
-        right: 100%;
-        background: linear-gradient(90deg, rgba(255, 144, 84, 0), rgba(255, 144, 84, 0.35));
-      }
-      .chart-marker.trail-both::after {
-        left: 100%;
-        background: linear-gradient(90deg, rgba(255, 144, 84, 0.35), rgba(255, 144, 84, 0));
-      }
       .chart-marker.personal.trail-right::after {
         background: linear-gradient(90deg, rgba(74, 222, 128, 0.35), rgba(74, 222, 128, 0));
       }
       .chart-marker.personal.trail-left::after {
         background: linear-gradient(90deg, rgba(74, 222, 128, 0), rgba(74, 222, 128, 0.35));
-      }
-      .chart-marker.personal.trail-both::before {
-        background: linear-gradient(90deg, rgba(74, 222, 128, 0), rgba(74, 222, 128, 0.35));
-      }
-      .chart-marker.personal.trail-both::after {
-        background: linear-gradient(90deg, rgba(74, 222, 128, 0.35), rgba(74, 222, 128, 0));
       }
       .chart-section-label {
         font-size: 10px;
@@ -1009,7 +993,7 @@
                   <span class="meta">Self-study</span>
                 </div>
                 <div class="chart-track">
-                  <div class="chart-marker personal trail-both" style="left: 46.31%" title="Study AI/LLMs · Jun 2015"></div>
+                  <div class="chart-marker personal trail-right" style="left: 46.31%" title="Study AI/LLMs · Jun 2015"></div>
                   <div class="chart-bar personal" style="left: 83.61%; width: 15.98%" title="Study AI/LLMs · Jan 2023 — now"></div>
                 </div>
               </li>
