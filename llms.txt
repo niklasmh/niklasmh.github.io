@@ -1,28 +1,30 @@
 # Niklas Molnes Hole
 
-> Fullstack and LLM engineer based in Oslo. Currently Frontend Lead and Prompt Engineer at Equinor, building LLM-powered agents at scale.
+> AI Engineer & Full Stack Developer based in Oslo. Currently Frontend Lead & AI Engineer at Equinor — mBot, building LLM-powered agents at scale.
 
 - Site: https://niklasmh.no
 - Based in: Oslo, Norway
-- Focus: LLM-powered products, agents, RAG, prompt engineering, frontend architecture
+- Focus: LLM-powered products, agentic AI, RAG, evals & observability, frontend architecture
 
 ## Currently
 
-- Frontend Lead and Prompt Engineer at Equinor — mBot (since May 2024). Building LLM-powered agents at scale with generative AI and RAG.
+- Frontend Lead & AI Engineer at Equinor — mBot. Building LLM-powered agents at scale. Since May 2024.
 
 ## Recent projects
 
-- Equinor — mBot (2024 — now): LLM-powered product with generative AI agents and RAG.
-- CV Partner — LLM Experiments (2024): LLM experiments with RAG, fine-tuning, vector search, and agents.
-- BevarHMS — AI-søk (2023 — 2024): AI-powered natural-language search with OpenAI and vector embeddings.
-- Webstep — CV-assistent (2023): RAG over consultant CVs with GPT-4 and React.
+- Equinor — mBot (2024 — now). Frontend Lead & AI Engineer; Azure, React, RAG, text-to-SQL. Agentic AI chatbot surfacing 50 years of Equinor's drilling and well expertise via RAG and text-to-SQL — one of Equinor's five flagship AI projects. Article: https://webstep.no/fra-nytt-til-nyttig/hvordan-ai-gjor-50-ar-med-bore-og-bronnerfaring-sokbar-og-tilgjengelig
+- CV Partner — LLM Experiments (2024). AI Engineer & Frontend; AWS Bedrock, React, Python, Flask. Built PoC tools with Flowcase (CV Partner) for AI-assisted CV tailoring and tender reference-project write-ups, plus an internal app to compare LLMs side-by-side. Article: https://content.webstep.no/cv-partner/
+- BevarHMS — AI-søk (2023 — 2024). AI Engineer & Frontend; OpenAI, vector embeddings, React. Natural-language search over statutory HSE documentation for housing cooperatives — custom retrieval with LLMs and vector embeddings, plus a UI built to make it approachable for non-specialist users.
+- Webstep — CV-assistent (2023). Frontend & AI Engineer; GPT-4, RAG, React. RAG tool that matches and scores consultant CVs against client requirements, flags qualification gaps, and drafts tailored summaries — advisors stay in the loop for final review. Article: https://webstep.no/fra-nytt-til-nyttig/en-effektiv-cv-skreddersom
 
 ## Skills
 
+- Agents & Models: Claude, GPT, Gemini, MAF, Pydantic AI, Vercel AI SDK, AG-UI, agentic AI, tool calling, structured outputs
+- Retrieval & Evals: RAG, semantic search, text-to-SQL, pgVector, Qdrant, Langfuse, Ragas, LLM-as-judge, OpenTelemetry
+- AI Dev Tooling: Claude Code, Pi Coding Agent, Gemini CLI, GitHub Copilot, Claude Desktop, VS Code, MCP, Jupyter Notebooks
 - Frontend: React, TypeScript, Next.js, Tailwind, React Native, Vue, Angular, Storybook, Three.js, Playwright, D3.js
-- AI / LLM: Claude, Claude Code, GPT, Gemini, MAF, Vercel AI SDK, MCP, AG-UI, tool calling, structured outputs, RAG, pgVector, Qdrant, Jupyter Notebooks
-- Backend: .NET, C#, Python, FastAPI, Pydantic, Node.js, PostgreSQL, Server-Sent Events, WebSockets, gRPC
-- Cloud: Azure (OpenAI, AI Search, AI Foundry), AWS Bedrock, GCP Vertex AI, Firebase, Supabase, Vercel, GitHub Actions, Docker
+- Backend: .NET, C#, Python, FastAPI, Pydantic, Node.js, PostgreSQL, Server-Sent Events, WebSockets, gRPC, Entra ID
+- Cloud: Azure (OpenAI, AI Search, AI Foundry), AWS Bedrock, GCP Vertex AI, Firebase, Supabase, Vercel, GitHub Actions, Bicep, Terraform, Docker
 
 ## Links
 
