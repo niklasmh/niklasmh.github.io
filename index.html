@@ -232,6 +232,27 @@
       }
       .card h3 { font-size: 17px; font-weight: 600; margin: 0 0 8px; }
       .card-body { color: var(--text-dim); font-size: 14px; margin: 0; }
+      .card-refs {
+        margin-top: 16px;
+        padding-top: 14px;
+        border-top: 1px solid var(--border);
+      }
+      .card-refs-label {
+        font-size: 11px;
+        letter-spacing: 0.2em;
+        text-transform: uppercase;
+        color: var(--accent-dim);
+        font-weight: 500;
+        margin: 0 0 6px;
+      }
+      .card-refs-list { list-style: none; margin: 0; padding: 0; }
+      .card-refs-list li {
+        font-size: 13px;
+        margin: 0 0 4px;
+      }
+      .card-refs-list li:last-child { margin-bottom: 0; }
+      .card-refs-list a { color: var(--text-dim); transition: color 0.15s ease; }
+      .card-refs-list a:hover { color: var(--accent); }
 
       .stack { grid-template-columns: repeat(4, 1fr); gap: 28px; }
       @media (max-width: 960px) { .stack { grid-template-columns: repeat(2, 1fr); } }
@@ -682,11 +703,23 @@
               <p class="card-date">2024 — now</p>
               <h3>Equinor — mBot</h3>
               <p class="card-body">Frontend Lead · Prompt Engineer. LLM-powered product at scale with generative AI agents and RAG.</p>
+              <div class="card-refs">
+                <p class="card-refs-label">References:</p>
+                <ul class="card-refs-list">
+                  <li><a href="https://webstep.no/fra-nytt-til-nyttig/hvordan-ai-gjor-50-ar-med-bore-og-bronnerfaring-sokbar-og-tilgjengelig" target="_blank" rel="noopener">"Hvordan AI gjør 50 år med bore- og brønnerfaring søkbar og tilgjengelig" ↗</a></li>
+                </ul>
+              </div>
             </article>
             <article class="card">
               <p class="card-date">2024</p>
               <h3>CV Partner — LLM Experiments</h3>
               <p class="card-body">Prompt Engineer. LLM experiments with RAG, fine-tuning, vector search, and agents.</p>
+              <div class="card-refs">
+                <p class="card-refs-label">References:</p>
+                <ul class="card-refs-list">
+                  <li><a href="https://content.webstep.no/cv-partner/" target="_blank" rel="noopener">"Flowcase revolusjonerer CV-håndtering med AI-ekspertise fra Webstep" ↗</a></li>
+                </ul>
+              </div>
             </article>
             <article class="card">
               <p class="card-date">2023 — 2024</p>
@@ -697,6 +730,12 @@
               <p class="card-date">2023</p>
               <h3>Webstep — CV-assistent</h3>
               <p class="card-body">Frontend · Prompt Engineer. RAG over consultant CVs with GPT-4 and React.</p>
+              <div class="card-refs">
+                <p class="card-refs-label">References:</p>
+                <ul class="card-refs-list">
+                  <li><a href="https://webstep.no/fra-nytt-til-nyttig/en-effektiv-cv-skreddersom" target="_blank" rel="noopener">"Effektiv CV-skreddersøm" ↗</a></li>
+                </ul>
+              </div>
             </article>
           </div>
         </div>
