@@ -3,24 +3,24 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Niklas Molnes Hole — LLM engineer · UI & agents</title>
-    <meta name="description" content="LLM engineer focused on UIs and agents. Fullstack engineer based in Oslo." />
+    <title>Niklas Molnes Hole — AI Engineer &amp; Full Stack Developer</title>
+    <meta name="description" content="AI Engineer &amp; Full Stack Developer based in Oslo. Frontend Lead &amp; AI Engineer at Equinor — mBot, building LLM-powered agents at scale." />
     <meta name="author" content="Niklas Molnes Hole" />
     <meta name="theme-color" content="#0a0a0f" />
     <link rel="canonical" href="https://niklasmh.no/" />
 
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content="Niklas Molnes Hole" />
-    <meta property="og:title" content="Niklas Molnes Hole — LLM engineer · UI & agents" />
-    <meta property="og:description" content="LLM engineer focused on UIs and agents. Fullstack engineer based in Oslo." />
+    <meta property="og:title" content="Niklas Molnes Hole — AI Engineer &amp; Full Stack Developer" />
+    <meta property="og:description" content="AI Engineer &amp; Full Stack Developer based in Oslo. Frontend Lead &amp; AI Engineer at Equinor — mBot, building LLM-powered agents at scale." />
     <meta property="og:url" content="https://niklasmh.no/" />
     <meta property="og:locale" content="en_US" />
     <meta property="og:image" content="https://github.com/niklasmh.png?size=1200" />
     <meta property="og:image:alt" content="Niklas Molnes Hole" />
 
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="Niklas Molnes Hole — LLM engineer · UI & agents" />
-    <meta name="twitter:description" content="LLM engineer focused on UIs and agents. Fullstack engineer based in Oslo." />
+    <meta name="twitter:title" content="Niklas Molnes Hole — AI Engineer &amp; Full Stack Developer" />
+    <meta name="twitter:description" content="AI Engineer &amp; Full Stack Developer based in Oslo. Frontend Lead &amp; AI Engineer at Equinor — mBot, building LLM-powered agents at scale." />
     <meta name="twitter:image" content="https://github.com/niklasmh.png?size=1200" />
     <meta name="twitter:creator" content="@niklashole" />
 
@@ -31,8 +31,8 @@
         "name": "Niklas Molnes Hole",
         "url": "https://niklasmh.no/",
         "image": "https://github.com/niklasmh.png",
-        "jobTitle": "LLM engineer",
-        "description": "LLM engineer focused on UIs and agents. Fullstack engineer based in Oslo.",
+        "jobTitle": "Frontend Lead & AI Engineer",
+        "description": "AI Engineer & Full Stack Developer based in Oslo. Frontend Lead & AI Engineer at Equinor — mBot, building LLM-powered agents at scale.",
         "worksFor": { "@type": "Organization", "name": "Equinor" },
         "address": {
           "@type": "PostalAddress",
@@ -232,6 +232,12 @@
       }
       .card h3 { font-size: 17px; font-weight: 600; margin: 0 0 8px; }
       .card-body { color: var(--text-dim); font-size: 14px; margin: 0; }
+      .card-meta {
+        font-family: var(--font-mono);
+        font-size: 12px;
+        color: var(--text-muted);
+        margin: 0 0 10px;
+      }
       .card-refs {
         margin-top: 16px;
         padding-top: 14px;
@@ -248,13 +254,34 @@
       .card-refs-list { list-style: none; margin: 0; padding: 0; }
       .card-refs-list li {
         font-size: 13px;
-        margin: 0 0 4px;
+        margin: 0 0 2px;
       }
       .card-refs-list li:last-child { margin-bottom: 0; }
-      .card-refs-list a { color: var(--text-dim); transition: color 0.15s ease; }
-      .card-refs-list a:hover { color: var(--accent); }
+      .card-refs-list a {
+        color: var(--text-dim);
+        text-decoration: underline;
+        text-decoration-color: rgba(255, 255, 255, 0.15);
+        text-decoration-thickness: 1px;
+        text-underline-offset: 4px;
+        transition: color 0.15s ease, text-decoration-color 0.15s ease;
+      }
+      .card-refs-list a:hover,
+      .card-refs-list a:focus-visible {
+        color: var(--text);
+        text-decoration-color: var(--accent);
+      }
+      .ref-arrow {
+        display: inline-block;
+        color: var(--accent-dim);
+        transition: color 0.15s ease, transform 0.15s ease;
+      }
+      .card-refs-list a:hover .ref-arrow,
+      .card-refs-list a:focus-visible .ref-arrow {
+        color: var(--accent);
+        transform: translate(2px, -2px);
+      }
 
-      .stack { grid-template-columns: repeat(4, 1fr); gap: 28px; }
+      .stack { grid-template-columns: repeat(3, 1fr); gap: 40px 28px; }
       @media (max-width: 960px) { .stack { grid-template-columns: repeat(2, 1fr); } }
       @media (max-width: 560px) { .stack { grid-template-columns: 1fr; } }
       .col-label {
@@ -702,38 +729,42 @@
             <article class="card">
               <p class="card-date">2024 — now</p>
               <h3>Equinor — mBot</h3>
-              <p class="card-body">Frontend Lead · Prompt Engineer. LLM-powered product at scale with generative AI agents and RAG.</p>
+              <p class="card-meta">Frontend Lead · AI Engineer — Azure, React, RAG, text-to-SQL</p>
+              <p class="card-body">Agentic AI chatbot surfacing 50 years of Equinor's drilling &amp; well expertise via RAG and text-to-SQL — one of Equinor's five flagship AI projects.</p>
               <div class="card-refs">
-                <p class="card-refs-label">References:</p>
+                <p class="card-refs-label">References</p>
                 <ul class="card-refs-list">
-                  <li><a href="https://webstep.no/fra-nytt-til-nyttig/hvordan-ai-gjor-50-ar-med-bore-og-bronnerfaring-sokbar-og-tilgjengelig" target="_blank" rel="noopener">"Hvordan AI gjør 50 år med bore- og brønnerfaring søkbar og tilgjengelig" ↗</a></li>
+                  <li><a href="https://webstep.no/fra-nytt-til-nyttig/hvordan-ai-gjor-50-ar-med-bore-og-bronnerfaring-sokbar-og-tilgjengelig" target="_blank" rel="noopener">How AI makes 50 years of drilling and well experience searchable and accessible <span class="ref-arrow">↗</span></a></li>
                 </ul>
               </div>
             </article>
             <article class="card">
               <p class="card-date">2024</p>
               <h3>CV Partner — LLM Experiments</h3>
-              <p class="card-body">Prompt Engineer. LLM experiments with RAG, fine-tuning, vector search, and agents.</p>
+              <p class="card-meta">AI Engineer · Frontend — AWS Bedrock, React, Python, Flask</p>
+              <p class="card-body">Built PoC tools with Flowcase (CV Partner) for AI-assisted CV tailoring and tender reference-project write-ups, plus an internal app to compare LLMs side-by-side.</p>
               <div class="card-refs">
-                <p class="card-refs-label">References:</p>
+                <p class="card-refs-label">References</p>
                 <ul class="card-refs-list">
-                  <li><a href="https://content.webstep.no/cv-partner/" target="_blank" rel="noopener">"Flowcase revolusjonerer CV-håndtering med AI-ekspertise fra Webstep" ↗</a></li>
+                  <li><a href="https://content.webstep.no/cv-partner/" target="_blank" rel="noopener">Flowcase revolutionizes CV management with AI expertise from Webstep <span class="ref-arrow">↗</span></a></li>
                 </ul>
               </div>
             </article>
             <article class="card">
               <p class="card-date">2023 — 2024</p>
               <h3>BevarHMS — AI-søk</h3>
-              <p class="card-body">Prompt Engineer · Frontend. AI-powered natural-language search with OpenAI and vector embeddings.</p>
+              <p class="card-meta">AI Engineer · Frontend — OpenAI, vector embeddings, React</p>
+              <p class="card-body">Natural-language search over statutory HSE documentation for housing cooperatives — custom retrieval with LLMs and vector embeddings, plus a UI built to make it approachable for non-specialist users.</p>
             </article>
             <article class="card">
               <p class="card-date">2023</p>
               <h3>Webstep — CV-assistent</h3>
-              <p class="card-body">Frontend · Prompt Engineer. RAG over consultant CVs with GPT-4 and React.</p>
+              <p class="card-meta">Frontend · AI Engineer — GPT-4, RAG, React</p>
+              <p class="card-body">RAG tool that matches and scores consultant CVs against client requirements, flags qualification gaps, and drafts tailored summaries — advisors stay in the loop for final review.</p>
               <div class="card-refs">
-                <p class="card-refs-label">References:</p>
+                <p class="card-refs-label">References</p>
                 <ul class="card-refs-list">
-                  <li><a href="https://webstep.no/fra-nytt-til-nyttig/en-effektiv-cv-skreddersom" target="_blank" rel="noopener">"Effektiv CV-skreddersøm" ↗</a></li>
+                  <li><a href="https://webstep.no/fra-nytt-til-nyttig/en-effektiv-cv-skreddersom" target="_blank" rel="noopener">Efficient CV tailoring <span class="ref-arrow">↗</span></a></li>
                 </ul>
               </div>
             </article>
@@ -746,8 +777,16 @@
           <h2 id="stack-heading">Skills</h2>
           <div class="grid stack">
             <div>
-              <p class="col-label">AI / LLM</p>
-              <p class="col-body">Claude&nbsp;· Claude&nbsp;Code&nbsp;· GPT&nbsp;· Gemini&nbsp;· MAF&nbsp;· Vercel&nbsp;AI&nbsp;SDK&nbsp;· MCP&nbsp;· AG-UI&nbsp;· Tool&nbsp;calling&nbsp;· Structured&nbsp;Outputs&nbsp;· RAG&nbsp;· pgVector&nbsp;· Qdrant&nbsp;· Jupyter&nbsp;Notebooks</p>
+              <p class="col-label">Agents &amp; Models</p>
+              <p class="col-body">Claude&nbsp;· GPT&nbsp;· Gemini&nbsp;· MAF&nbsp;· Pydantic&nbsp;AI&nbsp;· Vercel&nbsp;AI&nbsp;SDK&nbsp;· AG-UI&nbsp;· Agentic&nbsp;AI&nbsp;· Tool&nbsp;calling&nbsp;· Structured&nbsp;Outputs</p>
+            </div>
+            <div>
+              <p class="col-label">Retrieval &amp; Evals</p>
+              <p class="col-body">RAG&nbsp;· Semantic&nbsp;Search&nbsp;· Text-to-SQL&nbsp;· pgVector&nbsp;· Qdrant&nbsp;· Langfuse&nbsp;· Ragas&nbsp;· LLM-as-judge&nbsp;· OpenTelemetry</p>
+            </div>
+            <div>
+              <p class="col-label">AI Dev Tooling</p>
+              <p class="col-body">Claude&nbsp;Code&nbsp;· Pi&nbsp;Coding&nbsp;Agent&nbsp;· Gemini&nbsp;CLI&nbsp;· GitHub&nbsp;Copilot&nbsp;· Claude&nbsp;Desktop&nbsp;· VS&nbsp;Code&nbsp;· MCP&nbsp;· Jupyter&nbsp;Notebooks</p>
             </div>
             <div>
               <p class="col-label">Frontend</p>
@@ -755,11 +794,11 @@
             </div>
             <div>
               <p class="col-label">Backend</p>
-              <p class="col-body">.NET&nbsp;· C#&nbsp;· Python&nbsp;· FastAPI&nbsp;· Pydantic&nbsp;· Node.js&nbsp;· PostgreSQL&nbsp;· Server-Sent&nbsp;Events&nbsp;· WebSockets&nbsp;· gRPC</p>
+              <p class="col-body">.NET&nbsp;· C#&nbsp;· Python&nbsp;· FastAPI&nbsp;· Pydantic&nbsp;· Node.js&nbsp;· PostgreSQL&nbsp;· Server-Sent&nbsp;Events&nbsp;· WebSockets&nbsp;· gRPC&nbsp;· Entra&nbsp;ID</p>
             </div>
             <div>
               <p class="col-label">Cloud</p>
-              <p class="col-body">Azure (OpenAI, AI&nbsp;Search, AI&nbsp;Foundry)&nbsp;· AWS&nbsp;Bedrock&nbsp;· GCP&nbsp;Vertex&nbsp;AI&nbsp;· Firebase&nbsp;· Supabase&nbsp;· Vercel&nbsp;· GitHub&nbsp;Actions&nbsp;· Docker</p>
+              <p class="col-body">Azure (OpenAI, AI&nbsp;Search, AI&nbsp;Foundry)&nbsp;· AWS&nbsp;Bedrock&nbsp;· GCP&nbsp;Vertex&nbsp;AI&nbsp;· Firebase&nbsp;· Supabase&nbsp;· Vercel&nbsp;· GitHub&nbsp;Actions&nbsp;· Bicep&nbsp;· Terraform&nbsp;· Docker</p>
             </div>
           </div>
         </div>
@@ -815,7 +854,7 @@
                   <span class="company">CV Partner — LLM Experiments</span>
                 </div>
                 <div class="chart-track">
-                  <div class="chart-bar" style="left: 88.52%; width: 1.23%" title="CV Partner — LLM Experiments · Jan 2024 — Apr 2024"></div>
+                  <div class="chart-bar" style="left: 88.52%; width: 1.64%" title="CV Partner — LLM Experiments · Jan 2024 — May 2024"></div>
                 </div>
               </li>
               <li class="chart-row chart-subrow">
