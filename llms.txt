@@ -13,9 +13,9 @@
 ## Recent projects
 
 - Equinor — mBot (2024 — now). Frontend Lead & AI Engineer; Azure, React, RAG, text-to-SQL. Agentic AI chatbot surfacing 50 years of Equinor's drilling and well expertise via RAG and text-to-SQL — one of Equinor's five flagship AI projects. Article: https://webstep.no/fra-nytt-til-nyttig/hvordan-ai-gjor-50-ar-med-bore-og-bronnerfaring-sokbar-og-tilgjengelig
-- CV Partner — LLM Experiments (2024). AI Engineer & Frontend; AWS Bedrock, React, Python, Flask. Built PoC tools with Flowcase (CV Partner) for AI-assisted CV tailoring and tender reference-project write-ups, plus an internal app to compare LLMs side-by-side. Article: https://content.webstep.no/cv-partner/
-- BevarHMS — AI-søk (2023 — 2024). AI Engineer & Frontend; OpenAI, vector embeddings, React. Natural-language search over statutory HSE documentation for housing cooperatives — custom retrieval with LLMs and vector embeddings, plus a UI built to make it approachable for non-specialist users.
-- Webstep — CV-assistent (2023). Frontend & AI Engineer; GPT-4, RAG, React. RAG tool that matches and scores consultant CVs against client requirements, flags qualification gaps, and drafts tailored summaries — advisors stay in the loop for final review. Article: https://webstep.no/fra-nytt-til-nyttig/en-effektiv-cv-skreddersom
+- Flowcase — LLM Experiments (2024). AI Engineer, Frontend & R&D; AWS Bedrock, React, Python. Built PoC tools with Flowcase (CV Partner) for AI-assisted CV tailoring and tender reference-project write-ups, plus an internal app to compare LLMs side-by-side. Article: https://content.webstep.no/cv-partner/
+- BevarHMS — AI-søk (2023 — 2024). AI Engineer & Frontend; OpenAI, RAG, React. Natural-language search over legally required HSE documentation for housing cooperatives — custom retrieval with LLMs and vector embeddings, plus a UI built to make it approachable for non-specialist users.
+- Webstep — CV-assistent (2023). AI Engineer & Frontend; OpenAI, RAG, React. RAG tool that matches and scores consultant CVs against client requirements, flags qualification gaps, and drafts tailored summaries — advisors stay in the loop for final review. Article: https://webstep.no/fra-nytt-til-nyttig/en-effektiv-cv-skreddersom
 
 ## Skills
 
