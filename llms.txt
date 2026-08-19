@@ -12,10 +12,10 @@
 
 ## Recent projects
 
-- Equinor — mBot (2024 — now). Frontend Lead & AI Engineer; Azure, React, RAG, text-to-SQL. Agentic AI chatbot surfacing 50 years of Equinor's drilling and well expertise via RAG and text-to-SQL — one of Equinor's five flagship AI projects. Article: https://webstep.no/fra-nytt-til-nyttig/hvordan-ai-gjor-50-ar-med-bore-og-bronnerfaring-sokbar-og-tilgjengelig
-- Flowcase — LLM Experiments (2024). AI Engineer, Frontend & R&D; AWS Bedrock, React, Python. Built PoC tools with Flowcase (CV Partner) for AI-assisted CV tailoring and tender reference-project write-ups, plus an internal app to compare LLMs side-by-side. Article: https://content.webstep.no/cv-partner/
+- Equinor — mBot (2024 — now). Frontend Lead & AI Engineer; Azure, React, RAG, text-to-SQL. Agentic AI chatbot surfacing 50 years of Equinor's drilling and well expertise via RAG and text-to-SQL — one of Equinor's five flagship AI projects. References: https://webstep.no/fra-nytt-til-nyttig/hvordan-ai-gjor-50-ar-med-bore-og-bronnerfaring-sokbar-og-tilgjengelig | https://www.linkedin.com/posts/hegeskryseth_episode-5-five-ways-equinor-uses-ai-who-ugcPost-7327950108648431616-qlQ9
+- Flowcase — LLM Experiments (2024). AI Engineer, Frontend & R&D; AWS Bedrock, React, Python. Built PoC tools with Flowcase (CV Partner) for AI-assisted CV tailoring and tender reference-project write-ups, plus an internal app to compare LLMs side-by-side. References: https://content.webstep.no/cv-partner/
 - BevarHMS — AI-søk (2023 — 2024). AI Engineer & Frontend; OpenAI, RAG, React. Natural-language search over legally required HSE documentation for housing cooperatives — custom retrieval with LLMs and vector embeddings, plus a UI built to make it approachable for non-specialist users.
-- Webstep — CV-assistent (2023). AI Engineer & Frontend; OpenAI, RAG, React. RAG tool that matches and scores consultant CVs against client requirements, flags qualification gaps, and drafts tailored summaries — advisors stay in the loop for final review. Article: https://webstep.no/fra-nytt-til-nyttig/en-effektiv-cv-skreddersom
+- Webstep — CV-assistent (2023). AI Engineer & Frontend; OpenAI, RAG, React. RAG tool that matches and scores consultant CVs against client requirements, flags qualification gaps, and drafts tailored summaries — advisors stay in the loop for final review. References: https://webstep.no/fra-nytt-til-nyttig/en-effektiv-cv-skreddersom
 
 ## Skills
 
